@@ -1,0 +1,2154 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="global_declaration" id="S*,SfT82!7?oe1g/jYo=" x="-1006" y="-990">
+    <field name="NAME">SchedulerBaseURL</field>
+    <value name="VALUE">
+      <block type="text" id="-0xqJQB8tbt819]!r;8A">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+  </block>
+  <block type="component_event" id="SjGANaJ{~pJMfrS.9}$x" x="-366" y="-990">
+    <mutation component_type="Form" is_generic="false" instance_name="Edit_Schedule" event_name="Initialize"></mutation>
+    <field name="COMPONENT_SELECTOR">Edit_Schedule</field>
+    <statement name="DO">
+      <block type="component_set_get" id="9qBH~dpl_EVejo+rE_zS">
+        <mutation component_type="Form" set_or_get="set" property_name="ShowTitlebarBackButton" is_generic="false" instance_name="Edit_Schedule"></mutation>
+        <field name="COMPONENT_SELECTOR">Edit_Schedule</field>
+        <field name="PROP">ShowTitlebarBackButton</field>
+        <value name="VALUE">
+          <block type="logic_boolean" id="xf3:|_uODe0$-)lxeHD7">
+            <field name="BOOL">TRUE</field>
+          </block>
+        </value>
+        <next>
+          <block type="procedures_callnoreturn" id="%w{IKoNEx9V+_s`YotcX" inline="false">
+            <mutation name="InitializeLayoutElementLists"></mutation>
+            <field name="PROCNAME">InitializeLayoutElementLists</field>
+            <next>
+              <block type="procedures_callnoreturn" id="FICv*tuG4%5;)Vm-.U_l">
+                <mutation name="InitializeLayoutElements"></mutation>
+                <field name="PROCNAME">InitializeLayoutElements</field>
+                <next>
+                  <block type="procedures_callnoreturn" id="/mKLBw|yApwQlWe9IM/r" inline="false">
+                    <mutation name="InitializeTitleBarIcons"></mutation>
+                    <field name="PROCNAME">InitializeTitleBarIcons</field>
+                    <next>
+                      <block type="controls_if" id="IvYz;H6VItazIte|0JwH">
+                        <value name="IF0">
+                          <block type="logic_negate" id="bLtyealI-V6|{kj@R`||">
+                            <value name="BOOL">
+                              <block type="procedures_callreturn" id="G}w`[WN_=:PHX4j/;^0!">
+                                <mutation name="LoadSettings"></mutation>
+                                <field name="PROCNAME">LoadSettings</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="component_method" id="*Ts~/TGR%=a0k4A@lh3O">
+                            <mutation component_type="Notifier" method_name="ShowAlert" is_generic="false" instance_name="infoNotifier"></mutation>
+                            <field name="COMPONENT_SELECTOR">infoNotifier</field>
+                            <value name="ARG0">
+                              <block type="text" id="n,VSz,QFcm-,Uud8W!`n">
+                                <field name="TEXT">Unable to load settings</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="controls_closeScreen" id="[^G@W`%)s=.`14YV%%`Y"></block>
+                            </next>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="controls_if" id="Ehm5{E3-Arw.BJJwBFMM">
+                            <value name="IF0">
+                              <block type="logic_negate" id="WT63Es(sqi]5T?]55?ZE">
+                                <value name="BOOL">
+                                  <block type="procedures_callreturn" id=",g.)x4C`J[3hYQ15a0QC" inline="false">
+                                    <mutation name="LoadScheduleData"></mutation>
+                                    <field name="PROCNAME">LoadScheduleData</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="component_method" id="TCryY39-XM#Z(FJfuRuE">
+                                <mutation component_type="Notifier" method_name="ShowAlert" is_generic="false" instance_name="infoNotifier"></mutation>
+                                <field name="COMPONENT_SELECTOR">infoNotifier</field>
+                                <value name="ARG0">
+                                  <block type="text" id=";b7uL?gXsQ7#Pyt:[a09">
+                                    <field name="TEXT">Error loading schedule data</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="controls_closeScreen" id=":%AGF@cHpozZx71,haeZ"></block>
+                                </next>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="component_set_get" id="0T4SztLt$-3R@PF2COAm">
+                                <mutation component_type="Web" set_or_get="set" property_name="RequestHeaders" is_generic="false" instance_name="webComm"></mutation>
+                                <field name="COMPONENT_SELECTOR">webComm</field>
+                                <field name="PROP">RequestHeaders</field>
+                                <value name="VALUE">
+                                  <block type="lists_create_with" id="2@e|(V}Bm!1}.lx@j6ZV">
+                                    <mutation items="1"></mutation>
+                                    <value name="ADD0">
+                                      <block type="lists_create_with" id="=%3MUT,2jId_TQjUYpOF">
+                                        <mutation items="2"></mutation>
+                                        <value name="ADD0">
+                                          <block type="text" id="gbwUzdQyP)~CB_Y-1_%~">
+                                            <field name="TEXT">Content-Type</field>
+                                          </block>
+                                        </value>
+                                        <value name="ADD1">
+                                          <block type="text" id="hbw@O.c#-]nqLWRGcy)u">
+                                            <field name="TEXT">application/json</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="controls_if" id="$;G:NA.*YJ5.cRR70X*x">
+                                    <mutation else="1"></mutation>
+                                    <value name="IF0">
+                                      <block type="math_compare" id="Q]:iLz8or-QTb5r4foNx">
+                                        <field name="OP">GT</field>
+                                        <value name="A">
+                                          <block type="controls_getStartValue" id="Go|n59sDjRfY[W_rQ$_)"></block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="F{g$^ryI}rd#]K:E_Ja:">
+                                            <field name="NUM">0</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO0">
+                                      <block type="component_set_get" id="~HT.SpY}2z?rqFm4k[_b">
+                                        <mutation component_type="Form" set_or_get="set" property_name="Title" is_generic="false" instance_name="Edit_Schedule"></mutation>
+                                        <field name="COMPONENT_SELECTOR">Edit_Schedule</field>
+                                        <field name="PROP">Title</field>
+                                        <value name="VALUE">
+                                          <block type="text" id="{B/Aq]1;cC.eL=P`$7qH">
+                                            <field name="TEXT">Edit Schedule</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="component_set_get" id="mp?lN#=]{7dU_?1@oOFs">
+                                            <mutation component_type="Web" set_or_get="set" property_name="Url" is_generic="false" instance_name="webComm"></mutation>
+                                            <field name="COMPONENT_SELECTOR">webComm</field>
+                                            <field name="PROP">Url</field>
+                                            <value name="VALUE">
+                                              <block type="text_join" id="e/s=bAstBX4s{#o2%eZ$">
+                                                <mutation items="3"></mutation>
+                                                <value name="ADD0">
+                                                  <block type="lexical_variable_get" id="8a/Bj*saeN|U_Y).XrFT">
+                                                    <field name="VAR">global SchedulerBaseURL</field>
+                                                  </block>
+                                                </value>
+                                                <value name="ADD1">
+                                                  <block type="lexical_variable_get" id="{fm0ET]LgsYGOj*`5W*E">
+                                                    <field name="VAR">global EditScheduleURL</field>
+                                                  </block>
+                                                </value>
+                                                <value name="ADD2">
+                                                  <block type="controls_getStartValue" id="3H}j`xZI`msX`DzWT)sS"></block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="procedures_callnoreturn" id="dIRr9jhDjOmHdS]X?Ns%">
+                                                <mutation name="VisualizeSchedule"></mutation>
+                                                <field name="PROCNAME">VisualizeSchedule</field>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </statement>
+                                    <statement name="ELSE">
+                                      <block type="component_set_get" id="JB`;4p.ZB!jA0Nu#92KA">
+                                        <mutation component_type="Form" set_or_get="set" property_name="Title" is_generic="false" instance_name="Edit_Schedule"></mutation>
+                                        <field name="COMPONENT_SELECTOR">Edit_Schedule</field>
+                                        <field name="PROP">Title</field>
+                                        <value name="VALUE">
+                                          <block type="text" id="Q:aXN:NE^Y_@doUN5YHd">
+                                            <field name="TEXT">Add Schedule</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="component_set_get" id="QHFdpyFA-4@0`Dt$2RXX">
+                                            <mutation component_type="Web" set_or_get="set" property_name="Url" is_generic="false" instance_name="webComm"></mutation>
+                                            <field name="COMPONENT_SELECTOR">webComm</field>
+                                            <field name="PROP">Url</field>
+                                            <value name="VALUE">
+                                              <block type="text_join" id="Y8Vmv7N`a5Oif=+Viwyp">
+                                                <mutation items="2"></mutation>
+                                                <value name="ADD0">
+                                                  <block type="lexical_variable_get" id="!%tNq^QTrXczHy/hvEc%">
+                                                    <field name="VAR">global SchedulerBaseURL</field>
+                                                  </block>
+                                                </value>
+                                                <value name="ADD1">
+                                                  <block type="lexical_variable_get" id="c4usM|cfLHG~/vkuvvX+">
+                                                    <field name="VAR">global AddScheduleURL</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </statement>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="global_declaration" id="I9lqg7FQOjh-SvyFKH]J" x="-1006" y="-950">
+    <field name="NAME">ListScheduleURL</field>
+    <value name="VALUE">
+      <block type="text" id="Uno;w=5crMU=uP~qDIN+">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id=")~^elhMz1JblC`|]rEhV" x="-1006" y="-910">
+    <field name="NAME">EditScheduleURL</field>
+    <value name="VALUE">
+      <block type="text" id="WvGNdRqg~pgRXj@vgl^-">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defreturn" id="^Nc]*kjLb*s2?Chv}/dI" x="554" y="-990">
+    <field name="NAME">LoadSettings</field>
+    <value name="RETURN">
+      <block type="controls_do_then_return" id=")fz1?O]uA)gt:jlgJA;c">
+        <statement name="STM">
+          <block type="component_set_get" id="6I,W%Mk-$7H%{,^5X8PG">
+            <mutation component_type="TinyDB" set_or_get="set" property_name="Namespace" is_generic="false" instance_name="dbStorage"></mutation>
+            <field name="COMPONENT_SELECTOR">dbStorage</field>
+            <field name="PROP">Namespace</field>
+            <value name="VALUE">
+              <block type="text" id="nj]cn%w$%{]D(BfQoAoG">
+                <field name="TEXT">Settings</field>
+              </block>
+            </value>
+            <next>
+              <block type="lexical_variable_set" id="2!3cOx0o/T6R:aiTHBdD">
+                <field name="VAR">global SchedulerBaseURL</field>
+                <value name="VALUE">
+                  <block type="component_method" id="B/svZznH,AYoe^NU:Y@6">
+                    <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="dbStorage"></mutation>
+                    <field name="COMPONENT_SELECTOR">dbStorage</field>
+                    <value name="ARG0">
+                      <block type="text" id="2wV7k(^Y7b_Hd4iKon+v">
+                        <field name="TEXT">SchedulerBaseURL</field>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="text" id="7D:S,k}AB?g@)K2T/wii">
+                        <field name="TEXT"></field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="lexical_variable_set" id="jjLr^aM)|Q0+XNt-[1xq">
+                    <field name="VAR">global ListScheduleURL</field>
+                    <value name="VALUE">
+                      <block type="text_join" id="|#~OR*wGHm~ae2d2R_n@">
+                        <mutation items="2"></mutation>
+                        <value name="ADD0">
+                          <block type="text" id="+`(%lOW6^_IH]WmmWoN!">
+                            <field name="TEXT">/</field>
+                          </block>
+                        </value>
+                        <value name="ADD1">
+                          <block type="component_method" id="6]-.a2Okk)=)F?1BtjU)">
+                            <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="dbStorage"></mutation>
+                            <field name="COMPONENT_SELECTOR">dbStorage</field>
+                            <value name="ARG0">
+                              <block type="text" id=".|I(Zlvy[uBd6)F-I;wi">
+                                <field name="TEXT">ListScheduleEndpoint</field>
+                              </block>
+                            </value>
+                            <value name="ARG1">
+                              <block type="text" id="C|]$2c(uT5qWwm9V=YDr">
+                                <field name="TEXT">schedules</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="lexical_variable_set" id="cPs/a+w@;h4c3af;#j=_">
+                        <field name="VAR">global EditScheduleURL</field>
+                        <value name="VALUE">
+                          <block type="text_join" id="`SI6V05s(~bSv@#0)-9*">
+                            <mutation items="3"></mutation>
+                            <value name="ADD0">
+                              <block type="text" id="ufG%i-`;_8W(`-3c$S^^">
+                                <field name="TEXT">/</field>
+                              </block>
+                            </value>
+                            <value name="ADD1">
+                              <block type="component_method" id="BPoLyt|,Ge2HM*Ayt-3X">
+                                <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="dbStorage"></mutation>
+                                <field name="COMPONENT_SELECTOR">dbStorage</field>
+                                <value name="ARG0">
+                                  <block type="text" id="uxNYBa:BjdT%;vD^iG|D">
+                                    <field name="TEXT">EditScheduleEndpoint</field>
+                                  </block>
+                                </value>
+                                <value name="ARG1">
+                                  <block type="text" id="x2:B|w{q~g_93yS=8gxh">
+                                    <field name="TEXT">editschedule</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="ADD2">
+                              <block type="text" id="1%qls(Xqygk8Cc4OFOlg">
+                                <field name="TEXT">/</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="lexical_variable_set" id="kdVH7ahTu,2#GAvp;=Ts">
+                            <field name="VAR">global AddScheduleURL</field>
+                            <value name="VALUE">
+                              <block type="text_join" id="EiqeF](=8GEcXlLlbL.G">
+                                <mutation items="2"></mutation>
+                                <value name="ADD0">
+                                  <block type="text" id="l0(A{Vt$xngfmZAaod04">
+                                    <field name="TEXT">/</field>
+                                  </block>
+                                </value>
+                                <value name="ADD1">
+                                  <block type="component_method" id="n.g5*_(xaDN=)#TN2ie{">
+                                    <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="dbStorage"></mutation>
+                                    <field name="COMPONENT_SELECTOR">dbStorage</field>
+                                    <value name="ARG0">
+                                      <block type="text" id="DWF(E~`5pl,jb@*}HEz`">
+                                        <field name="TEXT">AddScheduleEndpoint</field>
+                                      </block>
+                                    </value>
+                                    <value name="ARG1">
+                                      <block type="text" id="4hkk%4LXf1#2{O)@}DE+">
+                                        <field name="TEXT">addschedule</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <value name="VALUE">
+          <block type="logic_negate" id="n8T_,8fy5vn?+]]0#a2,">
+            <value name="BOOL">
+              <block type="text_isEmpty" id="jh5V1~PN0DAnU1G;pHmR">
+                <value name="VALUE">
+                  <block type="lexical_variable_get" id="KEFopwyiw`f7z{p7nwS3">
+                    <field name="VAR">global SchedulerBaseURL</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id="d+xRh@P5IHd|x6~/|M6t" x="-1006" y="-870">
+    <field name="NAME">AddScheduleURL</field>
+    <value name="VALUE">
+      <block type="text" id="r?)7M-DH+}].|v{c+7sY">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defreturn" id="C|4|$CIn26t/K({6r{D3" x="1554" y="-970">
+    <mutation>
+      <arg name="num"></arg>
+    </mutation>
+    <field name="NAME">twodigit</field>
+    <field name="VAR0">num</field>
+    <value name="RETURN">
+      <block type="controls_choose" id="F7Fq.%srvEmg:!fCWr_O">
+        <value name="TEST">
+          <block type="math_compare" id="Xy-K!/K/;xD{?tChb}b^">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="text_length" id="d)p.k%lvxt)uUD86A.JW">
+                <value name="VALUE">
+                  <block type="lexical_variable_get" id="dJWNqmjqjV9urAMnxAZ=">
+                    <field name="VAR">num</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="oZf2*|R-slw|*G5gT4vu">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="THENRETURN">
+          <block type="text_join" id="CErhX^pJZ2tvi?%i--=k">
+            <mutation items="2"></mutation>
+            <value name="ADD0">
+              <block type="math_number" id="ZyONWTq0tH$:_bnY;V`R">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="lexical_variable_get" id="HUlxyIQl~BnhDnRc?TQ.">
+                <field name="VAR">num</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="ELSERETURN">
+          <block type="lexical_variable_get" id="#f10(A3Ao+fGe!-0YM=0">
+            <field name="VAR">num</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id="Cbq[!t39[qdPR]^Acr8Y" x="-1006" y="-810">
+    <field name="NAME">chkDowList</field>
+    <value name="VALUE">
+      <block type="lists_create_with" id="y=Qxx0V/uHK6sc#j6JSv">
+        <mutation items="0"></mutation>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id="gQI2u)-OBtd|GYvJ0XWz" x="-1006" y="-770">
+    <field name="NAME">ScheduleList</field>
+    <value name="VALUE">
+      <block type="lists_create_with" id="A7j=X%!}hsm{~XquEG{X">
+        <mutation items="0"></mutation>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id="gQ^(16wg$7aRHSvTtt}i" x="-1006" y="-730">
+    <field name="NAME">OnHour</field>
+    <value name="VALUE">
+      <block type="math_number" id="VLqVzk5xmY:oUw;UbW4g">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id="YqD.iRX.Dnhp^|G5@/*o" x="-726" y="-730">
+    <field name="NAME">OffHour</field>
+    <value name="VALUE">
+      <block type="math_number" id="=/{FgSzt0Q)%,6Bl:C^I">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id="cwtd7m7G04i_S7`l,Ck)" x="-1006" y="-690">
+    <field name="NAME">OnMinute</field>
+    <value name="VALUE">
+      <block type="math_number" id="_F(!S$70vz=._3ar/Fj4">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defreturn" id="IFc3_QbXEEC3X[:5)a`h" x="1554" y="-810">
+    <mutation>
+      <arg name="hour"></arg>
+      <arg name="minute"></arg>
+    </mutation>
+    <field name="NAME">FormatTime</field>
+    <field name="VAR0">hour</field>
+    <field name="VAR1">minute</field>
+    <value name="RETURN">
+      <block type="text_join" id="TL)5NATJ_nN!tzJ}u~Bi">
+        <mutation items="3"></mutation>
+        <value name="ADD0">
+          <block type="procedures_callreturn" id="(3-}0(r|$oAv8nACK7A-">
+            <mutation name="twodigit">
+              <arg name="num"></arg>
+            </mutation>
+            <field name="PROCNAME">twodigit</field>
+            <value name="ARG0">
+              <block type="lexical_variable_get" id="%kk4}ob*z+Yq,TBn[4F(">
+                <field name="VAR">hour</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="ADD1">
+          <block type="text" id="d^1*6JCp7UD~}}]Qe:;M">
+            <field name="TEXT">:</field>
+          </block>
+        </value>
+        <value name="ADD2">
+          <block type="procedures_callreturn" id="6eYrYmH{lxt:[H*CNA.!">
+            <mutation name="twodigit">
+              <arg name="num"></arg>
+            </mutation>
+            <field name="PROCNAME">twodigit</field>
+            <value name="ARG0">
+              <block type="lexical_variable_get" id="455Rl2=71EiyAc;$@(T)">
+                <field name="VAR">minute</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id="f14C8,ll:4*jKHxjSU4/" x="-726" y="-690">
+    <field name="NAME">OffMinute</field>
+    <value name="VALUE">
+      <block type="math_number" id="tI:aUmIDAmY-yEXY74dw">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id="GXBh7.tx?]DU)P0W/P9." x="-1006" y="-630">
+    <field name="NAME">Action</field>
+    <value name="VALUE">
+      <block type="text" id="n-])wg]k~xSuABZTi2^F">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defreturn" id="Uo@bAS1)4Ed,em.QV*v?" x="1554" y="-610">
+    <mutation>
+      <arg name="num"></arg>
+      <arg name="TimeType"></arg>
+    </mutation>
+    <field name="NAME">ParseScheduleHour</field>
+    <field name="VAR0">num</field>
+    <field name="VAR1">TimeType</field>
+    <value name="RETURN">
+      <block type="lists_lookup_in_pairs" id="/$i.4fU9D_Z9QT2l!k!J">
+        <value name="KEY">
+          <block type="text" id="(boLD?PgAXxk2(%VgwiO">
+            <field name="TEXT">hour</field>
+          </block>
+        </value>
+        <value name="LIST">
+          <block type="lists_lookup_in_pairs" id="w_qu=Q;g|ee5lawc0JRp">
+            <value name="KEY">
+              <block type="lexical_variable_get" id="t(boMto]{I1ccA~|UtGL">
+                <field name="VAR">TimeType</field>
+              </block>
+            </value>
+            <value name="LIST">
+              <block type="lists_select_item" id="_1RT.Bd*hrRQNdkB}Bxo">
+                <value name="LIST">
+                  <block type="lexical_variable_get" id="`5iD;H49[)~/a@TK[dh/">
+                    <field name="VAR">global ScheduleList</field>
+                  </block>
+                </value>
+                <value name="NUM">
+                  <block type="lexical_variable_get" id="tLxT#_W]/zm41PLaMUTS">
+                    <field name="VAR">num</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="NOTFOUND">
+              <block type="lists_create_with" id="MaG6T,`4VPbrFcSoWt;1">
+                <mutation items="0"></mutation>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="NOTFOUND">
+          <block type="text" id="Op5GhF6Ah~!IUrnVF1jS">
+            <field name="TEXT">??</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defnoreturn" id="W837g1%tKi12#(/?[x|S" x="554" y="-430">
+    <field name="NAME">InitializeLayoutElementLists</field>
+    <statement name="STACK">
+      <block type="lists_add_items" id="i{e8!af}wev55!l2`L;p">
+        <mutation items="7"></mutation>
+        <value name="LIST">
+          <block type="lexical_variable_get" id="+w.L$_+RIyI@4;Dmkuk`">
+            <field name="VAR">global chkDowList</field>
+          </block>
+        </value>
+        <value name="ITEM0">
+          <block type="component_component_block" id="*piA7B}BsC@ujC{Xjo=t">
+            <mutation component_type="CheckBox" instance_name="chkDowSun"></mutation>
+            <field name="COMPONENT_SELECTOR">chkDowSun</field>
+          </block>
+        </value>
+        <value name="ITEM1">
+          <block type="component_component_block" id="GA3}+/O`m7/^Pf:S9V|#">
+            <mutation component_type="CheckBox" instance_name="chkDowMon"></mutation>
+            <field name="COMPONENT_SELECTOR">chkDowMon</field>
+          </block>
+        </value>
+        <value name="ITEM2">
+          <block type="component_component_block" id="VjID@d{-CSy~I(+IdtYs">
+            <mutation component_type="CheckBox" instance_name="chkDowTue"></mutation>
+            <field name="COMPONENT_SELECTOR">chkDowTue</field>
+          </block>
+        </value>
+        <value name="ITEM3">
+          <block type="component_component_block" id="1}QWnmt[A!A[.HzSg?hl">
+            <mutation component_type="CheckBox" instance_name="chkDowWed"></mutation>
+            <field name="COMPONENT_SELECTOR">chkDowWed</field>
+          </block>
+        </value>
+        <value name="ITEM4">
+          <block type="component_component_block" id="-GTgER:iO/Q9xyFebG5F">
+            <mutation component_type="CheckBox" instance_name="chkDowThu"></mutation>
+            <field name="COMPONENT_SELECTOR">chkDowThu</field>
+          </block>
+        </value>
+        <value name="ITEM5">
+          <block type="component_component_block" id="3FY@rgWk333SHwH-BE~i">
+            <mutation component_type="CheckBox" instance_name="chkDowFri"></mutation>
+            <field name="COMPONENT_SELECTOR">chkDowFri</field>
+          </block>
+        </value>
+        <value name="ITEM6">
+          <block type="component_component_block" id="$[`q7OkIS1S6VDdnbK9E">
+            <mutation component_type="CheckBox" instance_name="chkDowSat"></mutation>
+            <field name="COMPONENT_SELECTOR">chkDowSat</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="#:.Fj*C7d?-[/{GTIiu(" x="-366" y="-290">
+    <mutation component_type="Form" is_generic="false" instance_name="Edit_Schedule" event_name="MenuInitialize"></mutation>
+    <field name="COMPONENT_SELECTOR">Edit_Schedule</field>
+    <statement name="DO">
+      <block type="procedures_callnoreturn" id="XQoJ@/$_GXfNT:Ed}AY1" inline="false">
+        <mutation name="InitializeTitleBarIcons"></mutation>
+        <field name="PROCNAME">InitializeTitleBarIcons</field>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defreturn" id="4*fJ|jHZ+2zgUFk~pGV3" x="1554" y="-390">
+    <mutation>
+      <arg name="num"></arg>
+      <arg name="TimeType"></arg>
+    </mutation>
+    <field name="NAME">ParseScheduleMinute</field>
+    <field name="VAR0">num</field>
+    <field name="VAR1">TimeType</field>
+    <value name="RETURN">
+      <block type="lists_lookup_in_pairs" id="]33TI%t[g=VGZ!#{$::j">
+        <value name="KEY">
+          <block type="text" id="bH_X{U(Sw7*-?c3@{6/W">
+            <field name="TEXT">minute</field>
+          </block>
+        </value>
+        <value name="LIST">
+          <block type="lists_lookup_in_pairs" id="4sue{Dro)!sx]8ad?+O#">
+            <value name="KEY">
+              <block type="lexical_variable_get" id="8J~QgthN?;oWSPNbBL`^">
+                <field name="VAR">TimeType</field>
+              </block>
+            </value>
+            <value name="LIST">
+              <block type="lists_select_item" id="Lp~gK%KyYxx:+D=6bGQQ">
+                <value name="LIST">
+                  <block type="lexical_variable_get" id="$n,KoG.r[b;O]kq;a$w+">
+                    <field name="VAR">global ScheduleList</field>
+                  </block>
+                </value>
+                <value name="NUM">
+                  <block type="lexical_variable_get" id="nZ[};L0DjVJ.c{hfPb[w">
+                    <field name="VAR">num</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="NOTFOUND">
+              <block type="lists_create_with" id="5HSPrJtm}XAe@vY=w7^r">
+                <mutation items="0"></mutation>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="NOTFOUND">
+          <block type="text" id="kIPcM?us-|dLEdv@kxUa">
+            <field name="TEXT">??</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="component_event" id="TfH1RICQEg@vkmx)]:k{" x="-366" y="-210">
+    <mutation component_type="Form" is_generic="false" instance_name="Edit_Schedule" event_name="BackPressed"></mutation>
+    <field name="COMPONENT_SELECTOR">Edit_Schedule</field>
+    <statement name="DO">
+      <block type="controls_closeScreen" id="C4-=epMaGy|rS!A~}pw1"></block>
+    </statement>
+  </block>
+  <block type="component_event" id="Jq.f,)Z}WrU:Vqk1*Dxq" x="-366" y="-130">
+    <mutation component_type="Form" is_generic="false" instance_name="Edit_Schedule" event_name="TitlebarBackButtonClicked"></mutation>
+    <field name="COMPONENT_SELECTOR">Edit_Schedule</field>
+    <statement name="DO">
+      <block type="controls_if" id="jlFMjv~5Pj7Up$SVhBQ[">
+        <mutation else="1"></mutation>
+        <value name="IF0">
+          <block type="procedures_callreturn" id="){)nN{!X8|;i1Ci^6vit" inline="false">
+            <mutation name="CheckSchedule"></mutation>
+            <field name="PROCNAME">CheckSchedule</field>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="procedures_callnoreturn" id="n2qne|8hb7VZ7lt9`R+!">
+            <mutation name="SaveSchedule"></mutation>
+            <field name="PROCNAME">SaveSchedule</field>
+            <next>
+              <block type="controls_closeScreen" id="D=P[YgyT4(^K/J?D~bH9"></block>
+            </next>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="component_method" id="9o-yvcQzzU*]$BqYaj9R">
+            <mutation component_type="Notifier" method_name="ShowAlert" is_generic="false" instance_name="infoNotifier"></mutation>
+            <field name="COMPONENT_SELECTOR">infoNotifier</field>
+            <value name="ARG0">
+              <block type="text" id="n815,2bd:Vb=-N9$ZV!:">
+                <field name="TEXT">Select at least one day</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="r9!Jy!9L9;%ay@W)d8|O" x="554" y="-170">
+    <field name="NAME">InitializeLayoutElements</field>
+    <statement name="STACK">
+      <block type="component_set_get" id="I(:)gv0Y-0vbcSfkI-UL">
+        <mutation component_type="Label" set_or_get="set" property_name="Visible" is_generic="false" instance_name="lblTimeSeperator"></mutation>
+        <field name="COMPONENT_SELECTOR">lblTimeSeperator</field>
+        <field name="PROP">Visible</field>
+        <value name="VALUE">
+          <block type="logic_boolean" id="sDz[zSLJB|`u+KPb6Y5{">
+            <field name="BOOL">FALSE</field>
+          </block>
+        </value>
+        <next>
+          <block type="component_set_get" id="}=#M@OKdBb!3Q*~Iz#FO">
+            <mutation component_type="TimePicker" set_or_get="set" property_name="Visible" is_generic="false" instance_name="tpOffTime"></mutation>
+            <field name="COMPONENT_SELECTOR">tpOffTime</field>
+            <field name="PROP">Visible</field>
+            <value name="VALUE">
+              <block type="logic_boolean" id="]9fp5`[}i{Uaqn!BX,B%">
+                <field name="BOOL">FALSE</field>
+              </block>
+            </value>
+            <next>
+              <block type="component_set_get" id="?SO/A2vYWOTd)()ZQ(eY">
+                <mutation component_type="TextBox" set_or_get="set" property_name="Visible" is_generic="false" instance_name="Text_Box1"></mutation>
+                <field name="COMPONENT_SELECTOR">Text_Box1</field>
+                <field name="PROP">Visible</field>
+                <value name="VALUE">
+                  <block type="component_set_get" id="x}QMZt+sJIs+T.y9NG2$">
+                    <mutation component_type="Form" set_or_get="get" property_name="IsCompanion" is_generic="false" instance_name="Edit_Schedule"></mutation>
+                    <field name="COMPONENT_SELECTOR">Edit_Schedule</field>
+                    <field name="PROP">IsCompanion</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="s@:9NW${{E)F!,My5?w$" x="1554" y="-170">
+    <mutation>
+      <arg name="num"></arg>
+    </mutation>
+    <field name="NAME">ParseScheduleDow</field>
+    <field name="VAR0">num</field>
+    <statement name="STACK">
+      <block type="local_declaration_statement" id="wn/~F{-o0^7od~Me.Gn8">
+        <mutation>
+          <localname name="schedule"></localname>
+        </mutation>
+        <field name="VAR0">schedule</field>
+        <value name="DECL0">
+          <block type="lists_select_item" id="Z.sxH`HXUYfCtS~B*V)A">
+            <value name="LIST">
+              <block type="lexical_variable_get" id="fqx+se_`xMZ,$mgwRLS5">
+                <field name="VAR">global ScheduleList</field>
+              </block>
+            </value>
+            <value name="NUM">
+              <block type="lexical_variable_get" id="#p]j0.M8ZRh%CtnaRtDf">
+                <field name="VAR">num</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="STACK">
+          <block type="local_declaration_statement" id="yaH;]~/gq_h_!F^Q8(Ky">
+            <mutation>
+              <localname name="scheduleDow"></localname>
+            </mutation>
+            <field name="VAR0">scheduleDow</field>
+            <value name="DECL0">
+              <block type="text_split" id="JwpV%68P7yz@en;E]Ib,">
+                <mutation mode="SPLIT"></mutation>
+                <field name="OP">SPLIT</field>
+                <value name="TEXT">
+                  <block type="lists_lookup_in_pairs" id="zn_`Mc-*]=}=Bl_2jVb+">
+                    <value name="KEY">
+                      <block type="text" id="rkptXVlTtEn[{n+%5Zra">
+                        <field name="TEXT">dow</field>
+                      </block>
+                    </value>
+                    <value name="LIST">
+                      <block type="lexical_variable_get" id="bC#/*y6K(yfJjV|2$R$Y">
+                        <field name="VAR">schedule</field>
+                      </block>
+                    </value>
+                    <value name="NOTFOUND">
+                      <block type="text" id="Enw8*cAW(@~dbycs`@r|">
+                        <field name="TEXT">??</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="AT">
+                  <block type="text" id="Bu[(?!F[%Jn3)=B;l(*N">
+                    <field name="TEXT">,</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="STACK">
+              <block type="controls_forEach" id="jUq`+/g1`^.LxFQdSz~a">
+                <field name="VAR">chkDow</field>
+                <value name="LIST">
+                  <block type="lexical_variable_get" id="yrpFxf39pC-V5pkMw6)/">
+                    <field name="VAR">global chkDowList</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="component_set_get" id="sD.QU}maHdFR7_46];_g">
+                    <mutation component_type="CheckBox" set_or_get="set" property_name="Checked" is_generic="true"></mutation>
+                    <field name="PROP">Checked</field>
+                    <value name="COMPONENT">
+                      <block type="lexical_variable_get" id="D).NM=Mvm0X*`@P4yQy*">
+                        <field name="VAR">chkDow</field>
+                      </block>
+                    </value>
+                    <value name="VALUE">
+                      <block type="logic_boolean" id="GV!vqjz2;DY-k}f6U_yV">
+                        <field name="BOOL">FALSE</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+                <next>
+                  <block type="controls_forEach" id="0g]HiFrgBytyUh|3d(:j">
+                    <field name="VAR">day</field>
+                    <value name="LIST">
+                      <block type="lexical_variable_get" id="%*6ZqF}z?sE4(Ep3tWs~">
+                        <field name="VAR">scheduleDow</field>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="lexical_variable_set" id="#Yarb:=Ekirz$,K0h#`j">
+                        <field name="VAR">day</field>
+                        <value name="VALUE">
+                          <block type="math_add" id="OkU:Ui8JhdZADsAn0IQo">
+                            <mutation items="2"></mutation>
+                            <value name="NUM0">
+                              <block type="lexical_variable_get" id="q04UXu]uq/Ye`*n[~3!R">
+                                <field name="VAR">day</field>
+                              </block>
+                            </value>
+                            <value name="NUM1">
+                              <block type="math_number" id="Rtrs`lzkwx|y/tQ1[t4x">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="component_set_get" id="8:#O-v!/O}{2th/{-2Lg">
+                            <mutation component_type="CheckBox" set_or_get="set" property_name="Checked" is_generic="true"></mutation>
+                            <field name="PROP">Checked</field>
+                            <value name="COMPONENT">
+                              <block type="lists_select_item" id="Kt2`N3H9XFDO$asSLcuk">
+                                <value name="LIST">
+                                  <block type="lexical_variable_get" id=":Fwjdq]x]!oDQ]45/Av5">
+                                    <field name="VAR">global chkDowList</field>
+                                  </block>
+                                </value>
+                                <value name="NUM">
+                                  <block type="lexical_variable_get" id="V96%0t8wG,or-@kKdRjY">
+                                    <field name="VAR">day</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="VALUE">
+                              <block type="logic_boolean" id=")u9)+,0/i.a-;mPc_6Wp">
+                                <field name="BOOL">TRUE</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="(`$2zD9_!YrD9%24d1zD" x="554" y="-10">
+    <field name="NAME">InitializeTitleBarIcons</field>
+    <statement name="STACK">
+      <block type="controls_if" id="3*xs/3.QRLgH;;1UCIgD">
+        <value name="IF0">
+          <block type="math_compare" id="6BntCeDJC.O*pR5Vf[8%">
+            <field name="OP">GT</field>
+            <value name="A">
+              <block type="controls_getStartValue" id=",3u|oVf!^eor7UoXj[AV"></block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="b:gjMah6m:.-?9=P;fMU">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="component_method" id="$o!3W)dKw^KAS(7M$paB">
+            <mutation component_type="Form" method_name="AddTitleBarIcon" is_generic="false" instance_name="Edit_Schedule"></mutation>
+            <field name="COMPONENT_SELECTOR">Edit_Schedule</field>
+            <value name="ARG0">
+              <block type="text" id="Dj;8UpHQ~=;$jJhu^tw)">
+                <field name="TEXT">delete.png</field>
+              </block>
+            </value>
+            <value name="ARG1">
+              <block type="text" id="h_/rwW/WP@Rujzj:=5IM">
+                <field name="TEXT">Delete Schedule</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="$^UT*l~Cdv8^MD.@ivTK" x="-366" y="90">
+    <mutation component_type="TimePicker" is_generic="false" instance_name="tpOnTime" event_name="TouchDown"></mutation>
+    <field name="COMPONENT_SELECTOR">tpOnTime</field>
+    <statement name="DO">
+      <block type="component_method" id="+5U}|ua88!TfL`,!J]z:">
+        <mutation component_type="TimePicker" method_name="SetTimeToDisplay" is_generic="false" instance_name="tpOnTime"></mutation>
+        <field name="COMPONENT_SELECTOR">tpOnTime</field>
+        <value name="ARG0">
+          <block type="lexical_variable_get" id="@C,20IwG2)/-DKsSWBg7">
+            <field name="VAR">global OnHour</field>
+          </block>
+        </value>
+        <value name="ARG1">
+          <block type="lexical_variable_get" id="cjrhOS;zB%!E4RF?Bz,s">
+            <field name="VAR">global OnMinute</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="T~HMlr/,r?~}Xk$UI9?1" x="-366" y="230">
+    <mutation component_type="TimePicker" is_generic="false" instance_name="tpOnTime" event_name="AfterTimeSet"></mutation>
+    <field name="COMPONENT_SELECTOR">tpOnTime</field>
+    <statement name="DO">
+      <block type="lexical_variable_set" id="/IJ-[+}BP0VH`huq},^J">
+        <field name="VAR">global OnHour</field>
+        <value name="VALUE">
+          <block type="component_set_get" id="4^RX^D|wm7-N?q2TByd8">
+            <mutation component_type="TimePicker" set_or_get="get" property_name="Hour" is_generic="false" instance_name="tpOnTime"></mutation>
+            <field name="COMPONENT_SELECTOR">tpOnTime</field>
+            <field name="PROP">Hour</field>
+          </block>
+        </value>
+        <next>
+          <block type="lexical_variable_set" id="A)Z#M7kaI1mWeCuWa+fM">
+            <field name="VAR">global OnMinute</field>
+            <value name="VALUE">
+              <block type="component_set_get" id="+-GZ1b5aS$Xv/Rh$xOmG">
+                <mutation component_type="TimePicker" set_or_get="get" property_name="Minute" is_generic="false" instance_name="tpOnTime"></mutation>
+                <field name="COMPONENT_SELECTOR">tpOnTime</field>
+                <field name="PROP">Minute</field>
+              </block>
+            </value>
+            <next>
+              <block type="component_set_get" id="?8FwovI/DrpX07;$C5;|">
+                <mutation component_type="TimePicker" set_or_get="set" property_name="Text" is_generic="false" instance_name="tpOnTime"></mutation>
+                <field name="COMPONENT_SELECTOR">tpOnTime</field>
+                <field name="PROP">Text</field>
+                <value name="VALUE">
+                  <block type="procedures_callreturn" id="!YT)#m6U$VV^YO,I4oL.">
+                    <mutation name="FormatTime">
+                      <arg name="hour"></arg>
+                      <arg name="minute"></arg>
+                    </mutation>
+                    <field name="PROCNAME">FormatTime</field>
+                    <value name="ARG0">
+                      <block type="lexical_variable_get" id="!~Xp9NWPZRg?tOym?(2^">
+                        <field name="VAR">global OnHour</field>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="lexical_variable_get" id="u9I1IT4+]v-UQ:xU`YRX">
+                        <field name="VAR">global OnMinute</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defreturn" id="X_uuzCk!`M`;WSltF?rg" x="554" y="190">
+    <field name="NAME">LoadScheduleData</field>
+    <value name="RETURN">
+      <block type="controls_do_then_return" id="(_~H5+!tHLHF6iy_+uC;">
+        <statement name="STM">
+          <block type="component_set_get" id="lk?(8JMqNezyAWJwz$SM">
+            <mutation component_type="TinyDB" set_or_get="set" property_name="Namespace" is_generic="false" instance_name="dbStorage"></mutation>
+            <field name="COMPONENT_SELECTOR">dbStorage</field>
+            <field name="PROP">Namespace</field>
+            <value name="VALUE">
+              <block type="text" id="2yx`E3SHX3$*MR+P=0.:">
+                <field name="TEXT">ScheduleData</field>
+              </block>
+            </value>
+            <next>
+              <block type="lexical_variable_set" id="2oNyPej:s[hf?!N{FjmF">
+                <field name="VAR">global ScheduleList</field>
+                <value name="VALUE">
+                  <block type="component_method" id="PofbZ~m$!do|810M`sG}">
+                    <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="dbStorage"></mutation>
+                    <field name="COMPONENT_SELECTOR">dbStorage</field>
+                    <value name="ARG0">
+                      <block type="text" id="E:.Abkv(EpKf$3fJqr;%">
+                        <field name="TEXT">Schedule</field>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="lists_create_with" id="GRppDv3m9L3m[a7?DN1o">
+                        <mutation items="0"></mutation>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <value name="VALUE">
+          <block type="logic_negate" id="mGM5K+_XrYr5u-L-[6xR">
+            <value name="BOOL">
+              <block type="text_isEmpty" id="hG$E;,k`.YRujhln}C6:">
+                <value name="VALUE">
+                  <block type="lexical_variable_get" id=",sIUtz?b4BQ1c!N_[^:~">
+                    <field name="VAR">global ScheduleList</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="component_event" id="4*DM%Fc]UIfn4c]YOWq." x="-366" y="410">
+    <mutation component_type="TimePicker" is_generic="false" instance_name="tpOffTime" event_name="TouchDown"></mutation>
+    <field name="COMPONENT_SELECTOR">tpOffTime</field>
+    <statement name="DO">
+      <block type="controls_if" id="qv}Hj/8lT|gj:rXW0r;I">
+        <mutation else="1"></mutation>
+        <value name="IF0">
+          <block type="text_compare" id="PE,NVJGWO-)dJ(L$+iKI">
+            <field name="OP">EQUAL</field>
+            <value name="TEXT1">
+              <block type="lexical_variable_get" id="!oj]$o!jKMtR)a8gwiB6">
+                <field name="VAR">global OffHour</field>
+              </block>
+            </value>
+            <value name="TEXT2">
+              <block type="text" id="kPzHRn91*A]TPBKe7akw">
+                <field name="TEXT">??</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="component_method" id="#|+j464`~!$$cbV6~[la">
+            <mutation component_type="TimePicker" method_name="SetTimeToDisplay" is_generic="false" instance_name="tpOffTime"></mutation>
+            <field name="COMPONENT_SELECTOR">tpOffTime</field>
+            <value name="ARG0">
+              <block type="math_number" id=";n`gNx7bDa5^GC=b1V(M">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <value name="ARG1">
+              <block type="math_number" id="pY)cRA,IbhN%n?gKfl6x">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="component_method" id="z*T$??e;m116qHNQDj}W">
+            <mutation component_type="TimePicker" method_name="SetTimeToDisplay" is_generic="false" instance_name="tpOffTime"></mutation>
+            <field name="COMPONENT_SELECTOR">tpOffTime</field>
+            <value name="ARG0">
+              <block type="lexical_variable_get" id="nGF,LUA%DKt$us2f!Ei4">
+                <field name="VAR">global OffHour</field>
+              </block>
+            </value>
+            <value name="ARG1">
+              <block type="lexical_variable_get" id="qoVAdego~nq$hCT8}u?v">
+                <field name="VAR">global OffMinute</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="0+#p$59C:?7_w(85;Fva" x="554" y="390">
+    <mutation>
+      <arg name="state"></arg>
+    </mutation>
+    <field name="NAME">setOffTime</field>
+    <field name="VAR0">state</field>
+    <statement name="STACK">
+      <block type="component_set_get" id="C%~V!@(|j?1w`x1Y^_vU">
+        <mutation component_type="Label" set_or_get="set" property_name="Visible" is_generic="false" instance_name="lblTimeSeperator"></mutation>
+        <field name="COMPONENT_SELECTOR">lblTimeSeperator</field>
+        <field name="PROP">Visible</field>
+        <value name="VALUE">
+          <block type="lexical_variable_get" id="mmcu^qy#+.tx7)wj/ZLW">
+            <field name="VAR">state</field>
+          </block>
+        </value>
+        <next>
+          <block type="component_set_get" id="0NBCJFyHf+q`qc*}2F,/">
+            <mutation component_type="TimePicker" set_or_get="set" property_name="Visible" is_generic="false" instance_name="tpOffTime"></mutation>
+            <field name="COMPONENT_SELECTOR">tpOffTime</field>
+            <field name="PROP">Visible</field>
+            <value name="VALUE">
+              <block type="lexical_variable_get" id="jW(Z|WE~Yfk/kD|MAOdU">
+                <field name="VAR">state</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defreturn" id="^g7U#]t3s6dxMysu1x-]" x="1554" y="370">
+    <field name="NAME">DowToString</field>
+    <value name="RETURN">
+      <block type="local_declaration_expression" id="pOgI-mjtZlhrNzdqK5:~">
+        <mutation>
+          <localname name="dowstring"></localname>
+        </mutation>
+        <field name="VAR0">dowstring</field>
+        <value name="DECL0">
+          <block type="text" id="JJ-#=k@;!|q{}aB[A[-z">
+            <field name="TEXT"></field>
+          </block>
+        </value>
+        <value name="RETURN">
+          <block type="controls_do_then_return" id="CTX5u~W#fH=K69DhmuC#">
+            <statement name="STM">
+              <block type="controls_forEach" id="Cc,SV?{qwp;@7DW20WHT">
+                <field name="VAR">chkDow</field>
+                <value name="LIST">
+                  <block type="lexical_variable_get" id="d|1zVF}NFL1X=mj12gO+">
+                    <field name="VAR">global chkDowList</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="controls_if" id="^?*EN72T#0Mih3=WJ10p">
+                    <value name="IF0">
+                      <block type="component_set_get" id="H|Dg;|Z#y^@|0z%XGlf^">
+                        <mutation component_type="CheckBox" set_or_get="get" property_name="Checked" is_generic="true"></mutation>
+                        <field name="PROP">Checked</field>
+                        <value name="COMPONENT">
+                          <block type="lexical_variable_get" id="~T;gpIQ_}]A;JY/dnWF|">
+                            <field name="VAR">chkDow</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="lexical_variable_set" id="Yrn)hd`!6oxr)9M+`Q6]">
+                        <field name="VAR">dowstring</field>
+                        <value name="VALUE">
+                          <block type="text_join" id="3.p_G`Mt*M1euW$#5S_@">
+                            <mutation items="3"></mutation>
+                            <value name="ADD0">
+                              <block type="lexical_variable_get" id="KBfr.BjpP)dSnNm42Wk=">
+                                <field name="VAR">dowstring</field>
+                              </block>
+                            </value>
+                            <value name="ADD1">
+                              <block type="math_subtract" id="2!Gt}RjI:4HhkscqGWNQ">
+                                <value name="A">
+                                  <block type="lists_position_in" id="{QXn.1zf~S;dkNuMvV%|">
+                                    <value name="ITEM">
+                                      <block type="lexical_variable_get" id="5RPDpfeL7T.*%o!eL+:I">
+                                        <field name="VAR">chkDow</field>
+                                      </block>
+                                    </value>
+                                    <value name="LIST">
+                                      <block type="lexical_variable_get" id="u~%7[EDU#8`Yo8y*:=Me">
+                                        <field name="VAR">global chkDowList</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id=".2g;AR:9wAsMW(_zgG},">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="ADD2">
+                              <block type="text" id="1Q#6GOc7(Q-aE/]~V_n=">
+                                <field name="TEXT">,</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+            <value name="VALUE">
+              <block type="text_segment" id="}xM9${oj]=7tSFm0qGUM">
+                <value name="TEXT">
+                  <block type="lexical_variable_get" id="{Terw.l*@bkyeh0Ngi,f">
+                    <field name="VAR">dowstring</field>
+                  </block>
+                </value>
+                <value name="START">
+                  <block type="math_number" id=",Mi^+n$nsnrKjDQVKN{b">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <value name="LENGTH">
+                  <block type="math_subtract" id="@kZvbd5ClOEKbygHKW^$">
+                    <value name="A">
+                      <block type="text_length" id="x5sc/shdQ=bIG9dxg0|}">
+                        <value name="VALUE">
+                          <block type="lexical_variable_get" id=".mM:RRl)c{GlzrOs9%l:">
+                            <field name="VAR">dowstring</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="h$N:BfW0Vko]3f[dWF!5">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defnoreturn" id="|K^~407=.2qBSLBF4{{N" x="554" y="510">
+    <field name="NAME">VisualizeSchedule</field>
+    <statement name="STACK">
+      <block type="lexical_variable_set" id="B`Fx5avqM?),~S%[lm7D">
+        <field name="VAR">global OnHour</field>
+        <value name="VALUE">
+          <block type="procedures_callreturn" id="O|R)a#@8@Z|iWMK4I8!Y">
+            <mutation name="ParseScheduleHour">
+              <arg name="num"></arg>
+              <arg name="TimeType"></arg>
+            </mutation>
+            <field name="PROCNAME">ParseScheduleHour</field>
+            <value name="ARG0">
+              <block type="controls_getStartValue" id="t;5z$FxZ$=D0;Cpx~`M*"></block>
+            </value>
+            <value name="ARG1">
+              <block type="text" id="I3Ow`*bV9mZ?D9*P(rT]">
+                <field name="TEXT">ontime</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="lexical_variable_set" id="gy]vhC8v41bL0Bt|IR.(">
+            <field name="VAR">global OnMinute</field>
+            <value name="VALUE">
+              <block type="procedures_callreturn" id="+)EK=5cWQu]B5LmSVs!r">
+                <mutation name="ParseScheduleMinute">
+                  <arg name="num"></arg>
+                  <arg name="TimeType"></arg>
+                </mutation>
+                <field name="PROCNAME">ParseScheduleMinute</field>
+                <value name="ARG0">
+                  <block type="controls_getStartValue" id="(%:c#*!v~bKE%fk6$8Di"></block>
+                </value>
+                <value name="ARG1">
+                  <block type="text" id="eW5g-MKlan.{+!Vs=3JM">
+                    <field name="TEXT">ontime</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="component_set_get" id="a+!jx`7bqu5DviFYw$j4">
+                <mutation component_type="TimePicker" set_or_get="set" property_name="Text" is_generic="false" instance_name="tpOnTime"></mutation>
+                <field name="COMPONENT_SELECTOR">tpOnTime</field>
+                <field name="PROP">Text</field>
+                <value name="VALUE">
+                  <block type="procedures_callreturn" id="*%!Df|!n%gLqm9mC6p8#">
+                    <mutation name="FormatTime">
+                      <arg name="hour"></arg>
+                      <arg name="minute"></arg>
+                    </mutation>
+                    <field name="PROCNAME">FormatTime</field>
+                    <value name="ARG0">
+                      <block type="lexical_variable_get" id="xXlOPoz^,Pg;S^u[zO,M">
+                        <field name="VAR">global OnHour</field>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="lexical_variable_get" id="uobZf_|c`=Ytf#M8CRDS">
+                        <field name="VAR">global OnMinute</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="lexical_variable_set" id="SUlCv}xEL%U3(:VAPK#K">
+                    <field name="VAR">global OffHour</field>
+                    <value name="VALUE">
+                      <block type="procedures_callreturn" id="Q|;`x`*5JN|61P6ku)l4">
+                        <mutation name="ParseScheduleHour">
+                          <arg name="num"></arg>
+                          <arg name="TimeType"></arg>
+                        </mutation>
+                        <field name="PROCNAME">ParseScheduleHour</field>
+                        <value name="ARG0">
+                          <block type="controls_getStartValue" id="[VWKnwNnmZTSVWZDfMqD"></block>
+                        </value>
+                        <value name="ARG1">
+                          <block type="text" id="3{6ELiu.nmn^p23;l]8q">
+                            <field name="TEXT">offtime</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="lexical_variable_set" id="4eJdIKjq[31V.vh*oj$D">
+                        <field name="VAR">global OffMinute</field>
+                        <value name="VALUE">
+                          <block type="procedures_callreturn" id="ACO5U:}]34Bq7k3[vH!M">
+                            <mutation name="ParseScheduleMinute">
+                              <arg name="num"></arg>
+                              <arg name="TimeType"></arg>
+                            </mutation>
+                            <field name="PROCNAME">ParseScheduleMinute</field>
+                            <value name="ARG0">
+                              <block type="controls_getStartValue" id=":WD(@f^@R{25{oc/;DSU"></block>
+                            </value>
+                            <value name="ARG1">
+                              <block type="text" id="*Cv(R@nWVX8Chq}hhL.@">
+                                <field name="TEXT">offtime</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="controls_if" id="v4v.lb`LBKe@cOqA2@=N">
+                            <mutation else="1"></mutation>
+                            <value name="IF0">
+                              <block type="text_compare" id="8bpsK^}]2iz#y=fc.O;b">
+                                <field name="OP">NEQ</field>
+                                <value name="TEXT1">
+                                  <block type="lexical_variable_get" id="{%!@[++%h8+QZ}?0Y9up">
+                                    <field name="VAR">global OffHour</field>
+                                  </block>
+                                </value>
+                                <value name="TEXT2">
+                                  <block type="text" id=",|gRBPJh9O[9mPLaZot6">
+                                    <field name="TEXT">??</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="component_set_get" id="p@E533!PuAsY9[K[sB_V">
+                                <mutation component_type="TimePicker" set_or_get="set" property_name="Text" is_generic="false" instance_name="tpOffTime"></mutation>
+                                <field name="COMPONENT_SELECTOR">tpOffTime</field>
+                                <field name="PROP">Text</field>
+                                <value name="VALUE">
+                                  <block type="procedures_callreturn" id=".D^1L{;1Kt3[6kxWy5-L">
+                                    <mutation name="FormatTime">
+                                      <arg name="hour"></arg>
+                                      <arg name="minute"></arg>
+                                    </mutation>
+                                    <field name="PROCNAME">FormatTime</field>
+                                    <value name="ARG0">
+                                      <block type="lexical_variable_get" id="P=]J4IM,fjv(|@42)P(o">
+                                        <field name="VAR">global OffHour</field>
+                                      </block>
+                                    </value>
+                                    <value name="ARG1">
+                                      <block type="lexical_variable_get" id="S:2c%Oi{},ZXXbYvrj/7">
+                                        <field name="VAR">global OffMinute</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="component_set_get" id="D$0JAaT]g!dzVD.^L%h(">
+                                    <mutation component_type="CheckBox" set_or_get="set" property_name="Checked" is_generic="false" instance_name="chkOFF"></mutation>
+                                    <field name="COMPONENT_SELECTOR">chkOFF</field>
+                                    <field name="PROP">Checked</field>
+                                    <value name="VALUE">
+                                      <block type="logic_boolean" id="_Vy|tx2mtHy/=;}t}xpX">
+                                        <field name="BOOL">TRUE</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="procedures_callnoreturn" id="D7xp_).mFchC9=FiY|2I">
+                                        <mutation name="setOffTime">
+                                          <arg name="state"></arg>
+                                        </mutation>
+                                        <field name="PROCNAME">setOffTime</field>
+                                        <value name="ARG0">
+                                          <block type="component_set_get" id="OaFrID.X|,axhwq,tw^1">
+                                            <mutation component_type="CheckBox" set_or_get="get" property_name="Checked" is_generic="false" instance_name="chkOFF"></mutation>
+                                            <field name="COMPONENT_SELECTOR">chkOFF</field>
+                                            <field name="PROP">Checked</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                            <statement name="ELSE">
+                              <block type="component_set_get" id="MXC]G(uyv+cQ#Z)mA8d%">
+                                <mutation component_type="CheckBox" set_or_get="set" property_name="Checked" is_generic="false" instance_name="chkOFF"></mutation>
+                                <field name="COMPONENT_SELECTOR">chkOFF</field>
+                                <field name="PROP">Checked</field>
+                                <value name="VALUE">
+                                  <block type="logic_boolean" id="]w!Im$!-*Yty@T|WJA.|">
+                                    <field name="BOOL">FALSE</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="procedures_callnoreturn" id="SGD[B+#Q]=~1:t`@A:jv">
+                                <mutation name="ParseScheduleDow">
+                                  <arg name="num"></arg>
+                                </mutation>
+                                <field name="PROCNAME">ParseScheduleDow</field>
+                                <value name="ARG0">
+                                  <block type="controls_getStartValue" id="5Ly:]lJ%@u^V_@lh^yDL"></block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="hVCDUt8bKgG*CSayLl5:" x="-370" y="690">
+    <mutation component_type="TimePicker" is_generic="false" instance_name="tpOffTime" event_name="AfterTimeSet"></mutation>
+    <field name="COMPONENT_SELECTOR">tpOffTime</field>
+    <statement name="DO">
+      <block type="lexical_variable_set" id="yO@FLGD.Oni9FzTv^*Yr">
+        <field name="VAR">global OffHour</field>
+        <value name="VALUE">
+          <block type="component_set_get" id="2gjDm$^6ud}b/vkUO5/,">
+            <mutation component_type="TimePicker" set_or_get="get" property_name="Hour" is_generic="false" instance_name="tpOffTime"></mutation>
+            <field name="COMPONENT_SELECTOR">tpOffTime</field>
+            <field name="PROP">Hour</field>
+          </block>
+        </value>
+        <next>
+          <block type="lexical_variable_set" id="/4+dKkmJ#$MCid.Tz.cI">
+            <field name="VAR">global OffMinute</field>
+            <value name="VALUE">
+              <block type="component_set_get" id="m5tm)Ok)n[/b.;1Pcf,5">
+                <mutation component_type="TimePicker" set_or_get="get" property_name="Minute" is_generic="false" instance_name="tpOffTime"></mutation>
+                <field name="COMPONENT_SELECTOR">tpOffTime</field>
+                <field name="PROP">Minute</field>
+              </block>
+            </value>
+            <next>
+              <block type="component_set_get" id="rZS{y9=Jh7=TApJN?ebQ">
+                <mutation component_type="TimePicker" set_or_get="set" property_name="Text" is_generic="false" instance_name="tpOffTime"></mutation>
+                <field name="COMPONENT_SELECTOR">tpOffTime</field>
+                <field name="PROP">Text</field>
+                <value name="VALUE">
+                  <block type="procedures_callreturn" id="xVeGd$;{+=m-s?aL)]$r">
+                    <mutation name="FormatTime">
+                      <arg name="hour"></arg>
+                      <arg name="minute"></arg>
+                    </mutation>
+                    <field name="PROCNAME">FormatTime</field>
+                    <value name="ARG0">
+                      <block type="lexical_variable_get" id="at/}Pl(!m!C^`5AuO0.m">
+                        <field name="VAR">global OffHour</field>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="lexical_variable_get" id="Q?xtgpq#$Vl5Ozo@8a[C">
+                        <field name="VAR">global OffMinute</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="2k)Is!!!KMbP]^:~GWJP" x="-370" y="870">
+    <mutation component_type="CheckBox" is_generic="false" instance_name="chkOFF" event_name="Changed"></mutation>
+    <field name="COMPONENT_SELECTOR">chkOFF</field>
+    <statement name="DO">
+      <block type="procedures_callnoreturn" id="dlaV=aB1=Hr9_$,=,7;8">
+        <mutation name="setOffTime">
+          <arg name="state"></arg>
+        </mutation>
+        <field name="PROCNAME">setOffTime</field>
+        <value name="ARG0">
+          <block type="component_set_get" id="~`%3Q/{%V2K:(k91zFUN">
+            <mutation component_type="CheckBox" set_or_get="get" property_name="Checked" is_generic="false" instance_name="chkOFF"></mutation>
+            <field name="COMPONENT_SELECTOR">chkOFF</field>
+            <field name="PROP">Checked</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="Xb}x@`p_pN`S^Tye~4g-" x="1554" y="770">
+    <field name="NAME">SaveSchedule</field>
+    <statement name="STACK">
+      <block type="lexical_variable_set" id="5#l^4lm?rT/Ja^Uja(3*">
+        <field name="VAR">global Action</field>
+        <value name="VALUE">
+          <block type="text" id="Fo%rVE5i}dG+7p8*xF{%">
+            <field name="TEXT">schedule</field>
+          </block>
+        </value>
+        <next>
+          <block type="local_declaration_statement" id="6}I=+-0kd~w=-+KMQ1N.">
+            <mutation>
+              <localname name="ScheduleJSON"></localname>
+            </mutation>
+            <field name="VAR0">ScheduleJSON</field>
+            <value name="DECL0">
+              <block type="text" id=",w+CzEO}%Dqe@Fqfbpi,">
+                <field name="TEXT">{}</field>
+              </block>
+            </value>
+            <statement name="STACK">
+              <block type="lexical_variable_set" id="W:##FL$=wsV|M;9@{qtf">
+                <field name="VAR">ScheduleJSON</field>
+                <value name="VALUE">
+                  <block type="component_method" id="al+~9L$xiCF:8q9J2#U^">
+                    <mutation component_type="KodularJSON" method_name="AddNumberToJSONObject" is_generic="false" instance_name="JSON"></mutation>
+                    <field name="COMPONENT_SELECTOR">JSON</field>
+                    <value name="ARG0">
+                      <block type="lexical_variable_get" id="E2e-y$#IB{@+;rQ+?P+!">
+                        <field name="VAR">ScheduleJSON</field>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="lexical_variable_get" id="L;S|4i|6HFg5xRLeqWiC">
+                        <field name="VAR">global OnHour</field>
+                      </block>
+                    </value>
+                    <value name="ARG2">
+                      <block type="text" id="]61txCrBV_vsZ1Db:lnT">
+                        <field name="TEXT">onhour</field>
+                      </block>
+                    </value>
+                    <value name="ARG3">
+                      <block type="text" id="[bbhu5C1%DZ!_ro|RJ77">
+                        <field name="TEXT">{}</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="lexical_variable_set" id="1Vc_52cBh3BJYH|mm4;r">
+                    <field name="VAR">ScheduleJSON</field>
+                    <value name="VALUE">
+                      <block type="component_method" id="rlyJ^G~d5D:(xbrW6kQ#">
+                        <mutation component_type="KodularJSON" method_name="AddNumberToJSONObject" is_generic="false" instance_name="JSON"></mutation>
+                        <field name="COMPONENT_SELECTOR">JSON</field>
+                        <value name="ARG0">
+                          <block type="lexical_variable_get" id="!8A=DO-r|iMeSo%M?2bn">
+                            <field name="VAR">ScheduleJSON</field>
+                          </block>
+                        </value>
+                        <value name="ARG1">
+                          <block type="lexical_variable_get" id="I?lKVL*zx4{`W_{rBw)v">
+                            <field name="VAR">global OnMinute</field>
+                          </block>
+                        </value>
+                        <value name="ARG2">
+                          <block type="text" id="W}?kF6)X~o-1SJLDi_AI">
+                            <field name="TEXT">onminute</field>
+                          </block>
+                        </value>
+                        <value name="ARG3">
+                          <block type="text" id="{S:Iu3p(A?@n@BHos+u=">
+                            <field name="TEXT">{}</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="controls_if" id="Y-0R@qC#WV`s+@6[+Y}[">
+                        <value name="IF0">
+                          <block type="component_set_get" id="(-4G-wM,||9@B82O:+FE">
+                            <mutation component_type="CheckBox" set_or_get="get" property_name="Checked" is_generic="false" instance_name="chkOFF"></mutation>
+                            <field name="COMPONENT_SELECTOR">chkOFF</field>
+                            <field name="PROP">Checked</field>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="lexical_variable_set" id="ctcaG|DNLKA-3;L/:$3g">
+                            <field name="VAR">ScheduleJSON</field>
+                            <value name="VALUE">
+                              <block type="component_method" id="9hEu`Hd:RKoTf7YQUH,l">
+                                <mutation component_type="KodularJSON" method_name="AddNumberToJSONObject" is_generic="false" instance_name="JSON"></mutation>
+                                <field name="COMPONENT_SELECTOR">JSON</field>
+                                <value name="ARG0">
+                                  <block type="lexical_variable_get" id="MR=z+[GW)H*8Q;XMRyiL">
+                                    <field name="VAR">ScheduleJSON</field>
+                                  </block>
+                                </value>
+                                <value name="ARG1">
+                                  <block type="lexical_variable_get" id="zM-(vlqIY!/O$N?T%)O%">
+                                    <field name="VAR">global OffHour</field>
+                                  </block>
+                                </value>
+                                <value name="ARG2">
+                                  <block type="text" id="/AHVvo#LIP[|,Z6ra6fy">
+                                    <field name="TEXT">offhour</field>
+                                  </block>
+                                </value>
+                                <value name="ARG3">
+                                  <block type="text" id="(RDSV+5nu$)WZm#$FbX@">
+                                    <field name="TEXT">{}</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="lexical_variable_set" id="O)SfRcX!)Hs3B~0#Z^jO">
+                                <field name="VAR">ScheduleJSON</field>
+                                <value name="VALUE">
+                                  <block type="component_method" id="oS)9B`FZ_VYVWhqLrvdu">
+                                    <mutation component_type="KodularJSON" method_name="AddNumberToJSONObject" is_generic="false" instance_name="JSON"></mutation>
+                                    <field name="COMPONENT_SELECTOR">JSON</field>
+                                    <value name="ARG0">
+                                      <block type="lexical_variable_get" id="1e(KI/zKd^SJ}6JgMCX7">
+                                        <field name="VAR">ScheduleJSON</field>
+                                      </block>
+                                    </value>
+                                    <value name="ARG1">
+                                      <block type="lexical_variable_get" id="WZ=|{^1ZrFyV+4`yeWqQ">
+                                        <field name="VAR">global OffMinute</field>
+                                      </block>
+                                    </value>
+                                    <value name="ARG2">
+                                      <block type="text" id="+PdLd5kkhn3pPt,~3A3T">
+                                        <field name="TEXT">offminute</field>
+                                      </block>
+                                    </value>
+                                    <value name="ARG3">
+                                      <block type="text" id="$M8zJ3)sg(N|{y20ZzkP">
+                                        <field name="TEXT">{}</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="lexical_variable_set" id="~r:pDfpIt{T1sJ$EXD=_">
+                            <field name="VAR">ScheduleJSON</field>
+                            <value name="VALUE">
+                              <block type="component_method" id="YdN$}$b^Y|Vl,DGzo({2">
+                                <mutation component_type="KodularJSON" method_name="AddTextToJSONObject" is_generic="false" instance_name="JSON"></mutation>
+                                <field name="COMPONENT_SELECTOR">JSON</field>
+                                <value name="ARG0">
+                                  <block type="lexical_variable_get" id="9dv8je4c:~9t(xEJX0rO">
+                                    <field name="VAR">ScheduleJSON</field>
+                                  </block>
+                                </value>
+                                <value name="ARG1">
+                                  <block type="text" id="jEdu$XQuR`[M;EGNc|rs">
+                                    <field name="TEXT">*</field>
+                                  </block>
+                                </value>
+                                <value name="ARG2">
+                                  <block type="text" id="!^o#U0;I*+!-4e#m,jgI">
+                                    <field name="TEXT">day</field>
+                                  </block>
+                                </value>
+                                <value name="ARG3">
+                                  <block type="text" id="PVkRc?gQ9L2Y-f_Z%~hu">
+                                    <field name="TEXT">{}</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="lexical_variable_set" id="9MNGs$-qlRr*jc#J1SB?">
+                                <field name="VAR">ScheduleJSON</field>
+                                <value name="VALUE">
+                                  <block type="component_method" id="3aoL/w@oQMHNQlwA4Ol$">
+                                    <mutation component_type="KodularJSON" method_name="AddTextToJSONObject" is_generic="false" instance_name="JSON"></mutation>
+                                    <field name="COMPONENT_SELECTOR">JSON</field>
+                                    <value name="ARG0">
+                                      <block type="lexical_variable_get" id="wmsb!XOjg).+{afXr4Df">
+                                        <field name="VAR">ScheduleJSON</field>
+                                      </block>
+                                    </value>
+                                    <value name="ARG1">
+                                      <block type="text" id="wFNL##__fT,Z[5$nSR!X">
+                                        <field name="TEXT">*</field>
+                                      </block>
+                                    </value>
+                                    <value name="ARG2">
+                                      <block type="text" id="N1!0s}be=,U^y?q:CTNi">
+                                        <field name="TEXT">month</field>
+                                      </block>
+                                    </value>
+                                    <value name="ARG3">
+                                      <block type="text" id="$!1P.h;WlJCrnhlJ9(L6">
+                                        <field name="TEXT">{}</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="lexical_variable_set" id="@QnMhlpQ3o1z#^:mt}r}">
+                                    <field name="VAR">ScheduleJSON</field>
+                                    <value name="VALUE">
+                                      <block type="component_method" id="2JeWz5z*sLa`-`^?!6gf">
+                                        <mutation component_type="KodularJSON" method_name="AddTextToJSONObject" is_generic="false" instance_name="JSON"></mutation>
+                                        <field name="COMPONENT_SELECTOR">JSON</field>
+                                        <value name="ARG0">
+                                          <block type="lexical_variable_get" id="mi[m)@?L8[^SHzf-YJoR">
+                                            <field name="VAR">ScheduleJSON</field>
+                                          </block>
+                                        </value>
+                                        <value name="ARG1">
+                                          <block type="procedures_callreturn" id="``TFTQU,-|EU+N5DU}]%">
+                                            <mutation name="DowToString"></mutation>
+                                            <field name="PROCNAME">DowToString</field>
+                                          </block>
+                                        </value>
+                                        <value name="ARG2">
+                                          <block type="text" id="tEV!X~NTF6mF385-^[Z|">
+                                            <field name="TEXT">dow</field>
+                                          </block>
+                                        </value>
+                                        <value name="ARG3">
+                                          <block type="text" id="!Ow#_/{(`RJSCc5P*poX">
+                                            <field name="TEXT">{}</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="lexical_variable_set" id="A[kBY2^[qK3nm+%,bPm*">
+                                        <field name="VAR">ScheduleJSON</field>
+                                        <value name="VALUE">
+                                          <block type="component_method" id="!:3b}HX0sS*Y+_e,$D)p">
+                                            <mutation component_type="KodularJSON" method_name="AddBooleanToJSONObject" is_generic="false" instance_name="JSON"></mutation>
+                                            <field name="COMPONENT_SELECTOR">JSON</field>
+                                            <value name="ARG0">
+                                              <block type="lexical_variable_get" id="zsl?3w2+`Ag}a!M//nf{">
+                                                <field name="VAR">ScheduleJSON</field>
+                                              </block>
+                                            </value>
+                                            <value name="ARG1">
+                                              <block type="logic_boolean" id=".PU%ZUWPk=4B[,mNExSx">
+                                                <field name="BOOL">TRUE</field>
+                                              </block>
+                                            </value>
+                                            <value name="ARG2">
+                                              <block type="text" id="nBwRfrVE5~#A{QP+Z8;m">
+                                                <field name="TEXT">enabled</field>
+                                              </block>
+                                            </value>
+                                            <value name="ARG3">
+                                              <block type="text" id="ExA^@u~]5=WU(ryPWpJ1">
+                                                <field name="TEXT">{}</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="component_set_get" id="Q%Lz0rb7LME94:As5AO$">
+                                            <mutation component_type="TextBox" set_or_get="set" property_name="Text" is_generic="false" instance_name="Text_Box1"></mutation>
+                                            <field name="COMPONENT_SELECTOR">Text_Box1</field>
+                                            <field name="PROP">Text</field>
+                                            <value name="VALUE">
+                                              <block type="lexical_variable_get" id="l@j`qk^Enee107j=L0iR">
+                                                <field name="VAR">ScheduleJSON</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="component_method" id="zB##G?sV]ZjcjF|.Qjdj">
+                                                <mutation component_type="Web" method_name="PutText" is_generic="false" instance_name="webComm"></mutation>
+                                                <field name="COMPONENT_SELECTOR">webComm</field>
+                                                <value name="ARG0">
+                                                  <block type="lexical_variable_get" id="=Vgiwbde|Zu/#I0(*7LS">
+                                                    <field name="VAR">ScheduleJSON</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="u{?oci)$})vmcBG%5VlZ" x="-370" y="970">
+    <mutation component_type="Form" is_generic="false" instance_name="Edit_Schedule" event_name="TitleBarIconSelected"></mutation>
+    <field name="COMPONENT_SELECTOR">Edit_Schedule</field>
+    <statement name="DO">
+      <block type="controls_if" id="/M{MV.Cr##p*.W={#-6,">
+        <mutation elseif="1"></mutation>
+        <value name="IF0">
+          <block type="text_compare" id="^^xRQU*OM)k+8T]kZjnP">
+            <field name="OP">EQUAL</field>
+            <value name="TEXT1">
+              <block type="lexical_variable_get" id="e[KdL$F~kf7q-ebV^,XU">
+                <mutation>
+                  <eventparam name="name"></eventparam>
+                </mutation>
+                <field name="VAR">name</field>
+              </block>
+            </value>
+            <value name="TEXT2">
+              <block type="text" id="/w/*7aT35HGlD4CU[cbB">
+                <field name="TEXT">Save Schedule</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="procedures_callnoreturn" id="B=pRN|sX=$3gj3Y_:7Yc">
+            <mutation name="SaveSchedule"></mutation>
+            <field name="PROCNAME">SaveSchedule</field>
+          </block>
+        </statement>
+        <value name="IF1">
+          <block type="text_compare" id="*-o6?KTPSW/^}dTho+[y">
+            <field name="OP">EQUAL</field>
+            <value name="TEXT1">
+              <block type="lexical_variable_get" id="c`Obwjy=yKAFr7Fg!2RI">
+                <mutation>
+                  <eventparam name="name"></eventparam>
+                </mutation>
+                <field name="VAR">name</field>
+              </block>
+            </value>
+            <value name="TEXT2">
+              <block type="text" id="-?7Rnd}ww~i7HAe_;I7z">
+                <field name="TEXT">Delete Schedule</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO1">
+          <block type="lexical_variable_set" id="(xQz52v6OUU6fO@}JK5s">
+            <field name="VAR">global Action</field>
+            <value name="VALUE">
+              <block type="text" id="IUze-ETs=*c}J^;h_B2X">
+                <field name="TEXT">delete</field>
+              </block>
+            </value>
+            <next>
+              <block type="component_method" id="t3aFy)wT:cPE^mOsUx(t">
+                <mutation component_type="Web" method_name="Delete" is_generic="false" instance_name="webComm"></mutation>
+                <field name="COMPONENT_SELECTOR">webComm</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="I,9{NV)6_bGR;1/+;p+w" x="-370" y="1230">
+    <mutation component_type="Web" is_generic="false" instance_name="webComm" event_name="GotText"></mutation>
+    <field name="COMPONENT_SELECTOR">webComm</field>
+    <statement name="DO">
+      <block type="controls_if" id="ko`c/(-4uLvV%s-^Uc0V">
+        <mutation else="1"></mutation>
+        <value name="IF0">
+          <block type="math_compare" id="Qq~9v]2|3CdAp+m2CE^%">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="lexical_variable_get" id="Ms*Y_,J%~J:GoPw[HfJ[">
+                <mutation>
+                  <eventparam name="responseCode"></eventparam>
+                </mutation>
+                <field name="VAR">responseCode</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="{I~Ou5TRq]%Xe)H?fS6E">
+                <field name="NUM">200</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="component_method" id="^0NlK{4X2]lQ]M3QjA`h">
+            <mutation component_type="Notifier" method_name="ShowAlert" is_generic="false" instance_name="infoNotifier"></mutation>
+            <field name="COMPONENT_SELECTOR">infoNotifier</field>
+            <value name="ARG0">
+              <block type="controls_choose" id=";+vDVFf+/re1mEst!cf:">
+                <value name="TEST">
+                  <block type="text_compare" id="nQ?h/8lY+K3;Ds9R.7.!">
+                    <field name="OP">EQUAL</field>
+                    <value name="TEXT1">
+                      <block type="lexical_variable_get" id="a6_kQR~CS8*u6k.YhHGp">
+                        <field name="VAR">global Action</field>
+                      </block>
+                    </value>
+                    <value name="TEXT2">
+                      <block type="text" id="VXf1t0taG#en2,xUT7q`">
+                        <field name="TEXT">schedule</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="THENRETURN">
+                  <block type="text" id="IE~XT{z9Q~EOy?=LBdy]">
+                    <field name="TEXT">Schedule saved</field>
+                  </block>
+                </value>
+                <value name="ELSERETURN">
+                  <block type="text" id="C=Sw-(M1Z4I;v.[,W(Lh">
+                    <field name="TEXT">Schedule deleted</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="controls_closeScreen" id="s9b*(qk|dM=eW*uSJlAm"></block>
+            </next>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="component_method" id="~HZ`5xkqK(jwoPi-f+0|">
+            <mutation component_type="Notifier" method_name="ShowMessageDialog" is_generic="false" instance_name="infoNotifier"></mutation>
+            <field name="COMPONENT_SELECTOR">infoNotifier</field>
+            <value name="ARG0">
+              <block type="text_join" id="T/v60gv+4x2;0(0a]CxK">
+                <mutation items="4"></mutation>
+                <value name="ADD0">
+                  <block type="text" id="@@Ua(r@7yt6EQJW-F)/M">
+                    <field name="TEXT">Webservice returned error: (</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="lexical_variable_get" id="uoZT,:{tmr/O/#LsO{1q">
+                    <mutation>
+                      <eventparam name="responseCode"></eventparam>
+                    </mutation>
+                    <field name="VAR">responseCode</field>
+                  </block>
+                </value>
+                <value name="ADD2">
+                  <block type="text" id="X~;Oa#HxJ3]ib|J:hu]#">
+                    <field name="TEXT">): </field>
+                  </block>
+                </value>
+                <value name="ADD3">
+                  <block type="lexical_variable_get" id="~w3S/Ok!FSYL/SC*.OGL">
+                    <mutation>
+                      <eventparam name="responseContent"></eventparam>
+                    </mutation>
+                    <field name="VAR">responseContent</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="ARG1">
+              <block type="text" id="m4q9L(qTm/Jif,0*CMvf">
+                <field name="TEXT">An error occured</field>
+              </block>
+            </value>
+            <value name="ARG2">
+              <block type="text" id="RLEL)@T;mRQWe5LvG-J0">
+                <field name="TEXT">Ok</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defreturn" id="#)/(0LmSdHPg2L#PK2RH" x="1554" y="2010">
+    <field name="NAME">CheckSchedule</field>
+    <value name="RETURN">
+      <block type="local_declaration_expression" id="s9oDnAerel!QxDvO1{CE">
+        <mutation>
+          <localname name="valid"></localname>
+        </mutation>
+        <field name="VAR0">valid</field>
+        <value name="DECL0">
+          <block type="logic_false" id="26VfMN^R^18xfpSU=FEE">
+            <field name="BOOL">FALSE</field>
+          </block>
+        </value>
+        <value name="RETURN">
+          <block type="controls_do_then_return" id="^kChW`QL7IHMCDucjBo1">
+            <statement name="STM">
+              <block type="controls_forEach" id="XRq+D$1X.a(Q5)x9_+fT">
+                <field name="VAR">chkDow</field>
+                <value name="LIST">
+                  <block type="lexical_variable_get" id="!W.uHok-^;1I@=VwjU0!">
+                    <field name="VAR">global chkDowList</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="controls_if" id="Q{N`;n$=~~NF:4f{h_1I">
+                    <value name="IF0">
+                      <block type="component_set_get" id="u9R3kK2fQPx|{F1j{bD)">
+                        <mutation component_type="CheckBox" set_or_get="get" property_name="Checked" is_generic="true"></mutation>
+                        <field name="PROP">Checked</field>
+                        <value name="COMPONENT">
+                          <block type="lexical_variable_get" id="oq7,7%qg/BE+o[W|*{I1">
+                            <field name="VAR">chkDow</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="lexical_variable_set" id=";Pt)puL|.bO|@HnwKGbS">
+                        <field name="VAR">valid</field>
+                        <value name="VALUE">
+                          <block type="logic_boolean" id="WxflR-9Hkk^N2Yxpv-v0">
+                            <field name="BOOL">TRUE</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="controls_break" id="7~F2RY?{F`[.w0A5O#~1"></block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+            <value name="VALUE">
+              <block type="lexical_variable_get" id="d9Nr(-^?TSDuogD-=TP)">
+                <field name="VAR">valid</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <yacodeblocks ya-version="227" language-version="32"></yacodeblocks>
+</xml>

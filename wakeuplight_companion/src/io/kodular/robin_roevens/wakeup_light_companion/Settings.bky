@@ -1,0 +1,113 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="component_event" id="d6qcv6Gb*2HFWellQFDu" x="110" y="190">
+    <mutation component_type="Form" is_generic="false" instance_name="Settings" event_name="Initialize"></mutation>
+    <field name="COMPONENT_SELECTOR">Settings</field>
+    <statement name="DO">
+      <block type="component_set_get" id=":$N#G8#)5?IqPCp,IGQD">
+        <mutation component_type="Form" set_or_get="set" property_name="ShowTitlebarBackButton" is_generic="false" instance_name="Settings"></mutation>
+        <field name="COMPONENT_SELECTOR">Settings</field>
+        <field name="PROP">ShowTitlebarBackButton</field>
+        <value name="VALUE">
+          <block type="logic_boolean" id="{^.Q^kL]H}Wkwv9eD,=V">
+            <field name="BOOL">TRUE</field>
+          </block>
+        </value>
+        <next>
+          <block type="component_set_get" id="0!0+wcq,BAYy|Es=_aPl">
+            <mutation component_type="TinyDB" set_or_get="set" property_name="Namespace" is_generic="false" instance_name="dbStorage"></mutation>
+            <field name="COMPONENT_SELECTOR">dbStorage</field>
+            <field name="PROP">Namespace</field>
+            <value name="VALUE">
+              <block type="text" id="!`D~Q59YUd+q,eqf)N;2">
+                <field name="TEXT">Settings</field>
+              </block>
+            </value>
+            <next>
+              <block type="component_set_get" id="qa3iCkgxVnaiU-X/is7Q">
+                <mutation component_type="TextBox" set_or_get="set" property_name="Text" is_generic="false" instance_name="txtSchedulerBaseUrl"></mutation>
+                <field name="COMPONENT_SELECTOR">txtSchedulerBaseUrl</field>
+                <field name="PROP">Text</field>
+                <value name="VALUE">
+                  <block type="component_method" id="t?~=4{-iVc6$3*^!1R^f">
+                    <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="dbStorage"></mutation>
+                    <field name="COMPONENT_SELECTOR">dbStorage</field>
+                    <value name="ARG0">
+                      <block type="text" id="jWBc|rexx{dus[8~%4L7">
+                        <field name="TEXT">SchedulerBaseURL</field>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="text" id="j($3dVfyXXX6+UKJ+kos">
+                        <field name="TEXT"></field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="QS5f_b~P~D94-/-#eg=N" x="110" y="370">
+    <mutation component_type="Form" is_generic="false" instance_name="Settings" event_name="ScreenOrientationChanged"></mutation>
+    <field name="COMPONENT_SELECTOR">Settings</field>
+    <statement name="DO">
+      <block type="component_set_get" id="PfbA.h,8%)XqE2|TaB=%">
+        <mutation component_type="Form" set_or_get="set" property_name="ShowTitlebarBackButton" is_generic="false" instance_name="Settings"></mutation>
+        <field name="COMPONENT_SELECTOR">Settings</field>
+        <field name="PROP">ShowTitlebarBackButton</field>
+        <value name="VALUE">
+          <block type="logic_boolean" id="?N7;R*pP2NirM5u/5YVQ">
+            <field name="BOOL">TRUE</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="r$pp?V9u6rx+C~MxPL{t" x="110" y="450">
+    <mutation component_type="Form" is_generic="false" instance_name="Settings" event_name="BackPressed"></mutation>
+    <field name="COMPONENT_SELECTOR">Settings</field>
+    <statement name="DO">
+      <block type="controls_closeScreen" id="RToT2()$`l`U[PO@dS9S"></block>
+    </statement>
+  </block>
+  <block type="component_event" id="ebPCsTi]Bv^[UOz*GCxY" x="110" y="530">
+    <mutation component_type="Form" is_generic="false" instance_name="Settings" event_name="TitlebarBackButtonClicked"></mutation>
+    <field name="COMPONENT_SELECTOR">Settings</field>
+    <statement name="DO">
+      <block type="component_method" id=")Ag=/]D^Yl#9~Dm9aU8k">
+        <mutation component_type="TinyDB" method_name="StoreValue" is_generic="false" instance_name="dbStorage"></mutation>
+        <field name="COMPONENT_SELECTOR">dbStorage</field>
+        <value name="ARG0">
+          <block type="text" id="FKe0r[@[4%0J!VY7`SNG">
+            <field name="TEXT">SchedulerBaseURL</field>
+          </block>
+        </value>
+        <value name="ARG1">
+          <block type="component_set_get" id="z*)y2ac-F?eS{UGPDgne">
+            <mutation component_type="TextBox" set_or_get="get" property_name="Text" is_generic="false" instance_name="txtSchedulerBaseUrl"></mutation>
+            <field name="COMPONENT_SELECTOR">txtSchedulerBaseUrl</field>
+            <field name="PROP">Text</field>
+          </block>
+        </value>
+        <next>
+          <block type="component_method" id="Ov$hq-)^w7emkL7NasI=">
+            <mutation component_type="Notifier" method_name="ShowAlert" is_generic="false" instance_name="infoNotifier"></mutation>
+            <field name="COMPONENT_SELECTOR">infoNotifier</field>
+            <value name="ARG0">
+              <block type="text" id="jt~XZ-_%NP.z.7QcF%`h">
+                <field name="TEXT">Settings saved</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_closeScreen" id="0QzK7m~pK{_L)CUf8[M]"></block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <yacodeblocks ya-version="227" language-version="32"></yacodeblocks>
+</xml>

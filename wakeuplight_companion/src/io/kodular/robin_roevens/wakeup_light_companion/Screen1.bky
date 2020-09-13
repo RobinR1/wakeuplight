@@ -1,0 +1,3466 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="component_event" id=".)*=2?Kh]M$n|9ov:KZ9" x="530" y="10">
+    <mutation component_type="Form" is_generic="false" instance_name="Screen1" event_name="Initialize"></mutation>
+    <field name="COMPONENT_SELECTOR">Screen1</field>
+    <statement name="DO">
+      <block type="procedures_callnoreturn" id="(~dS`;y#B0LAmM)UJbuC" inline="false">
+        <mutation name="InitializeLayoutElementLists"></mutation>
+        <field name="PROCNAME">InitializeLayoutElementLists</field>
+        <next>
+          <block type="procedures_callnoreturn" id="6!J6~[YPZc5.HIRRQJ/_" inline="false">
+            <mutation name="InitializeLayout"></mutation>
+            <field name="PROCNAME">InitializeLayout</field>
+            <next>
+              <block type="controls_if" id="IvYz;H6VItazIte|0JwH">
+                <mutation else="1"></mutation>
+                <value name="IF0">
+                  <block type="procedures_callreturn" id="G}w`[WN_=:PHX4j/;^0!">
+                    <mutation name="LoadSettings"></mutation>
+                    <field name="PROCNAME">LoadSettings</field>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="procedures_callnoreturn" id="ja%LnO-`KYX4b^WT^ERP">
+                    <mutation name="RefreshSchedule"></mutation>
+                    <field name="PROCNAME">RefreshSchedule</field>
+                  </block>
+                </statement>
+                <statement name="ELSE">
+                  <block type="component_method" id="*Ts~/TGR%=a0k4A@lh3O">
+                    <mutation component_type="Notifier" method_name="ShowAlert" is_generic="false" instance_name="infoNotifier"></mutation>
+                    <field name="COMPONENT_SELECTOR">infoNotifier</field>
+                    <value name="ARG0">
+                      <block type="text" id="n,VSz,QFcm-,Uud8W!`n">
+                        <field name="TEXT">Please set up application</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="procedures_callnoreturn" id=")+[A]pACUz7pA=y*Fr!c">
+                        <mutation name="OpenSettings"></mutation>
+                        <field name="PROCNAME">OpenSettings</field>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defreturn" id="^Nc]*kjLb*s2?Chv}/dI" x="1470" y="-10">
+    <field name="NAME">LoadSettings</field>
+    <value name="RETURN">
+      <block type="controls_do_then_return" id=")fz1?O]uA)gt:jlgJA;c">
+        <statement name="STM">
+          <block type="component_set_get" id="6I,W%Mk-$7H%{,^5X8PG">
+            <mutation component_type="TinyDB" set_or_get="set" property_name="Namespace" is_generic="false" instance_name="dbStorage"></mutation>
+            <field name="COMPONENT_SELECTOR">dbStorage</field>
+            <field name="PROP">Namespace</field>
+            <value name="VALUE">
+              <block type="text" id="nj]cn%w$%{]D(BfQoAoG">
+                <field name="TEXT">Settings</field>
+              </block>
+            </value>
+            <next>
+              <block type="lexical_variable_set" id="2!3cOx0o/T6R:aiTHBdD">
+                <field name="VAR">global SchedulerBaseURL</field>
+                <value name="VALUE">
+                  <block type="component_method" id="B/svZznH,AYoe^NU:Y@6">
+                    <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="dbStorage"></mutation>
+                    <field name="COMPONENT_SELECTOR">dbStorage</field>
+                    <value name="ARG0">
+                      <block type="text" id="2wV7k(^Y7b_Hd4iKon+v">
+                        <field name="TEXT">SchedulerBaseURL</field>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="text" id="7D:S,k}AB?g@)K2T/wii">
+                        <field name="TEXT"></field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="lexical_variable_set" id="jjLr^aM)|Q0+XNt-[1xq">
+                    <field name="VAR">global ListScheduleURL</field>
+                    <value name="VALUE">
+                      <block type="text_join" id="|#~OR*wGHm~ae2d2R_n@">
+                        <mutation items="2"></mutation>
+                        <value name="ADD0">
+                          <block type="text" id="+`(%lOW6^_IH]WmmWoN!">
+                            <field name="TEXT">/</field>
+                          </block>
+                        </value>
+                        <value name="ADD1">
+                          <block type="component_method" id="6]-.a2Okk)=)F?1BtjU)">
+                            <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="dbStorage"></mutation>
+                            <field name="COMPONENT_SELECTOR">dbStorage</field>
+                            <value name="ARG0">
+                              <block type="text" id=".|I(Zlvy[uBd6)F-I;wi">
+                                <field name="TEXT">ListScheduleEndpoint</field>
+                              </block>
+                            </value>
+                            <value name="ARG1">
+                              <block type="text" id="C|]$2c(uT5qWwm9V=YDr">
+                                <field name="TEXT">schedules</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="lexical_variable_set" id="cPs/a+w@;h4c3af;#j=_">
+                        <field name="VAR">global EditScheduleStateURL</field>
+                        <value name="VALUE">
+                          <block type="text_join" id="`SI6V05s(~bSv@#0)-9*">
+                            <mutation items="3"></mutation>
+                            <value name="ADD0">
+                              <block type="text" id="ufG%i-`;_8W(`-3c$S^^">
+                                <field name="TEXT">/</field>
+                              </block>
+                            </value>
+                            <value name="ADD1">
+                              <block type="component_method" id="BPoLyt|,Ge2HM*Ayt-3X">
+                                <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="dbStorage"></mutation>
+                                <field name="COMPONENT_SELECTOR">dbStorage</field>
+                                <value name="ARG0">
+                                  <block type="text" id="uxNYBa:BjdT%;vD^iG|D">
+                                    <field name="TEXT">EditScheduleStateEndpoint</field>
+                                  </block>
+                                </value>
+                                <value name="ARG1">
+                                  <block type="text" id="x2:B|w{q~g_93yS=8gxh">
+                                    <field name="TEXT">editschedulestate</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="ADD2">
+                              <block type="text" id="1%qls(Xqygk8Cc4OFOlg">
+                                <field name="TEXT">/</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="lexical_variable_set" id="@D;m/;2FJ;laE.Fd~AXf">
+                            <field name="VAR">global SetRgbURL</field>
+                            <value name="VALUE">
+                              <block type="text_join" id="c]meO4#l3{r9kkT+x(ly">
+                                <mutation items="2"></mutation>
+                                <value name="ADD0">
+                                  <block type="text" id="t[dPK]7Ej]m)qy]Xn{nH">
+                                    <field name="TEXT">/</field>
+                                  </block>
+                                </value>
+                                <value name="ADD1">
+                                  <block type="component_method" id="T]B2%WO^@o1e?A0R@n!Q">
+                                    <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="dbStorage"></mutation>
+                                    <field name="COMPONENT_SELECTOR">dbStorage</field>
+                                    <value name="ARG0">
+                                      <block type="text" id="K41]A;ieP:#M$4ozpwU8">
+                                        <field name="TEXT">EditScheduleStateEndpoint</field>
+                                      </block>
+                                    </value>
+                                    <value name="ARG1">
+                                      <block type="text" id="%S8`w1UJ:U%kEBcvBH[R">
+                                        <field name="TEXT">setRGB</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <value name="VALUE">
+          <block type="logic_negate" id="n8T_,8fy5vn?+]]0#a2,">
+            <value name="BOOL">
+              <block type="text_isEmpty" id="jh5V1~PN0DAnU1G;pHmR">
+                <value name="VALUE">
+                  <block type="lexical_variable_get" id="KEFopwyiw`f7z{p7nwS3">
+                    <field name="VAR">global SchedulerBaseURL</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="component_event" id="UUFwqo1zM[:xn|1@r5l9" x="530" y="270">
+    <mutation component_type="Form" is_generic="false" instance_name="Screen1" event_name="MenuInitialize"></mutation>
+    <field name="COMPONENT_SELECTOR">Screen1</field>
+    <statement name="DO">
+      <block type="component_method" id="Pboh6VSEzfe%:cGDg1[)">
+        <mutation component_type="Form" method_name="AddMenuItem" is_generic="false" instance_name="Screen1"></mutation>
+        <field name="COMPONENT_SELECTOR">Screen1</field>
+        <value name="ARG0">
+          <block type="lists_create_with" id="$jv?,e]A|1/B~saUz.en">
+            <mutation items="1"></mutation>
+            <value name="ADD0">
+              <block type="text" id="MD-#~q/kKyx9}01hJ+=Q">
+                <field name="TEXT">Settings</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="procedures_callnoreturn" id="u-7JgV2_tW|3^tr.krhX" inline="false">
+            <mutation name="InitializeAbout"></mutation>
+            <field name="PROCNAME">InitializeAbout</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="IMMB{]5|r|,fLlNY8fPI" x="530" y="410">
+    <mutation component_type="Form" is_generic="false" instance_name="Screen1" event_name="OtherScreenClosed"></mutation>
+    <field name="COMPONENT_SELECTOR">Screen1</field>
+    <statement name="DO">
+      <block type="controls_if" id="L`;;BFpmOmq-h4ecOty{">
+        <mutation else="1"></mutation>
+        <value name="IF0">
+          <block type="text_compare" id="vTeZC4S(o.%~TX$b-FNC">
+            <field name="OP">EQUAL</field>
+            <value name="TEXT1">
+              <block type="lexical_variable_get" id="%N,Doim?)%;w6HaIY9E]">
+                <mutation>
+                  <eventparam name="otherScreenName"></eventparam>
+                </mutation>
+                <field name="VAR">otherScreenName</field>
+              </block>
+            </value>
+            <value name="TEXT2">
+              <block type="text" id="rC$uc6vxbCJxC,E7S*DR">
+                <field name="TEXT">Settings</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="controls_if" id="o^(.2bJT=xA:JF}-{0Qd">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="procedures_callreturn" id="W2pMMU(|dYsegmu)wJBc">
+                <mutation name="LoadSettings"></mutation>
+                <field name="PROCNAME">LoadSettings</field>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="procedures_callnoreturn" id="x:tQ3XSWns^PRH0ML@CI">
+                <mutation name="RefreshSchedule"></mutation>
+                <field name="PROCNAME">RefreshSchedule</field>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="component_method" id="?2`z**v2;d).TI/Da~!H">
+                <mutation component_type="Notifier" method_name="ShowAlert" is_generic="false" instance_name="infoNotifier"></mutation>
+                <field name="COMPONENT_SELECTOR">infoNotifier</field>
+                <value name="ARG0">
+                  <block type="text" id="hqQ2B,N,P$?`tXm74N6u">
+                    <field name="TEXT">Error loading settings</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="procedures_callnoreturn" id="ObGSn5_/Tn*H+$*l|Wn{" inline="false">
+            <mutation name="RefreshSchedule"></mutation>
+            <field name="PROCNAME">RefreshSchedule</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="global_declaration" id="=rCI]Tx^lO:jkmi#_eyS" x="-150" y="470">
+    <field name="NAME">DEBUG</field>
+    <value name="VALUE">
+      <block type="logic_boolean" id="Bx3@7,),yFm!#wEg(#HA">
+        <field name="BOOL">FALSE</field>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id="cL-=NL|.Xq=hHKJ.E=Ec" x="-150" y="510">
+    <field name="NAME">SchedulerBaseURL</field>
+    <value name="VALUE">
+      <block type="text" id="Ukf*+r`aNRru!Sfims_5">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id="Xa.yMP0AG`_tPjPfgM3`" x="-150" y="550">
+    <field name="NAME">ListScheduleURL</field>
+    <value name="VALUE">
+      <block type="text" id="b=b?5;*In@]QXLCA@f3J">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id="Y5f8H@-+/FXYJ#3w7TsK" x="-150" y="590">
+    <field name="NAME">EditScheduleStateURL</field>
+    <value name="VALUE">
+      <block type="text" id="Powf1h#rYj@!r]Q--^q}">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defnoreturn" id="-jzv$(rqH5oMec?4nuFp" x="1470" y="530">
+    <field name="NAME">InitializeLayoutElementLists</field>
+    <statement name="STACK">
+      <block type="lists_add_items" id="DHhRS$1Oqz7Dbegxx`6A">
+        <mutation items="2"></mutation>
+        <value name="LIST">
+          <block type="lexical_variable_get" id="wXLd-/8kyMbKRP|3rV[O">
+            <field name="VAR">global avsContainerList</field>
+          </block>
+        </value>
+        <value name="ITEM0">
+          <block type="component_component_block" id="mbzdXcP1.7e[p7WNtoh]">
+            <mutation component_type="VerticalScrollArrangement" instance_name="avsSchedulerTabContainer"></mutation>
+            <field name="COMPONENT_SELECTOR">avsSchedulerTabContainer</field>
+          </block>
+        </value>
+        <value name="ITEM1">
+          <block type="component_component_block" id="A.hQ9+eLJkL/rvLy,Zlo">
+            <mutation component_type="VerticalScrollArrangement" instance_name="avsActionsTabContent"></mutation>
+            <field name="COMPONENT_SELECTOR">avsActionsTabContent</field>
+          </block>
+        </value>
+        <next>
+          <block type="lists_add_items" id="(6?ywd$J%yZ#+,U=pvM4">
+            <mutation items="10"></mutation>
+            <value name="LIST">
+              <block type="lexical_variable_get" id="z#f_`Se5bJg#duf-L7-S">
+                <field name="VAR">global avScheduleList</field>
+              </block>
+            </value>
+            <value name="ITEM0">
+              <block type="component_component_block" id="~npo%nmv[E6f5S?.cGYR">
+                <mutation component_type="VerticalArrangement" instance_name="avSchedule1"></mutation>
+                <field name="COMPONENT_SELECTOR">avSchedule1</field>
+              </block>
+            </value>
+            <value name="ITEM1">
+              <block type="component_component_block" id="n(ZR32E;z1*AZdqz#?HJ">
+                <mutation component_type="VerticalArrangement" instance_name="avSchedule2"></mutation>
+                <field name="COMPONENT_SELECTOR">avSchedule2</field>
+              </block>
+            </value>
+            <value name="ITEM2">
+              <block type="component_component_block" id="l_V$C(=.#zl(_@d6cO6R">
+                <mutation component_type="VerticalArrangement" instance_name="avSchedule3"></mutation>
+                <field name="COMPONENT_SELECTOR">avSchedule3</field>
+              </block>
+            </value>
+            <value name="ITEM3">
+              <block type="component_component_block" id="0mIg@*t;w]-JiH/iDca2">
+                <mutation component_type="VerticalArrangement" instance_name="avSchedule4"></mutation>
+                <field name="COMPONENT_SELECTOR">avSchedule4</field>
+              </block>
+            </value>
+            <value name="ITEM4">
+              <block type="component_component_block" id="Teeg%Kd!ZWZ!g00]Oc/p">
+                <mutation component_type="VerticalArrangement" instance_name="avSchedule5"></mutation>
+                <field name="COMPONENT_SELECTOR">avSchedule5</field>
+              </block>
+            </value>
+            <value name="ITEM5">
+              <block type="component_component_block" id="b@[#FV+p#pS.Ym,g2yMl">
+                <mutation component_type="VerticalArrangement" instance_name="avSchedule6"></mutation>
+                <field name="COMPONENT_SELECTOR">avSchedule6</field>
+              </block>
+            </value>
+            <value name="ITEM6">
+              <block type="component_component_block" id="cP}Or|8teO]^OfI)4uQ:">
+                <mutation component_type="VerticalArrangement" instance_name="avSchedule7"></mutation>
+                <field name="COMPONENT_SELECTOR">avSchedule7</field>
+              </block>
+            </value>
+            <value name="ITEM7">
+              <block type="component_component_block" id="~6$b0gBrYc1~H6T$.;%D">
+                <mutation component_type="VerticalArrangement" instance_name="avSchedule8"></mutation>
+                <field name="COMPONENT_SELECTOR">avSchedule8</field>
+              </block>
+            </value>
+            <value name="ITEM8">
+              <block type="component_component_block" id="{i|0*.,L|KBV$f7i8_~m">
+                <mutation component_type="VerticalArrangement" instance_name="avSchedule9"></mutation>
+                <field name="COMPONENT_SELECTOR">avSchedule9</field>
+              </block>
+            </value>
+            <value name="ITEM9">
+              <block type="component_component_block" id="EJQtfExJ4@m9sGt:M!R`">
+                <mutation component_type="VerticalArrangement" instance_name="avSchedule10"></mutation>
+                <field name="COMPONENT_SELECTOR">avSchedule10</field>
+              </block>
+            </value>
+            <next>
+              <block type="lists_add_items" id="CJ4Vf0lU?)kBfD*(tkB_">
+                <mutation items="10"></mutation>
+                <value name="LIST">
+                  <block type="lexical_variable_get" id="y9f%JXYyqZ_{**iggDJ+">
+                    <field name="VAR">global lblTimeList</field>
+                  </block>
+                </value>
+                <value name="ITEM0">
+                  <block type="component_component_block" id="SYY;r}/{0I/Ds2*dQTy]">
+                    <mutation component_type="Label" instance_name="lblTime1"></mutation>
+                    <field name="COMPONENT_SELECTOR">lblTime1</field>
+                  </block>
+                </value>
+                <value name="ITEM1">
+                  <block type="component_component_block" id="/aW7GPchBH_bU/Jq{y^L">
+                    <mutation component_type="Label" instance_name="lblTime2"></mutation>
+                    <field name="COMPONENT_SELECTOR">lblTime2</field>
+                  </block>
+                </value>
+                <value name="ITEM2">
+                  <block type="component_component_block" id="|.SwTFZ(dE39v0m7Rfqe">
+                    <mutation component_type="Label" instance_name="lblTime3"></mutation>
+                    <field name="COMPONENT_SELECTOR">lblTime3</field>
+                  </block>
+                </value>
+                <value name="ITEM3">
+                  <block type="component_component_block" id="v)XKlCCWn^6xe!*}`:XG">
+                    <mutation component_type="Label" instance_name="lblTime4"></mutation>
+                    <field name="COMPONENT_SELECTOR">lblTime4</field>
+                  </block>
+                </value>
+                <value name="ITEM4">
+                  <block type="component_component_block" id="Imnw79*~|yHZzIo/9=Ap">
+                    <mutation component_type="Label" instance_name="lblTime5"></mutation>
+                    <field name="COMPONENT_SELECTOR">lblTime5</field>
+                  </block>
+                </value>
+                <value name="ITEM5">
+                  <block type="component_component_block" id="yvS_#1N0j,?q,[EX8;;!">
+                    <mutation component_type="Label" instance_name="lblTime6"></mutation>
+                    <field name="COMPONENT_SELECTOR">lblTime6</field>
+                  </block>
+                </value>
+                <value name="ITEM6">
+                  <block type="component_component_block" id="%R|96uWN4kB;k-qnDzY=">
+                    <mutation component_type="Label" instance_name="lblTime7"></mutation>
+                    <field name="COMPONENT_SELECTOR">lblTime7</field>
+                  </block>
+                </value>
+                <value name="ITEM7">
+                  <block type="component_component_block" id="m;XLdf07y;4BBG-c#~kj">
+                    <mutation component_type="Label" instance_name="lblTime8"></mutation>
+                    <field name="COMPONENT_SELECTOR">lblTime8</field>
+                  </block>
+                </value>
+                <value name="ITEM8">
+                  <block type="component_component_block" id="L6=Im#8:}Njd35J4/gj2">
+                    <mutation component_type="Label" instance_name="lblTime9"></mutation>
+                    <field name="COMPONENT_SELECTOR">lblTime9</field>
+                  </block>
+                </value>
+                <value name="ITEM9">
+                  <block type="component_component_block" id="(1@`x`l+Zq`-IoNEhjTe">
+                    <mutation component_type="Label" instance_name="lblTime10"></mutation>
+                    <field name="COMPONENT_SELECTOR">lblTime10</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="lists_add_items" id="b8=~b7yQrb}Ce%9T:Z%5">
+                    <mutation items="10"></mutation>
+                    <value name="LIST">
+                      <block type="lexical_variable_get" id="e-^n(1r=Sk_0KE^XGw3W">
+                        <field name="VAR">global lblDescrList</field>
+                      </block>
+                    </value>
+                    <value name="ITEM0">
+                      <block type="component_component_block" id="!1;O=*:]fMQp%-B;J.%8">
+                        <mutation component_type="Label" instance_name="lblDescr1"></mutation>
+                        <field name="COMPONENT_SELECTOR">lblDescr1</field>
+                      </block>
+                    </value>
+                    <value name="ITEM1">
+                      <block type="component_component_block" id="SDH)j`yI7NkwB`m|lT0f">
+                        <mutation component_type="Label" instance_name="lblDescr2"></mutation>
+                        <field name="COMPONENT_SELECTOR">lblDescr2</field>
+                      </block>
+                    </value>
+                    <value name="ITEM2">
+                      <block type="component_component_block" id="{Y}5KO?m_4Fs75KwD1r2">
+                        <mutation component_type="Label" instance_name="lblDescr3"></mutation>
+                        <field name="COMPONENT_SELECTOR">lblDescr3</field>
+                      </block>
+                    </value>
+                    <value name="ITEM3">
+                      <block type="component_component_block" id="nMJzQ{q*#=)-o;:%nq=w">
+                        <mutation component_type="Label" instance_name="lblDescr4"></mutation>
+                        <field name="COMPONENT_SELECTOR">lblDescr4</field>
+                      </block>
+                    </value>
+                    <value name="ITEM4">
+                      <block type="component_component_block" id="{}-xS}e;s54KR)KX{Q^T">
+                        <mutation component_type="Label" instance_name="lblDescr5"></mutation>
+                        <field name="COMPONENT_SELECTOR">lblDescr5</field>
+                      </block>
+                    </value>
+                    <value name="ITEM5">
+                      <block type="component_component_block" id="bgf9;PP..%bxg(tSEP,y">
+                        <mutation component_type="Label" instance_name="lblDescr6"></mutation>
+                        <field name="COMPONENT_SELECTOR">lblDescr6</field>
+                      </block>
+                    </value>
+                    <value name="ITEM6">
+                      <block type="component_component_block" id="A9bBaXPEb5yyzE?P@i*J">
+                        <mutation component_type="Label" instance_name="lblDescr7"></mutation>
+                        <field name="COMPONENT_SELECTOR">lblDescr7</field>
+                      </block>
+                    </value>
+                    <value name="ITEM7">
+                      <block type="component_component_block" id="R~#D)Fyoy0-2i`9m/l-H">
+                        <mutation component_type="Label" instance_name="lblDescr8"></mutation>
+                        <field name="COMPONENT_SELECTOR">lblDescr8</field>
+                      </block>
+                    </value>
+                    <value name="ITEM8">
+                      <block type="component_component_block" id="Khg);XROrhu)!C*;=S(2">
+                        <mutation component_type="Label" instance_name="lblDescr9"></mutation>
+                        <field name="COMPONENT_SELECTOR">lblDescr9</field>
+                      </block>
+                    </value>
+                    <value name="ITEM9">
+                      <block type="component_component_block" id="2m2#NU-G;lj|]MIVl`.m">
+                        <mutation component_type="Label" instance_name="lblDescr10"></mutation>
+                        <field name="COMPONENT_SELECTOR">lblDescr10</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="lists_add_items" id="z4wj)uP3RYU3/n99Ojw|">
+                        <mutation items="10"></mutation>
+                        <value name="LIST">
+                          <block type="lexical_variable_get" id="bKHs?|_-DP,f?%@:So*?">
+                            <field name="VAR">global swEnabledList</field>
+                          </block>
+                        </value>
+                        <value name="ITEM0">
+                          <block type="component_component_block" id="Qcwd-h}I8*/e_~{=SdCr">
+                            <mutation component_type="SwitchToggle" instance_name="swEnabled1"></mutation>
+                            <field name="COMPONENT_SELECTOR">swEnabled1</field>
+                          </block>
+                        </value>
+                        <value name="ITEM1">
+                          <block type="component_component_block" id="cM)W|mIuD@f@}dF!Y#vA">
+                            <mutation component_type="SwitchToggle" instance_name="swEnabled2"></mutation>
+                            <field name="COMPONENT_SELECTOR">swEnabled2</field>
+                          </block>
+                        </value>
+                        <value name="ITEM2">
+                          <block type="component_component_block" id="LQU$-^C7vdS=E5^0kMBm">
+                            <mutation component_type="SwitchToggle" instance_name="swEnabled3"></mutation>
+                            <field name="COMPONENT_SELECTOR">swEnabled3</field>
+                          </block>
+                        </value>
+                        <value name="ITEM3">
+                          <block type="component_component_block" id="V8LU1Oh~Kzw|gav.TLVI">
+                            <mutation component_type="SwitchToggle" instance_name="swEnabled4"></mutation>
+                            <field name="COMPONENT_SELECTOR">swEnabled4</field>
+                          </block>
+                        </value>
+                        <value name="ITEM4">
+                          <block type="component_component_block" id="{0;BOeAcleF{]u]wsaf(">
+                            <mutation component_type="SwitchToggle" instance_name="swEnabled5"></mutation>
+                            <field name="COMPONENT_SELECTOR">swEnabled5</field>
+                          </block>
+                        </value>
+                        <value name="ITEM5">
+                          <block type="component_component_block" id="-$?C%8Ay~[um9~l6V:^i">
+                            <mutation component_type="SwitchToggle" instance_name="swEnabled6"></mutation>
+                            <field name="COMPONENT_SELECTOR">swEnabled6</field>
+                          </block>
+                        </value>
+                        <value name="ITEM6">
+                          <block type="component_component_block" id="]D^,1`E`ZP(MgQ/!_~bS">
+                            <mutation component_type="SwitchToggle" instance_name="swEnabled7"></mutation>
+                            <field name="COMPONENT_SELECTOR">swEnabled7</field>
+                          </block>
+                        </value>
+                        <value name="ITEM7">
+                          <block type="component_component_block" id="I^U~ATIygBV,yQ+K72t8">
+                            <mutation component_type="SwitchToggle" instance_name="swEnabled8"></mutation>
+                            <field name="COMPONENT_SELECTOR">swEnabled8</field>
+                          </block>
+                        </value>
+                        <value name="ITEM8">
+                          <block type="component_component_block" id="1*QQ!LqKB9x^b9{_H=QZ">
+                            <mutation component_type="SwitchToggle" instance_name="swEnabled9"></mutation>
+                            <field name="COMPONENT_SELECTOR">swEnabled9</field>
+                          </block>
+                        </value>
+                        <value name="ITEM9">
+                          <block type="component_component_block" id="zGqo6x.?Z`4=s;9eEqPd">
+                            <mutation component_type="SwitchToggle" instance_name="swEnabled10"></mutation>
+                            <field name="COMPONENT_SELECTOR">swEnabled10</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="global_declaration" id="1/:.rlEq.[M?~AsA+}g," x="-150" y="630">
+    <field name="NAME">SetRgbURL</field>
+    <value name="VALUE">
+      <block type="text" id="]7%i8KR/i;pL@E+3Ilf-">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id="H]%V*|P6/;OJtY?KNZ@;" x="-150" y="670">
+    <field name="NAME">ScheduleList</field>
+    <value name="VALUE">
+      <block type="lists_create_with" id="eP~F?kEy4D@n?[C980bJ">
+        <mutation items="0"></mutation>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id="Gc.j+T7cMPu^?VQ4jrO0" x="-150" y="710">
+    <field name="NAME">DowList</field>
+    <value name="VALUE">
+      <block type="lists_create_with" id="00HC*e]N+rTZ}[wKk2,`">
+        <mutation items="7"></mutation>
+        <value name="ADD0">
+          <block type="text" id="ShG.Cao)2E5n=h8.L/2i">
+            <field name="TEXT">sun</field>
+          </block>
+        </value>
+        <value name="ADD1">
+          <block type="text" id="h;R){FD@;8*~~/u714m#">
+            <field name="TEXT">mon</field>
+          </block>
+        </value>
+        <value name="ADD2">
+          <block type="text" id="MLF8gqQb[Or:$popTDTi">
+            <field name="TEXT">tue</field>
+          </block>
+        </value>
+        <value name="ADD3">
+          <block type="text" id="D{1n9tsYq9mI01aGKn=J">
+            <field name="TEXT">wed</field>
+          </block>
+        </value>
+        <value name="ADD4">
+          <block type="text" id="Z747DH{|Oa/Yc[Vxe9GR">
+            <field name="TEXT">thu</field>
+          </block>
+        </value>
+        <value name="ADD5">
+          <block type="text" id="vD}2CVYKy-^4=Sp{;uAX">
+            <field name="TEXT">fri</field>
+          </block>
+        </value>
+        <value name="ADD6">
+          <block type="text" id="4AB}CBkXevxm*Vcw/^fp">
+            <field name="TEXT">sat</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defnoreturn" id="{pM7V=kS;PhgqJ9gH,=!" x="3290" y="550">
+    <field name="NAME">ReadSchedule</field>
+    <statement name="STACK">
+      <block type="component_set_get" id="9oXkNG6Ee^W$?jtM,omV">
+        <mutation component_type="Web" set_or_get="set" property_name="Url" is_generic="false" instance_name="webSchedule"></mutation>
+        <field name="COMPONENT_SELECTOR">webSchedule</field>
+        <field name="PROP">Url</field>
+        <value name="VALUE">
+          <block type="text_join" id="__Dm([Yd~{CO=Zp[MML}">
+            <mutation items="2"></mutation>
+            <value name="ADD0">
+              <block type="lexical_variable_get" id="uO|{|9P4`d}1I^W-IS7#">
+                <field name="VAR">global SchedulerBaseURL</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="lexical_variable_get" id="M1){qGP`yj7$BCh0q!:j">
+                <field name="VAR">global ListScheduleURL</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="component_method" id="ss,oQ)ZYQ4!n{MO8=B{o">
+            <mutation component_type="Web" method_name="Get" is_generic="false" instance_name="webSchedule"></mutation>
+            <field name="COMPONENT_SELECTOR">webSchedule</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="PGTyxKu%[m19c)DOyO`t" x="530" y="710">
+    <mutation component_type="MakeroidSwipeRefreshLayout" is_generic="false" instance_name="swpSchedulesRefresh" event_name="OnRefresh"></mutation>
+    <field name="COMPONENT_SELECTOR">swpSchedulesRefresh</field>
+    <statement name="DO">
+      <block type="procedures_callnoreturn" id="3sa}bB/Y(1qDV0ExuC|i">
+        <mutation name="RefreshSchedule"></mutation>
+        <field name="PROCNAME">RefreshSchedule</field>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="^2ku*Z*-aJ(J+42?j+}2" x="890" y="710">
+    <mutation component_type="Form" is_generic="false" instance_name="Screen1" event_name="OnAppResume"></mutation>
+    <field name="COMPONENT_SELECTOR">Screen1</field>
+    <statement name="DO">
+      <block type="procedures_callnoreturn" id="UyO5PjDD*=jeg-4CCCW4" inline="false">
+        <mutation name="RefreshSchedule"></mutation>
+        <field name="PROCNAME">RefreshSchedule</field>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="kB/ebdSBkJAtyK[y*3Ht" x="4230" y="550">
+    <mutation>
+      <arg name="num"></arg>
+      <arg name="state"></arg>
+    </mutation>
+    <field name="NAME">ChangeScheduleState</field>
+    <field name="VAR0">num</field>
+    <field name="VAR1">state</field>
+    <statement name="STACK">
+      <block type="component_set_get" id="Ah@_mJ!.h[D[P++^y=Q1">
+        <mutation component_type="Web" set_or_get="set" property_name="Url" is_generic="false" instance_name="webEditScheduleState"></mutation>
+        <field name="COMPONENT_SELECTOR">webEditScheduleState</field>
+        <field name="PROP">Url</field>
+        <value name="VALUE">
+          <block type="text_join" id="k*lH#F,pvg=8O{4UE#,p">
+            <mutation items="3"></mutation>
+            <value name="ADD0">
+              <block type="lexical_variable_get" id="-4G3qBT/n/YV8^u6/!3R">
+                <field name="VAR">global SchedulerBaseURL</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="lexical_variable_get" id="?u5U|MH~6ZAEdt4tQQ]W">
+                <field name="VAR">global EditScheduleStateURL</field>
+              </block>
+            </value>
+            <value name="ADD2">
+              <block type="lexical_variable_get" id=",b-mwZB3B7u,3nrq!zyF">
+                <field name="VAR">num</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="component_set_get" id="LvmH#KCCXJn#UkRXL@`k">
+            <mutation component_type="Web" set_or_get="set" property_name="RequestHeaders" is_generic="false" instance_name="webEditScheduleState"></mutation>
+            <field name="COMPONENT_SELECTOR">webEditScheduleState</field>
+            <field name="PROP">RequestHeaders</field>
+            <value name="VALUE">
+              <block type="lists_create_with" id="$WfacKrRr8B0Qfn3vvn}">
+                <mutation items="1"></mutation>
+                <value name="ADD0">
+                  <block type="lists_create_with" id="%sT@FR$2,t--y,mscFlM">
+                    <mutation items="2"></mutation>
+                    <value name="ADD0">
+                      <block type="text" id="]!/o~%!;:573g-a/S5fj">
+                        <field name="TEXT">Content-Type</field>
+                      </block>
+                    </value>
+                    <value name="ADD1">
+                      <block type="text" id="i;+(ST^qL_Gt`SbHJOMJ">
+                        <field name="TEXT">application/json</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="local_declaration_statement" id="0%jJbA=x]9{_J9B*|kL/">
+                <mutation>
+                  <localname name="ScheduleJSON"></localname>
+                </mutation>
+                <field name="VAR0">ScheduleJSON</field>
+                <value name="DECL0">
+                  <block type="text" id="I/p5611IU:fn-/,*RwzT">
+                    <field name="TEXT">{}</field>
+                  </block>
+                </value>
+                <statement name="STACK">
+                  <block type="lexical_variable_set" id=".]v$Pq)xm:s,jf[H}B.*">
+                    <field name="VAR">ScheduleJSON</field>
+                    <value name="VALUE">
+                      <block type="component_method" id="s+ecy{@YY0?H4w45N9$]">
+                        <mutation component_type="KodularJSON" method_name="AddBooleanToJSONObject" is_generic="false" instance_name="JSON"></mutation>
+                        <field name="COMPONENT_SELECTOR">JSON</field>
+                        <value name="ARG0">
+                          <block type="lexical_variable_get" id="O:[%y3L`UvJi[!OPTg7.">
+                            <field name="VAR">ScheduleJSON</field>
+                          </block>
+                        </value>
+                        <value name="ARG1">
+                          <block type="lexical_variable_get" id="xL}sV67ufQt8)aGpfR|Q">
+                            <field name="VAR">state</field>
+                          </block>
+                        </value>
+                        <value name="ARG2">
+                          <block type="text" id="zsAD)-?+9}R,te0/1E?V">
+                            <field name="TEXT">enabled</field>
+                          </block>
+                        </value>
+                        <value name="ARG3">
+                          <block type="text" id="e?MO?W]m)}T2;_m7p]t|">
+                            <field name="TEXT">{}</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="component_set_get" id="T?TQzwT;hgGGhc!c^+A*">
+                        <mutation component_type="TextBox" set_or_get="set" property_name="Text" is_generic="false" instance_name="Text_Box1"></mutation>
+                        <field name="COMPONENT_SELECTOR">Text_Box1</field>
+                        <field name="PROP">Text</field>
+                        <value name="VALUE">
+                          <block type="lexical_variable_get" id="Q*Ab6/]9f5Y4?hMQOV3q">
+                            <field name="VAR">ScheduleJSON</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="component_method" id="+wV~;7{IjgU6OLkLM-Rv">
+                            <mutation component_type="Web" method_name="PutText" is_generic="false" instance_name="webEditScheduleState"></mutation>
+                            <field name="COMPONENT_SELECTOR">webEditScheduleState</field>
+                            <value name="ARG0">
+                              <block type="lexical_variable_get" id="Pe#{QJ#bD#N9qLg.VI,U">
+                                <field name="VAR">ScheduleJSON</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="z6A.{DQ0(n29}U@rZ:$U" x="530" y="790">
+    <mutation component_type="Form" is_generic="false" instance_name="Screen1" event_name="MenuItemSelected"></mutation>
+    <field name="COMPONENT_SELECTOR">Screen1</field>
+    <statement name="DO">
+      <block type="controls_if" id="o/:!0J@-:-y+D;Eq@$@l">
+        <value name="IF0">
+          <block type="text_compare" id="G/6]gz$+z?,`LaK%eb_=">
+            <field name="OP">EQUAL</field>
+            <value name="TEXT1">
+              <block type="lexical_variable_get" id="Iv|_tB-3AJcI7qPx_Auf">
+                <mutation>
+                  <eventparam name="menuItem"></eventparam>
+                </mutation>
+                <field name="VAR">menuItem</field>
+              </block>
+            </value>
+            <value name="TEXT2">
+              <block type="text" id="zd{6Mb!X({Gs-eQ/yB7`">
+                <field name="TEXT">Settings</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="procedures_callnoreturn" id="p4gocyAZmvj~/+p83.u;">
+            <mutation name="OpenSettings"></mutation>
+            <field name="PROCNAME">OpenSettings</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defreturn" id="j:nu{cupdZ!dhpm{m1@+" x="3290" y="690">
+    <mutation>
+      <arg name="num"></arg>
+    </mutation>
+    <field name="NAME">ParseScheduleTime</field>
+    <field name="VAR0">num</field>
+    <value name="RETURN">
+      <block type="local_declaration_expression" id=")(LCR$b+4c}J|sZ{gU%%">
+        <mutation>
+          <localname name="schedule"></localname>
+        </mutation>
+        <field name="VAR0">schedule</field>
+        <value name="DECL0">
+          <block type="lists_select_item" id="wUDNfvS;_cnU?H*8^sRJ">
+            <value name="LIST">
+              <block type="lexical_variable_get" id="p5n5lC!ST/fS+uZeDw2X">
+                <field name="VAR">global ScheduleList</field>
+              </block>
+            </value>
+            <value name="NUM">
+              <block type="lexical_variable_get" id="Cgps=*2ax`38~KtXEOMr">
+                <field name="VAR">num</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="RETURN">
+          <block type="local_declaration_expression" id="|zVfR,,oj2%g{^K$0,8O">
+            <mutation>
+              <localname name="OnTime"></localname>
+              <localname name="OffTime"></localname>
+            </mutation>
+            <field name="VAR0">OnTime</field>
+            <field name="VAR1">OffTime</field>
+            <value name="DECL0">
+              <block type="lists_lookup_in_pairs" id="=V|hzq+Vp]|DRc,[%U~-">
+                <value name="KEY">
+                  <block type="text" id="rK]({C6xb!/j|dE,AQ$r">
+                    <field name="TEXT">ontime</field>
+                  </block>
+                </value>
+                <value name="LIST">
+                  <block type="lexical_variable_get" id="/.-e(E}TjTZtBo,Oq|:D">
+                    <field name="VAR">schedule</field>
+                  </block>
+                </value>
+                <value name="NOTFOUND">
+                  <block type="lists_create_with" id="f5R|7`C]Z?eek:OScs#E">
+                    <mutation items="0"></mutation>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="DECL1">
+              <block type="lists_lookup_in_pairs" id="Z`%=5D.2*|:?LI39v!HP">
+                <value name="KEY">
+                  <block type="text" id="3a]j:1yrREH1YXX`PD?{">
+                    <field name="TEXT">offtime</field>
+                  </block>
+                </value>
+                <value name="LIST">
+                  <block type="lexical_variable_get" id="oH}wSc2^eIoxsU@4+ZbL">
+                    <field name="VAR">schedule</field>
+                  </block>
+                </value>
+                <value name="NOTFOUND">
+                  <block type="lists_create_with" id="v%VD{md3;?4[EDvnVDdY">
+                    <mutation items="0"></mutation>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="RETURN">
+              <block type="text_join" id="0it1F^F25x~aexJ2{:8X">
+                <mutation items="4"></mutation>
+                <value name="ADD0">
+                  <block type="procedures_callreturn" id="EKYn9VD7(FtC@ejHlkfR">
+                    <mutation name="twodigit">
+                      <arg name="num"></arg>
+                    </mutation>
+                    <field name="PROCNAME">twodigit</field>
+                    <value name="ARG0">
+                      <block type="lists_lookup_in_pairs" id=":DNLZrEk;H5=%sJ}Y`ab">
+                        <value name="KEY">
+                          <block type="text" id="#KS$X2#b~skc~:UZ^vu`">
+                            <field name="TEXT">hour</field>
+                          </block>
+                        </value>
+                        <value name="LIST">
+                          <block type="lexical_variable_get" id=";y:Q(aI0;m^X=uVHS{Wi">
+                            <field name="VAR">OnTime</field>
+                          </block>
+                        </value>
+                        <value name="NOTFOUND">
+                          <block type="text" id="AT[SMkDh|@[!D?TLh))u">
+                            <field name="TEXT">??</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="text" id="HYe:$2m0yIwj]r|+HW1z">
+                    <field name="TEXT">:</field>
+                  </block>
+                </value>
+                <value name="ADD2">
+                  <block type="procedures_callreturn" id="|,kjgnf_o9Ro;AZmOx|}">
+                    <mutation name="twodigit">
+                      <arg name="num"></arg>
+                    </mutation>
+                    <field name="PROCNAME">twodigit</field>
+                    <value name="ARG0">
+                      <block type="lists_lookup_in_pairs" id="jgE`1)=UPQEc-]b|E_kJ">
+                        <value name="KEY">
+                          <block type="text" id="]TM(2s|EL!KY^q`Ai5o(">
+                            <field name="TEXT">minute</field>
+                          </block>
+                        </value>
+                        <value name="LIST">
+                          <block type="lexical_variable_get" id="f}Megif~HWAT+Kr$@PRT">
+                            <field name="VAR">OnTime</field>
+                          </block>
+                        </value>
+                        <value name="NOTFOUND">
+                          <block type="text" id="`HFdPP:3?@.](yMDw2qm">
+                            <field name="TEXT">??</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="ADD3">
+                  <block type="controls_choose" id="N44aH$?NwD~cy7buEs{+">
+                    <value name="TEST">
+                      <block type="logic_compare" id="J[jFsOspDT~S~#j-#^h6">
+                        <field name="OP">NEQ</field>
+                        <value name="A">
+                          <block type="lexical_variable_get" id="sqL]ldkZ1wF[m.4h||C5">
+                            <field name="VAR">OffTime</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="lists_create_with" id="c)DcImeh308-hJ9GlI@.">
+                            <mutation items="0"></mutation>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="THENRETURN">
+                      <block type="text_join" id="**mh^QG+:*D2a3`5bb]v">
+                        <mutation items="4"></mutation>
+                        <value name="ADD0">
+                          <block type="text" id="}I]XP:NJvWw$IjU;uRO*">
+                            <field name="TEXT">-</field>
+                          </block>
+                        </value>
+                        <value name="ADD1">
+                          <block type="procedures_callreturn" id="a6B-}1ZV@n{$A{+Z8wc5">
+                            <mutation name="twodigit">
+                              <arg name="num"></arg>
+                            </mutation>
+                            <field name="PROCNAME">twodigit</field>
+                            <value name="ARG0">
+                              <block type="lists_lookup_in_pairs" id="G!r2]N*-/wK5=R,Mb*bk">
+                                <value name="KEY">
+                                  <block type="text" id="xB]|-~_1K{[o)Wk5)$Ni">
+                                    <field name="TEXT">hour</field>
+                                  </block>
+                                </value>
+                                <value name="LIST">
+                                  <block type="lexical_variable_get" id="V.FN]42H!/G~N-s73vOS">
+                                    <field name="VAR">OffTime</field>
+                                  </block>
+                                </value>
+                                <value name="NOTFOUND">
+                                  <block type="text" id="9-r5]JfbLV18iEh|@azS">
+                                    <field name="TEXT">??</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="ADD2">
+                          <block type="text" id="50C8@[iXf7BQA*3TjxAz">
+                            <field name="TEXT">:</field>
+                          </block>
+                        </value>
+                        <value name="ADD3">
+                          <block type="procedures_callreturn" id="QpKN%IdZ:!Lu:):L[`%!">
+                            <mutation name="twodigit">
+                              <arg name="num"></arg>
+                            </mutation>
+                            <field name="PROCNAME">twodigit</field>
+                            <value name="ARG0">
+                              <block type="lists_lookup_in_pairs" id="))1dSZ:Mc7LIK,$q3@}+">
+                                <value name="KEY">
+                                  <block type="text" id="nyV]zhlf{$gK_yCIL=lU">
+                                    <field name="TEXT">minute</field>
+                                  </block>
+                                </value>
+                                <value name="LIST">
+                                  <block type="lexical_variable_get" id="d`UPm1SJl=|Yc]9!o!wL">
+                                    <field name="VAR">OffTime</field>
+                                  </block>
+                                </value>
+                                <value name="NOTFOUND">
+                                  <block type="text" id="ih+0[tEuC$u?]R!e*j!G">
+                                    <field name="TEXT">??</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="ELSERETURN">
+                      <block type="text" id="7D/pBuSJ+cqtBBk=Ts#A">
+                        <field name="TEXT"></field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id=",@UZ60{[*PmVvY,9E}xK" x="-150" y="910">
+    <field name="NAME">SchedulerTextColor</field>
+    <value name="VALUE">
+      <block type="color_make_color" id="7)!6Z)=Q#YsX|,a;l$P~">
+        <value name="COLORLIST">
+          <block type="lists_create_with" id="HxnD($nP]$e;2W``:(C~" inline="false">
+            <mutation items="3"></mutation>
+            <value name="ADD0">
+              <block type="math_number" id="}VVYBfBh*2:wAn+6|7sU">
+                <field name="NUM">206</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="math_number" id="?T5IMSz6Ykv:T_hJ]O4B">
+                <field name="NUM">206</field>
+              </block>
+            </value>
+            <value name="ADD2">
+              <block type="math_number" id="C==Lk=11]PaCg0TanG74">
+                <field name="NUM">206</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="component_event" id="lDFNI2?SD/Y)I}9#2H}|" x="530" y="950">
+    <mutation component_type="Web" is_generic="false" instance_name="webSchedule" event_name="GotText"></mutation>
+    <field name="COMPONENT_SELECTOR">webSchedule</field>
+    <statement name="DO">
+      <block type="component_set_get" id="Nka1O|9$L7{vBa00m,`]">
+        <mutation component_type="TextBox" set_or_get="set" property_name="Text" is_generic="false" instance_name="Text_Box1"></mutation>
+        <field name="COMPONENT_SELECTOR">Text_Box1</field>
+        <field name="PROP">Text</field>
+        <value name="VALUE">
+          <block type="lexical_variable_get" id="Qf(g=uDP$Z(CqhR{/:yz">
+            <mutation>
+              <eventparam name="responseContent"></eventparam>
+            </mutation>
+            <field name="VAR">responseContent</field>
+          </block>
+        </value>
+        <next>
+          <block type="component_set_get" id="/XPD2Wpf0iKgzUfEz8eU">
+            <mutation component_type="TinyDB" set_or_get="set" property_name="Namespace" is_generic="false" instance_name="dbStorage"></mutation>
+            <field name="COMPONENT_SELECTOR">dbStorage</field>
+            <field name="PROP">Namespace</field>
+            <value name="VALUE">
+              <block type="text" id=";A`L!:{E=oJVLLUg5E$f">
+                <field name="TEXT">ScheduleData</field>
+              </block>
+            </value>
+            <next>
+              <block type="lexical_variable_set" id="%wJ-^Ve{.06Da1fM8uWq">
+                <field name="VAR">global ScheduleList</field>
+                <value name="VALUE">
+                  <block type="lists_create_with" id="ycS];kL^`[H@7(u[8$q;">
+                    <mutation items="0"></mutation>
+                  </block>
+                </value>
+                <next>
+                  <block type="controls_if" id="hUUez=ElHwsI3T)i8I*-">
+                    <mutation else="1"></mutation>
+                    <value name="IF0">
+                      <block type="math_compare" id="QkF7U0qa%Uh?mMbixEpz">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="lexical_variable_get" id="rKY|rh]%q1AS~|2VD_$!">
+                            <mutation>
+                              <eventparam name="responseCode"></eventparam>
+                            </mutation>
+                            <field name="VAR">responseCode</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="ITu;BjSl{P-;KCi)+A%=">
+                            <field name="NUM">200</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="controls_forEach" id="|Vkko6:{4wDDNFZqj%Ms">
+                        <field name="VAR">ScheduleEntry</field>
+                        <value name="LIST">
+                          <block type="component_method" id="bs99:-1PT`}w*I]z*A0z">
+                            <mutation component_type="Web" method_name="JsonTextDecode" is_generic="false" instance_name="webSchedule"></mutation>
+                            <field name="COMPONENT_SELECTOR">webSchedule</field>
+                            <value name="ARG0">
+                              <block type="lexical_variable_get" id="dU1oHZ@(Q,+ut.hyaBf5">
+                                <mutation>
+                                  <eventparam name="responseContent"></eventparam>
+                                </mutation>
+                                <field name="VAR">responseContent</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO">
+                          <block type="lists_insert_item" id="~i]k$iUNX3BJB]W7;nvk">
+                            <value name="LIST">
+                              <block type="lexical_variable_get" id="vLX]Imrr3yf,KlEdt%c#">
+                                <field name="VAR">global ScheduleList</field>
+                              </block>
+                            </value>
+                            <value name="INDEX">
+                              <block type="lists_select_item" id="`Rwu~[|t-!y#WwgxIu_e">
+                                <value name="LIST">
+                                  <block type="lexical_variable_get" id="x^u^p%Ccuw7?hGiEMs6k">
+                                    <field name="VAR">ScheduleEntry</field>
+                                  </block>
+                                </value>
+                                <value name="NUM">
+                                  <block type="math_number" id="Gy,1O]^Qj)VI@{4XCe}V">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="ITEM">
+                              <block type="lists_select_item" id="aQB/jp)!UQG5,?{X|e}p">
+                                <value name="LIST">
+                                  <block type="lexical_variable_get" id=":165TnV?)_hk760=ZB69">
+                                    <field name="VAR">ScheduleEntry</field>
+                                  </block>
+                                </value>
+                                <value name="NUM">
+                                  <block type="math_number" id="uPyaz-opk;U9!w}]3djq">
+                                    <field name="NUM">2</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="component_method" id="~9t@HK;.SeRX(F2BZ7{[">
+                                <mutation component_type="TinyDB" method_name="StoreValue" is_generic="false" instance_name="dbStorage"></mutation>
+                                <field name="COMPONENT_SELECTOR">dbStorage</field>
+                                <value name="ARG0">
+                                  <block type="text" id="V`l|7n+mWsG(}y+AI8pl">
+                                    <field name="TEXT">Schedule</field>
+                                  </block>
+                                </value>
+                                <value name="ARG1">
+                                  <block type="lexical_variable_get" id="$p(.Lc1*_|n7}8}yr%ae">
+                                    <field name="VAR">global ScheduleList</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="controls_forRange" id="7+n`+y@bQ[]N@e*a2ufJ">
+                                    <field name="VAR">ScheduleNum</field>
+                                    <value name="START">
+                                      <block type="math_number" id="LkUS:+87j5s/jk8uWSs7">
+                                        <field name="NUM">1</field>
+                                      </block>
+                                    </value>
+                                    <value name="END">
+                                      <block type="lists_length" id="WwvSfDHltjhRCLDPsE%R">
+                                        <value name="LIST">
+                                          <block type="lexical_variable_get" id="2f6g!K]L@9y:nki@C(zv">
+                                            <field name="VAR">global ScheduleList</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="STEP">
+                                      <block type="math_number" id="}aa_KChveDeN83uZO*9p">
+                                        <field name="NUM">1</field>
+                                      </block>
+                                    </value>
+                                    <statement name="DO">
+                                      <block type="procedures_callnoreturn" id="Hat59xXW?xN~ahxJ$erR">
+                                        <mutation name="VizualizeSchedule">
+                                          <arg name="num"></arg>
+                                        </mutation>
+                                        <field name="PROCNAME">VizualizeSchedule</field>
+                                        <value name="ARG0">
+                                          <block type="lexical_variable_get" id="0(wo~YWoLszA^6YLTJVl">
+                                            <field name="VAR">ScheduleNum</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </statement>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                      </block>
+                    </statement>
+                    <statement name="ELSE">
+                      <block type="component_method" id="$DEb_Z.AjR-5P.s?2?RK">
+                        <mutation component_type="Notifier" method_name="ShowAlert" is_generic="false" instance_name="infoNotifier"></mutation>
+                        <field name="COMPONENT_SELECTOR">infoNotifier</field>
+                        <value name="ARG0">
+                          <block type="text_join" id="5n-6Tbqryy|(o@?q,SLi">
+                            <mutation items="2"></mutation>
+                            <value name="ADD0">
+                              <block type="text" id="^.`?3,)Hm1:v0u4UF5G]">
+                                <field name="TEXT">Error getting data from scheduler web service. Response code:</field>
+                              </block>
+                            </value>
+                            <value name="ADD1">
+                              <block type="lexical_variable_get" id="1G-nRPcCg_$^P/{94w#L">
+                                <mutation>
+                                  <eventparam name="responseCode"></eventparam>
+                                </mutation>
+                                <field name="VAR">responseCode</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="component_set_get" id="h^.FMCt/pCX1b.-TciiK">
+                        <mutation component_type="MakeroidSwipeRefreshLayout" set_or_get="set" property_name="Refreshing" is_generic="false" instance_name="swpSchedulesRefresh"></mutation>
+                        <field name="COMPONENT_SELECTOR">swpSchedulesRefresh</field>
+                        <field name="PROP">Refreshing</field>
+                        <value name="VALUE">
+                          <block type="logic_boolean" id=".]J%nA!sF4l-xs-=RoSX">
+                            <field name="BOOL">FALSE</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="global_declaration" id="^1Mbx=RoF7VJk=6{Z,@2" x="-150" y="1010">
+    <field name="NAME">activeTabColor</field>
+    <value name="VALUE">
+      <block type="color_make_color" id="s`_mhz4-y{:+[d!p@ijT">
+        <value name="COLORLIST">
+          <block type="lists_create_with" id="tCp/l|MWyeDO/X%sB:}|" inline="false">
+            <mutation items="3"></mutation>
+            <value name="ADD0">
+              <block type="math_number" id="O{ZYr3d`k%J}jq4Gx~ma">
+                <field name="NUM">66</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="math_number" id="(UFo|0[Mn2kI?39Z5+1E">
+                <field name="NUM">163</field>
+              </block>
+            </value>
+            <value name="ADD2">
+              <block type="math_number" id="t;0-lN.`Vz*cj#K%jnrd">
+                <field name="NUM">255</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id="s%r@jG2J78ZA1Hq[FFqi" x="-150" y="1110">
+    <field name="NAME">inactiveTabColor</field>
+    <value name="VALUE">
+      <block type="color_make_color" id="N|EP1kZKYyiR38M~biG|">
+        <value name="COLORLIST">
+          <block type="lists_create_with" id="@reO[h^%|@TT_j?o@XOi" inline="false">
+            <mutation items="3"></mutation>
+            <value name="ADD0">
+              <block type="math_number" id="K84mVSs[i}41xuQ+W;ue">
+                <field name="NUM">25</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="math_number" id="-a6DK~R$-=fwu4jzFpT_">
+                <field name="NUM">129</field>
+              </block>
+            </value>
+            <value name="ADD2">
+              <block type="math_number" id="oJgFNW8]1|cH3[/R,U;q">
+                <field name="NUM">255</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id="wg@@G5a{bwi_;y4TBGr|" x="-150" y="1210">
+    <field name="NAME">swEnabledColorChecked</field>
+    <value name="VALUE">
+      <block type="color_blue" id="DC/Nvs[j$rxj{[aZD@([">
+        <field name="COLOR">#2196F2</field>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defnoreturn" id="!rMgFWiptk51(JgOqa;T" x="4230" y="990">
+    <mutation>
+      <arg name="R"></arg>
+      <arg name="G"></arg>
+      <arg name="B"></arg>
+    </mutation>
+    <field name="NAME">SetRGB</field>
+    <field name="VAR0">R</field>
+    <field name="VAR1">G</field>
+    <field name="VAR2">B</field>
+    <statement name="STACK">
+      <block type="component_set_get" id="9d/Ud;,qHkRlP(dHh{3g">
+        <mutation component_type="Web" set_or_get="set" property_name="Url" is_generic="false" instance_name="webSetRGB"></mutation>
+        <field name="COMPONENT_SELECTOR">webSetRGB</field>
+        <field name="PROP">Url</field>
+        <value name="VALUE">
+          <block type="text_join" id="!2KwwT#l8rgl6or5D?@B">
+            <mutation items="2"></mutation>
+            <value name="ADD0">
+              <block type="lexical_variable_get" id="7|EhhTC!$XbqKYJ7.#on">
+                <field name="VAR">global SchedulerBaseURL</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="lexical_variable_get" id="T6kXAo;yW1?x=$Yg#8?M">
+                <field name="VAR">global SetRgbURL</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="component_set_get" id="$vMMNZ;h//vlud[+N$M=">
+            <mutation component_type="Web" set_or_get="set" property_name="RequestHeaders" is_generic="false" instance_name="webSetRGB"></mutation>
+            <field name="COMPONENT_SELECTOR">webSetRGB</field>
+            <field name="PROP">RequestHeaders</field>
+            <value name="VALUE">
+              <block type="lists_create_with" id="bVxrwuv*@5ruN9^P6pAZ">
+                <mutation items="1"></mutation>
+                <value name="ADD0">
+                  <block type="lists_create_with" id="$Yt_EGNng9jFPnsCJ4[v">
+                    <mutation items="2"></mutation>
+                    <value name="ADD0">
+                      <block type="text" id="/T8gAyC,Rd_S}Q@*Gj+d">
+                        <field name="TEXT">Content-Type</field>
+                      </block>
+                    </value>
+                    <value name="ADD1">
+                      <block type="text" id="BSJluy(3dm6:qS^W2^B2">
+                        <field name="TEXT">application/json</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="local_declaration_statement" id="Oe#)ro2UjC6c`e$![v{?">
+                <mutation>
+                  <localname name="RgbJSON"></localname>
+                </mutation>
+                <field name="VAR0">RgbJSON</field>
+                <value name="DECL0">
+                  <block type="text" id="GBnI;*zVF)YPZ`]CWqtG">
+                    <field name="TEXT">{}</field>
+                  </block>
+                </value>
+                <statement name="STACK">
+                  <block type="lexical_variable_set" id="gQ/K1}e8nInsj9}S^nz~">
+                    <field name="VAR">RgbJSON</field>
+                    <value name="VALUE">
+                      <block type="component_method" id="R[*`KaW54syi!.9vZvd#">
+                        <mutation component_type="KodularJSON" method_name="AddTextToJSONObject" is_generic="false" instance_name="JSON"></mutation>
+                        <field name="COMPONENT_SELECTOR">JSON</field>
+                        <value name="ARG0">
+                          <block type="lexical_variable_get" id="_}HO=vNa/yhKiIz|9=C^">
+                            <field name="VAR">RgbJSON</field>
+                          </block>
+                        </value>
+                        <value name="ARG1">
+                          <block type="text_join" id="W;.8ELP+6G!iMF3pqnXz">
+                            <mutation items="5"></mutation>
+                            <value name="ADD0">
+                              <block type="lexical_variable_get" id="WFub{Kkn`_.HRvt7;O0z">
+                                <field name="VAR">R</field>
+                              </block>
+                            </value>
+                            <value name="ADD1">
+                              <block type="text" id="?b/#opU3_jkas|go3lJ=">
+                                <field name="TEXT">,</field>
+                              </block>
+                            </value>
+                            <value name="ADD2">
+                              <block type="lexical_variable_get" id="/@CzR-}JC]PW}ZrFF^QN">
+                                <field name="VAR">G</field>
+                              </block>
+                            </value>
+                            <value name="ADD3">
+                              <block type="text" id="dM2qv?hy8U0Lbx3|Xz}[">
+                                <field name="TEXT">,</field>
+                              </block>
+                            </value>
+                            <value name="ADD4">
+                              <block type="lexical_variable_get" id="me2=nr:EHs.iYWdsZYRO">
+                                <field name="VAR">B</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="ARG2">
+                          <block type="text" id="J2}2,eLQUI]/*pkqoKyo">
+                            <field name="TEXT">rgb</field>
+                          </block>
+                        </value>
+                        <value name="ARG3">
+                          <block type="text" id="p}P@+6B8_k-rfV(l$ESd">
+                            <field name="TEXT">{}</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="component_set_get" id="Fm#vUx4g;Oer)Dc;D8}1">
+                        <mutation component_type="TextBox" set_or_get="set" property_name="Text" is_generic="false" instance_name="Text_Box1"></mutation>
+                        <field name="COMPONENT_SELECTOR">Text_Box1</field>
+                        <field name="PROP">Text</field>
+                        <value name="VALUE">
+                          <block type="lexical_variable_get" id="x^C_so)I`XES/M_n!(b~">
+                            <field name="VAR">RgbJSON</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="component_method" id="RI-vXlG;A?^kkV0dOInf">
+                            <mutation component_type="Web" method_name="PutText" is_generic="false" instance_name="webSetRGB"></mutation>
+                            <field name="COMPONENT_SELECTOR">webSetRGB</field>
+                            <value name="ARG0">
+                              <block type="lexical_variable_get" id="ZTgXLefgq:cp^OXT)+mr">
+                                <field name="VAR">RgbJSON</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="global_declaration" id="ApS=_U2:HpWDLdRBN?m@" x="-150" y="1270">
+    <field name="NAME">swEnabledColorUnChecked</field>
+    <value name="VALUE">
+      <block type="color_gray" id="?29;2~qMtv^|)}]X4g#d">
+        <field name="COLOR">#9E9E9E</field>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defnoreturn" id="/jICngDpONwV^?%|rtkJ" x="2350" y="1170">
+    <field name="NAME">UpdateAddButtonVisibilty</field>
+    <statement name="STACK">
+      <block type="local_declaration_statement" id="pMt]-#d=:[Q)DL]5^wS3">
+        <mutation>
+          <localname name="btnAddScheduleVisibility"></localname>
+        </mutation>
+        <field name="VAR0">btnAddScheduleVisibility</field>
+        <value name="DECL0">
+          <block type="logic_false" id="FnTQ/6=[b-d`Bu;Bi:2`">
+            <field name="BOOL">FALSE</field>
+          </block>
+        </value>
+        <statement name="STACK">
+          <block type="controls_forEach" id="voK6Ghxlagu-q8RjgK~p">
+            <field name="VAR">avSchedule</field>
+            <value name="LIST">
+              <block type="lexical_variable_get" id="t,`%I);C{0gexiyU_wqT">
+                <field name="VAR">global avScheduleList</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="controls_if" id=")N9W|l:TSp()Js[kn|s}">
+                <value name="IF0">
+                  <block type="logic_compare" id="O9+DTCz4xXB:z#`o(h)7">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="component_set_get" id="LR^V@7:CD3WMZZm$v{M!">
+                        <mutation component_type="VerticalArrangement" set_or_get="get" property_name="Visible" is_generic="true"></mutation>
+                        <field name="PROP">Visible</field>
+                        <value name="COMPONENT">
+                          <block type="lexical_variable_get" id="n^?PEX3,9*|!Y%7T?y+.">
+                            <field name="VAR">avSchedule</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="logic_false" id="2~*cB(gYW$ZNC_r51gZn">
+                        <field name="BOOL">FALSE</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="lexical_variable_set" id="jWA=:mz.378-?vRbZ{0h">
+                    <field name="VAR">btnAddScheduleVisibility</field>
+                    <value name="VALUE">
+                      <block type="logic_false" id="_0t{.h[}!JhVURxQD{K{">
+                        <field name="BOOL">TRUE</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="controls_break" id=")I0?ih%9y?9WR{G-uI^U"></block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+            <next>
+              <block type="component_set_get" id="SUQGD6t/$6NR3Ghzq3VF">
+                <mutation component_type="MakeroidFab" set_or_get="set" property_name="Visible" is_generic="false" instance_name="btnAddSchedule"></mutation>
+                <field name="COMPONENT_SELECTOR">btnAddSchedule</field>
+                <field name="PROP">Visible</field>
+                <value name="VALUE">
+                  <block type="lexical_variable_get" id="D6BObv@3Cg0QiU|/z`=(">
+                    <field name="VAR">btnAddScheduleVisibility</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="global_declaration" id="ODhxYjO3H@t2O861RdIc" x="-150" y="1410">
+    <field name="NAME">avScheduleList</field>
+    <value name="VALUE">
+      <block type="lists_create_with" id="`L=G{L(Ov^En=Uw^yb25">
+        <mutation items="0"></mutation>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id="SB{1SpjKVgQz^]4JJxT1" x="-150" y="1470">
+    <field name="NAME">lblTimeList</field>
+    <value name="VALUE">
+      <block type="lists_create_with" id="QrLN;JFn[lxaughk1F_k">
+        <mutation items="0"></mutation>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id=":C(n/s|,~V65JL5n#zQ|" x="-150" y="1530">
+    <field name="NAME">lblDescrList</field>
+    <value name="VALUE">
+      <block type="lists_create_with" id=":dwjK+$ovz;wFcshqR.Q">
+        <mutation items="0"></mutation>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defnoreturn" id="#UKRvS-]pafZ0j*!)lq;" x="2350" y="1450">
+    <field name="NAME">RefreshSchedule</field>
+    <statement name="STACK">
+      <block type="component_set_get" id="|B6u9ge%Bt;RwhRU5ku%">
+        <mutation component_type="MakeroidSwipeRefreshLayout" set_or_get="set" property_name="Refreshing" is_generic="false" instance_name="swpSchedulesRefresh"></mutation>
+        <field name="COMPONENT_SELECTOR">swpSchedulesRefresh</field>
+        <field name="PROP">Refreshing</field>
+        <value name="VALUE">
+          <block type="logic_boolean" id="5QA8++2?*nur|#CWqYoU">
+            <field name="BOOL">TRUE</field>
+          </block>
+        </value>
+        <next>
+          <block type="controls_forEach" id="8?a=WhSO1G56gX-f`=qo">
+            <field name="VAR">avSchedule</field>
+            <value name="LIST">
+              <block type="lexical_variable_get" id="0o`qn7HX8vg#`_9s{sP2">
+                <field name="VAR">global avScheduleList</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="component_set_get" id="cs.)xm#yY0Ds5HHIcqoP">
+                <mutation component_type="VerticalArrangement" set_or_get="set" property_name="Visible" is_generic="true"></mutation>
+                <field name="PROP">Visible</field>
+                <value name="COMPONENT">
+                  <block type="lexical_variable_get" id="*+M@g7)=.0t.O`sVR/^k">
+                    <field name="VAR">avSchedule</field>
+                  </block>
+                </value>
+                <value name="VALUE">
+                  <block type="logic_false" id="m!fHsq2eK;)aeJ)s=9S`">
+                    <field name="BOOL">FALSE</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <next>
+              <block type="procedures_callnoreturn" id="$5,6zp={`LMKp#9RBupF" inline="false">
+                <mutation name="ReadSchedule"></mutation>
+                <field name="PROCNAME">ReadSchedule</field>
+                <next>
+                  <block type="procedures_callnoreturn" id="@cb(7q,xLWKLX8FjF*Nt" inline="false">
+                    <mutation name="UpdateAddButtonVisibilty"></mutation>
+                    <field name="PROCNAME">UpdateAddButtonVisibilty</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="global_declaration" id="VTnlwConIpD2hZE!S4TK" x="-150" y="1590">
+    <field name="NAME">swEnabledList</field>
+    <value name="VALUE">
+      <block type="lists_create_with" id="jvkf$uX3t)zMV4~Fi$:j">
+        <mutation items="0"></mutation>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id="6FJ/w=hY*6hhti:{fxHK" x="-150" y="1630">
+    <field name="NAME">btnTabList</field>
+    <value name="VALUE">
+      <block type="lists_create_with" id="!2C4zE}zI:+2l3d%x%A8">
+        <mutation items="0"></mutation>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id="p.rgs.OLj%m#^LO~s}XI" x="-150" y="1670">
+    <field name="NAME">avsContainerList</field>
+    <value name="VALUE">
+      <block type="lists_create_with" id=";sukeF1rpTcn|CP#k1mS">
+        <mutation items="0"></mutation>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id=",f3b@Loj:oT7#eeD%g8|" x="-150" y="1710">
+    <field name="NAME">TabSliderAnimationSpeed</field>
+    <value name="VALUE">
+      <block type="math_number" id="d2J;`OHN*B{pm0aNs$dJ">
+        <field name="NUM">15</field>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defreturn" id="mYLiL#^w~caBaVfKH56H" x="3290" y="1530">
+    <mutation>
+      <arg name="num"></arg>
+    </mutation>
+    <field name="NAME">ParseScheduleDescr</field>
+    <field name="VAR0">num</field>
+    <value name="RETURN">
+      <block type="local_declaration_expression" id="pIHrca`^:3DXCL%tLKl;">
+        <mutation>
+          <localname name="schedule"></localname>
+        </mutation>
+        <field name="VAR0">schedule</field>
+        <value name="DECL0">
+          <block type="lists_select_item" id="U%Vg[NuyM65GNBfGXu?O">
+            <value name="LIST">
+              <block type="lexical_variable_get" id="Xkqj+y.F3.}025ui0~}I">
+                <field name="VAR">global ScheduleList</field>
+              </block>
+            </value>
+            <value name="NUM">
+              <block type="lexical_variable_get" id="ud:NOU?OiuA.S$Znb[0e">
+                <field name="VAR">num</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="RETURN">
+          <block type="local_declaration_expression" id="eKA?uzhfKbU6A{(M0+,6">
+            <mutation>
+              <localname name="scheduleDow"></localname>
+              <localname name="days"></localname>
+            </mutation>
+            <field name="VAR0">scheduleDow</field>
+            <field name="VAR1">days</field>
+            <value name="DECL0">
+              <block type="text_split" id="JwpV%68P7yz@en;E]Ib,">
+                <mutation mode="SPLIT"></mutation>
+                <field name="OP">SPLIT</field>
+                <value name="TEXT">
+                  <block type="lists_lookup_in_pairs" id="zn_`Mc-*]=}=Bl_2jVb+">
+                    <value name="KEY">
+                      <block type="text" id="rkptXVlTtEn[{n+%5Zra">
+                        <field name="TEXT">dow</field>
+                      </block>
+                    </value>
+                    <value name="LIST">
+                      <block type="lexical_variable_get" id="bC#/*y6K(yfJjV|2$R$Y">
+                        <field name="VAR">schedule</field>
+                      </block>
+                    </value>
+                    <value name="NOTFOUND">
+                      <block type="text" id="Enw8*cAW(@~dbycs`@r|">
+                        <field name="TEXT">??</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="AT">
+                  <block type="text" id="Bu[(?!F[%Jn3)=B;l(*N">
+                    <field name="TEXT">,</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="DECL1">
+              <block type="text" id="XUavyKmO__elU*R_Kcki">
+                <field name="TEXT"></field>
+              </block>
+            </value>
+            <value name="RETURN">
+              <block type="controls_do_then_return" id="qTjQgt^K=e{?{7)=JA)e">
+                <statement name="STM">
+                  <block type="controls_forEach" id=":p7V^JrHgoXj^%($tV0{">
+                    <field name="VAR">day</field>
+                    <value name="LIST">
+                      <block type="lexical_variable_get" id="9Xgr/1BO(dHXlyUgx~*T">
+                        <field name="VAR">scheduleDow</field>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="lexical_variable_set" id="JD~q@nYhs}t^Y=o|JpeL">
+                        <field name="VAR">day</field>
+                        <value name="VALUE">
+                          <block type="math_add" id="gl}XY=$z]mRO2(#BCr:*">
+                            <mutation items="2"></mutation>
+                            <value name="NUM0">
+                              <block type="lexical_variable_get" id="wV(1c,-OO|Jp,fHhm]RF">
+                                <field name="VAR">day</field>
+                              </block>
+                            </value>
+                            <value name="NUM1">
+                              <block type="math_number" id="xM-ou[,)[Z7lP;p[Zd$[">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="lexical_variable_set" id="a=i[+r=R^k1DsL{Xq1oA">
+                            <field name="VAR">days</field>
+                            <value name="VALUE">
+                              <block type="text_join" id="rW()Om_3sWwov1t?PV6-">
+                                <mutation items="3"></mutation>
+                                <value name="ADD0">
+                                  <block type="lexical_variable_get" id="u)1c+_~ABnR)G%R}0ZQ=">
+                                    <field name="VAR">days</field>
+                                  </block>
+                                </value>
+                                <value name="ADD1">
+                                  <block type="lists_select_item" id="Kt2`N3H9XFDO$asSLcuk">
+                                    <value name="LIST">
+                                      <block type="lexical_variable_get" id=":Fwjdq]x]!oDQ]45/Av5">
+                                        <field name="VAR">global DowList</field>
+                                      </block>
+                                    </value>
+                                    <value name="NUM">
+                                      <block type="lexical_variable_get" id="V96%0t8wG,or-@kKdRjY">
+                                        <field name="VAR">day</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="ADD2">
+                                  <block type="text" id="*_lODySnXQvDlvS%{1oI">
+                                    <field name="TEXT">,</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+                <value name="VALUE">
+                  <block type="text_segment" id="=u/B[1)jb@(FN_RjFI`%">
+                    <value name="TEXT">
+                      <block type="lexical_variable_get" id="[d(Z-H]Qf|E3Wmsm)S#0">
+                        <field name="VAR">days</field>
+                      </block>
+                    </value>
+                    <value name="START">
+                      <block type="math_number" id="TxMp1Ac(u_t!NbtypTHn">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <value name="LENGTH">
+                      <block type="math_subtract" id="9-qK$B)@GBswmDokY!mJ">
+                        <value name="A">
+                          <block type="text_length" id="8(=vad53/7,sf:(?+h7w">
+                            <value name="VALUE">
+                              <block type="lexical_variable_get" id="8qYnd[3}u9jV-[_9[DaN">
+                                <field name="VAR">days</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="xHIMx{-?f*VKg=$r|H@_">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="component_event" id="@C(:M|RVXh9FZM^!~=W8" x="530" y="1690">
+    <mutation component_type="Web" is_generic="false" instance_name="webEditScheduleState" event_name="GotText"></mutation>
+    <field name="COMPONENT_SELECTOR">webEditScheduleState</field>
+    <statement name="DO">
+      <block type="controls_if" id="z6@vK!tK7V#4atD9ub$,">
+        <value name="IF0">
+          <block type="math_compare" id="=T;fzgGSL,%(S=pP(MSA">
+            <field name="OP">NEQ</field>
+            <value name="A">
+              <block type="lexical_variable_get" id="9GSXJCv)H]aTTwcKc??4">
+                <mutation>
+                  <eventparam name="responseCode"></eventparam>
+                </mutation>
+                <field name="VAR">responseCode</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="[O42a.p,R5C,TGMd}ec}">
+                <field name="NUM">200</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="component_method" id="}iOfJz28N~3}02ERV%mR">
+            <mutation component_type="Notifier" method_name="ShowAlert" is_generic="false" instance_name="infoNotifier"></mutation>
+            <field name="COMPONENT_SELECTOR">infoNotifier</field>
+            <value name="ARG0">
+              <block type="text_join" id=";UuycM_Uq=c?QuF!4K-U">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <block type="text" id="NXbWuHxNo`I4{!B.jI]V">
+                    <field name="TEXT">Could not update schedule. Error </field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="lexical_variable_get" id="PxrV|W_iFL:LGs)^%v7I">
+                    <mutation>
+                      <eventparam name="responseCode"></eventparam>
+                    </mutation>
+                    <field name="VAR">responseCode</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="procedures_callnoreturn" id="!68-YKjX.6l/Zl:3mul1">
+                <mutation name="RefreshSchedule"></mutation>
+                <field name="PROCNAME">RefreshSchedule</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="global_declaration" id="0-y|$1_sJZlf7~Oie/|_" x="-150" y="1750">
+    <field name="NAME">sprSliderX</field>
+    <value name="VALUE">
+      <block type="math_number" id="e}5v!L:B5;Lpeag+xPeP">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defnoreturn" id="5z1!hWazbn|Y%z`$O0e6" x="2350" y="1710">
+    <mutation>
+      <arg name="num"></arg>
+    </mutation>
+    <field name="NAME">VizualizeSchedule</field>
+    <field name="VAR0">num</field>
+    <statement name="STACK">
+      <block type="component_set_get" id="SL{f91i(_MKr?hPX9P%^">
+        <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="true"></mutation>
+        <field name="PROP">Text</field>
+        <value name="COMPONENT">
+          <block type="lists_select_item" id="}X`A2O)8n8Ke{iy8~S?#">
+            <value name="LIST">
+              <block type="lexical_variable_get" id="iI4GTDgnG73s}QAI.YsX">
+                <field name="VAR">global lblTimeList</field>
+              </block>
+            </value>
+            <value name="NUM">
+              <block type="lexical_variable_get" id="7Z)YL-(JE6[%n%+;IsnD">
+                <field name="VAR">num</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="VALUE">
+          <block type="procedures_callreturn" id="PIUX*SvrnR6oY4R5tWVk">
+            <mutation name="ParseScheduleTime">
+              <arg name="num"></arg>
+            </mutation>
+            <field name="PROCNAME">ParseScheduleTime</field>
+            <value name="ARG0">
+              <block type="lexical_variable_get" id="m5CEDtRC{BV%+M@*Wtdo">
+                <field name="VAR">num</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="component_set_get" id="4$82-xQHKMwsbMg:fEwP">
+            <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="true"></mutation>
+            <field name="PROP">Text</field>
+            <value name="COMPONENT">
+              <block type="lists_select_item" id="r1h@P#=`_[wp*R*zeSIC">
+                <value name="LIST">
+                  <block type="lexical_variable_get" id="}jCCH%-,-4Hqk(e-kC3~">
+                    <field name="VAR">global lblDescrList</field>
+                  </block>
+                </value>
+                <value name="NUM">
+                  <block type="lexical_variable_get" id="jT9:Qvr[ar!oUgR*kCqX">
+                    <field name="VAR">num</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="VALUE">
+              <block type="procedures_callreturn" id="$.gpgKPaCJ1fF:qZT9Q`">
+                <mutation name="ParseScheduleDescr">
+                  <arg name="num"></arg>
+                </mutation>
+                <field name="PROCNAME">ParseScheduleDescr</field>
+                <value name="ARG0">
+                  <block type="lexical_variable_get" id="MAsGN1T,J*=m4L^KgqU$">
+                    <field name="VAR">num</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="component_set_get" id=",c(^WQpnm/:6v(sfj7Qk">
+                <mutation component_type="SwitchToggle" set_or_get="set" property_name="Checked" is_generic="true"></mutation>
+                <field name="PROP">Checked</field>
+                <value name="COMPONENT">
+                  <block type="lists_select_item" id="s_nY-}-q*2N^hrZ4VItU">
+                    <value name="LIST">
+                      <block type="lexical_variable_get" id="br7Qa4dprA4$APaV$M2/">
+                        <field name="VAR">global swEnabledList</field>
+                      </block>
+                    </value>
+                    <value name="NUM">
+                      <block type="lexical_variable_get" id="C9NN7M@Spc|X1RR~1Ise">
+                        <field name="VAR">num</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="VALUE">
+                  <block type="procedures_callreturn" id="=cv3^)7,R@AM{Dt-[m%`">
+                    <mutation name="ParseScheduleState">
+                      <arg name="num"></arg>
+                    </mutation>
+                    <field name="PROCNAME">ParseScheduleState</field>
+                    <value name="ARG0">
+                      <block type="lexical_variable_get" id="Cnz{`3c8!r~?~{#bG|Ie">
+                        <field name="VAR">num</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="component_set_get" id="CwD%Z_;W)m{m02[Ic~*_">
+                    <mutation component_type="VerticalArrangement" set_or_get="set" property_name="Visible" is_generic="true"></mutation>
+                    <field name="PROP">Visible</field>
+                    <value name="COMPONENT">
+                      <block type="lists_select_item" id="r@YVGVSjQ(RObA2CQ`Ml">
+                        <value name="LIST">
+                          <block type="lexical_variable_get" id="/)ZYT75QERk;,9SzZdr7">
+                            <field name="VAR">global avScheduleList</field>
+                          </block>
+                        </value>
+                        <value name="NUM">
+                          <block type="lexical_variable_get" id="Gz59p:A@!}nQ:q|xUZB9">
+                            <field name="VAR">num</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="VALUE">
+                      <block type="logic_boolean" id="tvKmqI{9([O{q#P`tM6q">
+                        <field name="BOOL">TRUE</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="global_declaration" id="5/xGI9ns**:FRnLO@Oe?" x="-150" y="1850">
+    <field name="NAME">ColorR</field>
+    <value name="VALUE">
+      <block type="math_number" id="ZUTa,A]FR6](r~.=zHSK">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id="GT[q`I(iS]:lX;Iv+ztP" x="-150" y="1890">
+    <field name="NAME">ColorG</field>
+    <value name="VALUE">
+      <block type="math_number" id=";Cvpgf~*8}~tR(Hwohnz">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defnoreturn" id="JO%+|3o2MY6JL{r6kIlJ" x="1470" y="1810">
+    <field name="NAME">InitializeLayout</field>
+    <statement name="STACK">
+      <block type="component_set_get" id="PAfdEQFXl)E,0E9cApjx">
+        <mutation component_type="Form" set_or_get="set" property_name="BackgroundColor" is_generic="false" instance_name="Screen1"></mutation>
+        <field name="COMPONENT_SELECTOR">Screen1</field>
+        <field name="PROP">BackgroundColor</field>
+        <value name="VALUE">
+          <block type="color_black" id="#S4z}nWHn?Fj{VpxWFU)">
+            <field name="COLOR">#000000</field>
+          </block>
+        </value>
+        <next>
+          <block type="component_set_get" id="ZCMLAz6Z$ou3vplNq:Q@">
+            <mutation component_type="Form" set_or_get="set" property_name="ScreenOrientation" is_generic="false" instance_name="Screen1"></mutation>
+            <field name="COMPONENT_SELECTOR">Screen1</field>
+            <field name="PROP">ScreenOrientation</field>
+            <value name="VALUE">
+              <block type="text" id="NU$T0e)5X?7IIgsDo#i6">
+                <field name="TEXT">portrait</field>
+              </block>
+            </value>
+            <next>
+              <block type="component_set_get" id="ebt!)oi!.P!/.E+3P@E0">
+                <mutation component_type="Form" set_or_get="set" property_name="Scrollable" is_generic="false" instance_name="Screen1"></mutation>
+                <field name="COMPONENT_SELECTOR">Screen1</field>
+                <field name="PROP">Scrollable</field>
+                <value name="VALUE">
+                  <block type="logic_false" id="*/USh|a8PW[rYt1?L@9N">
+                    <field name="BOOL">FALSE</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="component_set_get" id="B%%2CgI|RpS`6B}~-6w]">
+                    <mutation component_type="TextBox" set_or_get="set" property_name="Visible" is_generic="false" instance_name="Text_Box1"></mutation>
+                    <field name="COMPONENT_SELECTOR">Text_Box1</field>
+                    <field name="PROP">Visible</field>
+                    <value name="VALUE">
+                      <block type="component_set_get" id="]!qd+*fiE-e:OAg`OKD%">
+                        <mutation component_type="Form" set_or_get="get" property_name="IsCompanion" is_generic="false" instance_name="Screen1"></mutation>
+                        <field name="COMPONENT_SELECTOR">Screen1</field>
+                        <field name="PROP">IsCompanion</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="component_set_get" id="=$NzwcP:rz+|hNx3E*lc">
+                        <mutation component_type="MakeroidViewPager" set_or_get="set" property_name="ShowTabs" is_generic="false" instance_name="ViewPager"></mutation>
+                        <field name="COMPONENT_SELECTOR">ViewPager</field>
+                        <field name="PROP">ShowTabs</field>
+                        <value name="VALUE">
+                          <block type="logic_false" id="vdgS%qw(2lZSJ59,vt$i">
+                            <field name="BOOL">FALSE</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="component_method" id="2O:%S$wnOn*dAJ:@{Y`P">
+                            <mutation component_type="MakeroidTabLayout" method_name="AddNewTab" is_generic="false" instance_name="TabLayout"></mutation>
+                            <field name="COMPONENT_SELECTOR">TabLayout</field>
+                            <value name="ARG0">
+                              <block type="text" id="wZ{YA.*zB^NxFXm;VE6+">
+                                <field name="TEXT">Schedule</field>
+                              </block>
+                            </value>
+                            <value name="ARG1">
+                              <block type="text" id="nU8zbR$RBY(Ex9eSRGml">
+                                <field name="TEXT">schedule.png</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="component_method" id="8TZn+jvQa:{L}P}$b_dv">
+                                <mutation component_type="MakeroidTabLayout" method_name="AddNewTab" is_generic="false" instance_name="TabLayout"></mutation>
+                                <field name="COMPONENT_SELECTOR">TabLayout</field>
+                                <value name="ARG0">
+                                  <block type="text" id="0wC~_7i~U0xs@;E2)k)k">
+                                    <field name="TEXT">Actions</field>
+                                  </block>
+                                </value>
+                                <value name="ARG1">
+                                  <block type="text" id="Q37,VpYAay?{}-2P_01j">
+                                    <field name="TEXT">actions.png</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="component_method" id="dDqe5OmbA4~A=L89$4@n">
+                                    <mutation component_type="MakeroidViewPager" method_name="AddComponentToView" is_generic="false" instance_name="ViewPager"></mutation>
+                                    <field name="COMPONENT_SELECTOR">ViewPager</field>
+                                    <value name="ARG0">
+                                      <block type="component_component_block" id="#HWrP]Z2jH_1v}!bMTj.">
+                                        <mutation component_type="VerticalScrollArrangement" instance_name="avsSchedulerTabContainer"></mutation>
+                                        <field name="COMPONENT_SELECTOR">avsSchedulerTabContainer</field>
+                                      </block>
+                                    </value>
+                                    <value name="ARG1">
+                                      <block type="text" id="M)TEC(p2jJ5Aw{/,L?`:">
+                                        <field name="TEXT">Schedule</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="component_method" id="7iRTc*T]%UamUV$|2#As">
+                                        <mutation component_type="MakeroidViewPager" method_name="AddComponentToView" is_generic="false" instance_name="ViewPager"></mutation>
+                                        <field name="COMPONENT_SELECTOR">ViewPager</field>
+                                        <value name="ARG0">
+                                          <block type="component_component_block" id="yoNDR]`B@$kUvS7JA#W1">
+                                            <mutation component_type="VerticalScrollArrangement" instance_name="avsActionsTabContent"></mutation>
+                                            <field name="COMPONENT_SELECTOR">avsActionsTabContent</field>
+                                          </block>
+                                        </value>
+                                        <value name="ARG1">
+                                          <block type="text" id="?lHlr$x~dUadV~)rx:Mz">
+                                            <field name="TEXT">Actions</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="controls_forEach" id="HCgNTfn;J!k%ZU(?r90I">
+                                            <field name="VAR">avSchedule</field>
+                                            <value name="LIST">
+                                              <block type="lexical_variable_get" id="[MAl^uSf~,.jb648(G#d">
+                                                <field name="VAR">global avScheduleList</field>
+                                              </block>
+                                            </value>
+                                            <statement name="DO">
+                                              <block type="component_set_get" id="665~xO{0j~[(eQn4r^gC">
+                                                <mutation component_type="VerticalArrangement" set_or_get="set" property_name="Visible" is_generic="true"></mutation>
+                                                <field name="PROP">Visible</field>
+                                                <value name="COMPONENT">
+                                                  <block type="lexical_variable_get" id=",hyQ!9n[G[p@OI).`eVi">
+                                                    <field name="VAR">avSchedule</field>
+                                                  </block>
+                                                </value>
+                                                <value name="VALUE">
+                                                  <block type="logic_false" id="tNlak,QS:Rn?.^|)euSU">
+                                                    <field name="BOOL">FALSE</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="local_declaration_statement" id="FuvK$dziYYXIIdbVR1*p">
+                                                    <mutation>
+                                                      <localname name="lblTime"></localname>
+                                                    </mutation>
+                                                    <field name="VAR0">lblTime</field>
+                                                    <value name="DECL0">
+                                                      <block type="lists_select_item" id="+GQ1Nr-TW~0?#0G-9a#R">
+                                                        <value name="LIST">
+                                                          <block type="lexical_variable_get" id="wo{_PORo`#A.-d@cuqpd">
+                                                            <field name="VAR">global lblTimeList</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="NUM">
+                                                          <block type="lists_position_in" id="[J|wA%.7w-zvdkB$?U^_">
+                                                            <value name="ITEM">
+                                                              <block type="lexical_variable_get" id="^98]@-24gnC63=TU@G$J">
+                                                                <field name="VAR">avSchedule</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="LIST">
+                                                              <block type="lexical_variable_get" id=")7e+af;%2_f~z`!@nW]@">
+                                                                <field name="VAR">global avScheduleList</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <statement name="STACK">
+                                                      <block type="component_set_get" id="]}rM,}:2tzI%}7b5)a-@">
+                                                        <mutation component_type="Label" set_or_get="set" property_name="FontSize" is_generic="true"></mutation>
+                                                        <field name="PROP">FontSize</field>
+                                                        <value name="COMPONENT">
+                                                          <block type="lexical_variable_get" id="f!`_pg!pYX|F~/f5Wmt~">
+                                                            <field name="VAR">lblTime</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="VALUE">
+                                                          <block type="math_number" id="If]U.5U{G=[;qVjNM|iQ">
+                                                            <field name="NUM">50</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="component_set_get" id="=~U,@N2oDpz#LYuD^b}O">
+                                                            <mutation component_type="Label" set_or_get="set" property_name="Width" is_generic="true"></mutation>
+                                                            <field name="PROP">Width</field>
+                                                            <value name="COMPONENT">
+                                                              <block type="lexical_variable_get" id="zlrP`1e7bM#f0Nf:7}gg">
+                                                                <field name="VAR">lblTime</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="VALUE">
+                                                              <block type="math_number" id="~~.o2%ABc=R6|r7brxH`">
+                                                                <field name="NUM">-2</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="component_set_get" id="lK|//m}bI!w_|v%APz!?">
+                                                                <mutation component_type="Label" set_or_get="set" property_name="TextColor" is_generic="true"></mutation>
+                                                                <field name="PROP">TextColor</field>
+                                                                <value name="COMPONENT">
+                                                                  <block type="lexical_variable_get" id="(m`2Yd((7(ONkzEMvP-r">
+                                                                    <field name="VAR">lblTime</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="VALUE">
+                                                                  <block type="lexical_variable_get" id="0MZmCsmKiVHIB;lX/2Ds">
+                                                                    <field name="VAR">global SchedulerTextColor</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </statement>
+                                                    <next>
+                                                      <block type="local_declaration_statement" id="yfhHp@H)2HkZZHKBU8WY">
+                                                        <mutation>
+                                                          <localname name="lblDescr"></localname>
+                                                        </mutation>
+                                                        <field name="VAR0">lblDescr</field>
+                                                        <value name="DECL0">
+                                                          <block type="lists_select_item" id="TL:9Jdp~Eb[UaC*4*F|F">
+                                                            <value name="LIST">
+                                                              <block type="lexical_variable_get" id="%J3*l@5K2Wm2a0zHf|C?">
+                                                                <field name="VAR">global lblDescrList</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="NUM">
+                                                              <block type="lists_position_in" id="irjWBI@n|87UH^fg@,QW">
+                                                                <value name="ITEM">
+                                                                  <block type="lexical_variable_get" id="^}Rk7h*;1i*OFYN5Zh~]">
+                                                                    <field name="VAR">avSchedule</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="LIST">
+                                                                  <block type="lexical_variable_get" id="D{QKoG,q:gi!$LTrgeMz">
+                                                                    <field name="VAR">global avScheduleList</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <statement name="STACK">
+                                                          <block type="component_set_get" id="xvIrlO(dX@4TA]|A%Ckf">
+                                                            <mutation component_type="Label" set_or_get="set" property_name="TextColor" is_generic="true"></mutation>
+                                                            <field name="PROP">TextColor</field>
+                                                            <value name="COMPONENT">
+                                                              <block type="lexical_variable_get" id="VwTvwe}-H^{?bBsN.X+:">
+                                                                <field name="VAR">lblDescr</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="VALUE">
+                                                              <block type="lexical_variable_get" id="Y?KABi.(7y23Ds#KEH4)">
+                                                                <field name="VAR">global SchedulerTextColor</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </statement>
+                                                        <next>
+                                                          <block type="local_declaration_statement" id="0A3a}.(a0y|uIi}_@;h?">
+                                                            <mutation>
+                                                              <localname name="swEnabled"></localname>
+                                                            </mutation>
+                                                            <field name="VAR0">swEnabled</field>
+                                                            <value name="DECL0">
+                                                              <block type="lists_select_item" id="9%WEMvtAvcI)o^M?5pXg">
+                                                                <value name="LIST">
+                                                                  <block type="lexical_variable_get" id="/x@tqgYYz@+|6xC/{V_}">
+                                                                    <field name="VAR">global swEnabledList</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="NUM">
+                                                                  <block type="lists_position_in" id="`$%aXXH4/4,%)EFCrGM+">
+                                                                    <value name="ITEM">
+                                                                      <block type="lexical_variable_get" id="dLcD6xB_G]CQ}yoJKGm.">
+                                                                        <field name="VAR">avSchedule</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="LIST">
+                                                                      <block type="lexical_variable_get" id="[j7*@C;aE?,t+l6Ah@3.">
+                                                                        <field name="VAR">global avScheduleList</field>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <statement name="STACK">
+                                                              <block type="component_set_get" id="V:x~#|2~aCb$`KA/Is/G">
+                                                                <mutation component_type="SwitchToggle" set_or_get="set" property_name="ThumbColor" is_generic="true"></mutation>
+                                                                <field name="PROP">ThumbColor</field>
+                                                                <value name="COMPONENT">
+                                                                  <block type="lexical_variable_get" id="-7{CK8?w0%}!{z4gTdmt">
+                                                                    <field name="VAR">swEnabled</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="VALUE">
+                                                                  <block type="lexical_variable_get" id="1Rtw0-qIhdUd8zZ+1#_@">
+                                                                    <field name="VAR">global swEnabledColorChecked</field>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="component_set_get" id="/*^|+{!D;pc8rg+.D`|n">
+                                                                    <mutation component_type="SwitchToggle" set_or_get="set" property_name="TrackColor" is_generic="true"></mutation>
+                                                                    <field name="PROP">TrackColor</field>
+                                                                    <value name="COMPONENT">
+                                                                      <block type="lexical_variable_get" id="B1yAuvI%0W5lZ][[2Y;6">
+                                                                        <field name="VAR">swEnabled</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="VALUE">
+                                                                      <block type="lexical_variable_get" id="V822gG~,Mkm8H-k*cLIZ">
+                                                                        <field name="VAR">global swEnabledColorChecked</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <next>
+                                                                      <block type="component_set_get" id="cvD0OCUy~P8Xq5=.?KXv">
+                                                                        <mutation component_type="SwitchToggle" set_or_get="set" property_name="TextOff" is_generic="true"></mutation>
+                                                                        <field name="PROP">TextOff</field>
+                                                                        <value name="COMPONENT">
+                                                                          <block type="lexical_variable_get" id="uDpJ?VF9c6uH$9t^kiVg">
+                                                                            <field name="VAR">swEnabled</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <value name="VALUE">
+                                                                          <block type="text" id="a=:2{-+%_ckeyB]QbeJl">
+                                                                            <field name="TEXT"></field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <next>
+                                                                          <block type="component_set_get" id="f7AMC.6]d3zao)Pw:w=n">
+                                                                            <mutation component_type="SwitchToggle" set_or_get="set" property_name="TextOn" is_generic="true"></mutation>
+                                                                            <field name="PROP">TextOn</field>
+                                                                            <value name="COMPONENT">
+                                                                              <block type="lexical_variable_get" id="EesENT?B+#;[X_Xl^AiP">
+                                                                                <field name="VAR">swEnabled</field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <value name="VALUE">
+                                                                              <block type="text" id=".iau3QgatCuiAGku7uyn">
+                                                                                <field name="TEXT"></field>
+                                                                              </block>
+                                                                            </value>
+                                                                          </block>
+                                                                        </next>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </statement>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </statement>
+                                            <next>
+                                              <block type="procedures_callnoreturn" id="S4a*e`2EicSf%z8cyPMM" inline="false">
+                                                <mutation name="UpdateColorView"></mutation>
+                                                <field name="PROCNAME">UpdateColorView</field>
+                                                <next>
+                                                  <block type="component_set_get" id="Dg})HOm:3aP~NG/P4t[{">
+                                                    <mutation component_type="Canvas" set_or_get="set" property_name="Width" is_generic="false" instance_name="cvsColorView"></mutation>
+                                                    <field name="COMPONENT_SELECTOR">cvsColorView</field>
+                                                    <field name="PROP">Width</field>
+                                                    <value name="VALUE">
+                                                      <block type="math_subtract" id=";Mf+,Qk7B1gZu;$PqzsY">
+                                                        <value name="A">
+                                                          <block type="component_set_get" id="c%5_IbwX_9-t)/xo*=JV">
+                                                            <mutation component_type="HorizontalArrangement" set_or_get="get" property_name="Width" is_generic="false" instance_name="Horizontal_Arrangement3"></mutation>
+                                                            <field name="COMPONENT_SELECTOR">Horizontal_Arrangement3</field>
+                                                            <field name="PROP">Width</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="B">
+                                                          <block type="math_number" id="@v@48`Df8DD%P)ZR|Zad">
+                                                            <field name="NUM">2</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="component_set_get" id="GeoB:Nce{anh`9k}dNL#">
+                                                        <mutation component_type="Canvas" set_or_get="set" property_name="Height" is_generic="false" instance_name="cvsColorView"></mutation>
+                                                        <field name="COMPONENT_SELECTOR">cvsColorView</field>
+                                                        <field name="PROP">Height</field>
+                                                        <value name="VALUE">
+                                                          <block type="math_subtract" id="WA5fa/Jvn,9@e?gc)!6`">
+                                                            <value name="A">
+                                                              <block type="component_set_get" id="1E#F(es7#0aXY*F5dg7A">
+                                                                <mutation component_type="HorizontalArrangement" set_or_get="get" property_name="Height" is_generic="false" instance_name="Horizontal_Arrangement3"></mutation>
+                                                                <field name="COMPONENT_SELECTOR">Horizontal_Arrangement3</field>
+                                                                <field name="PROP">Height</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="B">
+                                                              <block type="math_number" id="DHya#bhth8@/dzPy!h)y">
+                                                                <field name="NUM">2</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="global_declaration" id="SGN_}n+K(1o#?Z#[F1=Z" x="-150" y="1930">
+    <field name="NAME">ColorB</field>
+    <value name="VALUE">
+      <block type="math_number" id="c4l_lRI,5rZYa_1^eh}[">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+  </block>
+  <block type="component_event" id="BKMjQV7Wu}@c-wr=$+!s" x="530" y="1950">
+    <mutation component_type="Label" is_generic="true" event_name="Click"></mutation>
+    <statement name="DO">
+      <block type="local_declaration_statement" id="+4lVdMc11G2/Zz;X)DAK">
+        <mutation>
+          <localname name="lblTimeNum"></localname>
+        </mutation>
+        <field name="VAR0">lblTimeNum</field>
+        <comment pinned="false" h="80" w="160">When a Time label is clicked: launch EditSchedule</comment>
+        <value name="DECL0">
+          <block type="lists_position_in" id="|n0K^c:dj:41YvEAp~Bw">
+            <value name="ITEM">
+              <block type="lexical_variable_get" id="otb159tT{:!lS]]#CKiX">
+                <mutation>
+                  <eventparam name="component"></eventparam>
+                </mutation>
+                <field name="VAR">component</field>
+              </block>
+            </value>
+            <value name="LIST">
+              <block type="lexical_variable_get" id="Ik:V;kq@3@=Fi#@)BeEc">
+                <field name="VAR">global lblTimeList</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="STACK">
+          <block type="controls_if" id="Ig%9(4-H}6Uf3w2Ql*$W">
+            <value name="IF0">
+              <block type="math_compare" id="tq{EV0:|?/9BG{Hv4zL,">
+                <field name="OP">NEQ</field>
+                <value name="A">
+                  <block type="lexical_variable_get" id="?cW?tTF}7t@%|V}L:$MS">
+                    <field name="VAR">lblTimeNum</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="U.{x[;:%oy73Nf`-IP}^">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="procedures_callnoreturn" id="-86kHChS~,,_^KA(tc`E" inline="false">
+                <mutation name="EditSchedule">
+                  <arg name="num"></arg>
+                </mutation>
+                <field name="PROCNAME">EditSchedule</field>
+                <value name="ARG0">
+                  <block type="lexical_variable_get" id=",/pi_gScDFQtB%bk+7-h">
+                    <field name="VAR">lblTimeNum</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="L7Mm_f@TK`#)jLoeV9$k" x="530" y="2210">
+    <mutation component_type="SwitchToggle" is_generic="true" event_name="Clicked"></mutation>
+    <statement name="DO">
+      <block type="controls_if" id=";maExPeFec=Il@LgfKst">
+        <value name="IF0">
+          <block type="logic_operation" id="]w[yWkkQ()Qun=JHFZG/">
+            <mutation items="2"></mutation>
+            <field name="OP">AND</field>
+            <value name="A">
+              <block type="lexical_variable_get" id="J0S9q}9gF^ZusiPme#dv">
+                <mutation>
+                  <eventparam name="notAlreadyHandled"></eventparam>
+                </mutation>
+                <field name="VAR">notAlreadyHandled</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="logic_negate" id="Tgho#bFHZ@(:H!!)ja|]">
+                <value name="BOOL">
+                  <block type="component_set_get" id="%o_[UCsGj6ANaD}Y,YNB">
+                    <mutation component_type="MakeroidSwipeRefreshLayout" set_or_get="get" property_name="IsRefreshing" is_generic="false" instance_name="swpSchedulesRefresh"></mutation>
+                    <field name="COMPONENT_SELECTOR">swpSchedulesRefresh</field>
+                    <field name="PROP">IsRefreshing</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="local_declaration_statement" id="D+;i3iFw:OLCh(;l6uS%">
+            <mutation>
+              <localname name="swEnabledNum"></localname>
+            </mutation>
+            <field name="VAR0">swEnabledNum</field>
+            <comment pinned="false" h="80" w="160">When a Enable switch is switch: change schedule state according</comment>
+            <value name="DECL0">
+              <block type="lists_position_in" id=";SK;V0l0mSH,@Ui3y|E7">
+                <value name="ITEM">
+                  <block type="lexical_variable_get" id="/oFm4Cao[m:0yAScM.IZ">
+                    <mutation>
+                      <eventparam name="component"></eventparam>
+                    </mutation>
+                    <field name="VAR">component</field>
+                  </block>
+                </value>
+                <value name="LIST">
+                  <block type="lexical_variable_get" id="xRv,nlesx7Fw-azf.$ui">
+                    <field name="VAR">global swEnabledList</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="STACK">
+              <block type="controls_if" id=":p919Ph9:~V/O:D7alj0">
+                <value name="IF0">
+                  <block type="math_compare" id=":HP[K$u8Om)DzPN-;3xx">
+                    <field name="OP">NEQ</field>
+                    <value name="A">
+                      <block type="lexical_variable_get" id="PmTRIT7t_e==r1OhhKac">
+                        <field name="VAR">swEnabledNum</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="~[}0Av`00QyY/9%WyzqF">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="procedures_callnoreturn" id="yqTdvv2W6pa|Bt`66!6U" inline="false">
+                    <mutation name="ChangeScheduleState">
+                      <arg name="num"></arg>
+                      <arg name="state"></arg>
+                    </mutation>
+                    <field name="PROCNAME">ChangeScheduleState</field>
+                    <value name="ARG0">
+                      <block type="lexical_variable_get" id="Unvjp0b(v+6_C.!@B%rX">
+                        <field name="VAR">swEnabledNum</field>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="lexical_variable_get" id="qBH@0GZ|{E{Niq}Lg~^R">
+                        <mutation>
+                          <eventparam name="isChecked"></eventparam>
+                        </mutation>
+                        <field name="VAR">isChecked</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="controls_if" id="|Z-5B8hOVoE082OLf`e.">
+                        <mutation else="1"></mutation>
+                        <value name="IF0">
+                          <block type="lexical_variable_get" id="pA!$@qCMSpC5HpYnVi_(">
+                            <mutation>
+                              <eventparam name="isChecked"></eventparam>
+                            </mutation>
+                            <field name="VAR">isChecked</field>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="component_set_get" id="*QY@Rmwb#ak%}1pr_ZqA">
+                            <mutation component_type="SwitchToggle" set_or_get="set" property_name="ThumbColor" is_generic="true"></mutation>
+                            <field name="PROP">ThumbColor</field>
+                            <value name="COMPONENT">
+                              <block type="lexical_variable_get" id="NAeIE]6Y-Z~D6%icKL:3">
+                                <mutation>
+                                  <eventparam name="component"></eventparam>
+                                </mutation>
+                                <field name="VAR">component</field>
+                              </block>
+                            </value>
+                            <value name="VALUE">
+                              <block type="lexical_variable_get" id="7~OWZbAMK4$$e-o0a[M?">
+                                <field name="VAR">global swEnabledColorChecked</field>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                        <statement name="ELSE">
+                          <block type="component_set_get" id="RpLa.^PB.m!x](jBxr:m">
+                            <mutation component_type="SwitchToggle" set_or_get="set" property_name="ThumbColor" is_generic="true"></mutation>
+                            <field name="PROP">ThumbColor</field>
+                            <value name="COMPONENT">
+                              <block type="lexical_variable_get" id="I$uCe(sR0N7RWj|vea@d">
+                                <mutation>
+                                  <eventparam name="component"></eventparam>
+                                </mutation>
+                                <field name="VAR">component</field>
+                              </block>
+                            </value>
+                            <value name="VALUE">
+                              <block type="lexical_variable_get" id="tZI0y^E.)B:LF7P7aHDE">
+                                <field name="VAR">global swEnabledColorUnChecked</field>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defreturn" id="x8ZJ296Y9*+|3:ytm@?-" x="3290" y="2110">
+    <mutation>
+      <arg name="num"></arg>
+    </mutation>
+    <field name="NAME">ParseScheduleState</field>
+    <field name="VAR0">num</field>
+    <value name="RETURN">
+      <block type="local_declaration_expression" id="9/mjJ!s@tx8ZRZ}{kkqj">
+        <mutation>
+          <localname name="schedule"></localname>
+        </mutation>
+        <field name="VAR0">schedule</field>
+        <value name="DECL0">
+          <block type="lists_select_item" id="?ev7sROAo;`$3t`9Mf`F">
+            <value name="LIST">
+              <block type="lexical_variable_get" id="2Kq.+)28p-!v^eY4W*R{">
+                <field name="VAR">global ScheduleList</field>
+              </block>
+            </value>
+            <value name="NUM">
+              <block type="lexical_variable_get" id="S1WdGB1OdO-SQdaliSM=">
+                <field name="VAR">num</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="RETURN">
+          <block type="controls_choose" id="x)QGK~2wE=ceAdZL^pHH">
+            <value name="TEST">
+              <block type="text_compare" id="b@-AtF]kmbVI0#fIf+-=">
+                <field name="OP">EQUAL</field>
+                <value name="TEXT1">
+                  <block type="lists_lookup_in_pairs" id="00Be#AhK*Ml6XOZE*Lzc">
+                    <value name="KEY">
+                      <block type="text" id="(T`oLNZ+*g2d|rM/)_z[">
+                        <field name="TEXT">enabled</field>
+                      </block>
+                    </value>
+                    <value name="LIST">
+                      <block type="lexical_variable_get" id="FAAyI1p`3(}vp(Rh`_5j">
+                        <field name="VAR">schedule</field>
+                      </block>
+                    </value>
+                    <value name="NOTFOUND">
+                      <block type="text" id="$8:uD!,|7fcvXL#h*gZS">
+                        <field name="TEXT">??</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="TEXT2">
+                  <block type="text" id="EM$Uool-4@HtQmfqL[:k">
+                    <field name="TEXT">true</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="THENRETURN">
+              <block type="logic_boolean" id="@f3OC2t|@9|j9wP!9Y/t">
+                <field name="BOOL">TRUE</field>
+              </block>
+            </value>
+            <value name="ELSERETURN">
+              <block type="logic_boolean" id="yQZi_rFaFnKyTPAv+gj`">
+                <field name="BOOL">FALSE</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defnoreturn" id="Ah8]p|f*nB5F70NpP}D-" x="2350" y="2250">
+    <mutation>
+      <arg name="num"></arg>
+    </mutation>
+    <field name="NAME">EditSchedule</field>
+    <field name="VAR0">num</field>
+    <statement name="STACK">
+      <block type="component_method" id="=+Zt]um?XcdlZgKL?cPt">
+        <mutation component_type="MakeroidFab" method_name="Hide" is_generic="false" instance_name="btnAddSchedule"></mutation>
+        <field name="COMPONENT_SELECTOR">btnAddSchedule</field>
+        <next>
+          <block type="controls_openAnotherScreenWithStartValue" id=";*i.u8TH2.:.w!1vgHoP">
+            <value name="SCREENNAME">
+              <block type="text" id="R)cZa)E_5-2)1HnLnMu}">
+                <field name="TEXT">Edit_Schedule</field>
+              </block>
+            </value>
+            <value name="STARTVALUE">
+              <block type="lexical_variable_get" id="s!D~Pq*F-DasBF[ZhV{w">
+                <field name="VAR">num</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="z7v-_nNp+kB|;}`P{L3B" x="2350" y="2390">
+    <field name="NAME">OpenSettings</field>
+    <statement name="STACK">
+      <block type="component_method" id="1LAC3!y?trz5909orULx">
+        <mutation component_type="MakeroidFab" method_name="Hide" is_generic="false" instance_name="btnAddSchedule"></mutation>
+        <field name="COMPONENT_SELECTOR">btnAddSchedule</field>
+        <next>
+          <block type="controls_openAnotherScreen" id="Um$j2BV}ajRQ(QDNaeCf">
+            <value name="SCREEN">
+              <block type="text" id="S*Avd-f*i$@aKJo^lG4?">
+                <field name="TEXT">Settings</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="Sqy%PC_^D@/tvm*K-S@m" x="2350" y="2510">
+    <field name="NAME">UpdateColorView</field>
+    <statement name="STACK">
+      <block type="component_set_get" id="0.+{DOSa.H+1:$f8Td|G">
+        <mutation component_type="Canvas" set_or_get="set" property_name="BackgroundColor" is_generic="false" instance_name="cvsColorView"></mutation>
+        <field name="COMPONENT_SELECTOR">cvsColorView</field>
+        <field name="PROP">BackgroundColor</field>
+        <value name="VALUE">
+          <block type="color_make_color" id="_ic2LuLr?r@:SC+j5W+1">
+            <value name="COLORLIST">
+              <block type="lists_create_with" id="7o!]jOr#VVi/]l*Vs6`I" inline="false">
+                <mutation items="3"></mutation>
+                <value name="ADD0">
+                  <block type="math_round" id="_c{53XK(edGnk]i:X+Cn">
+                    <field name="OP">ROUND</field>
+                    <value name="NUM">
+                      <block type="component_set_get" id="Jv%9rWzP_1~Bx])nhFfo">
+                        <mutation component_type="Slider" set_or_get="get" property_name="ThumbPosition" is_generic="false" instance_name="slColorR"></mutation>
+                        <field name="COMPONENT_SELECTOR">slColorR</field>
+                        <field name="PROP">ThumbPosition</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="math_round" id="lnDi)dxVi|{SD7Sell.N">
+                    <field name="OP">ROUND</field>
+                    <value name="NUM">
+                      <block type="component_set_get" id="PUS]%cYj@I``UAYtF3A%">
+                        <mutation component_type="Slider" set_or_get="get" property_name="ThumbPosition" is_generic="false" instance_name="slColorG"></mutation>
+                        <field name="COMPONENT_SELECTOR">slColorG</field>
+                        <field name="PROP">ThumbPosition</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="ADD2">
+                  <block type="math_round" id="As]x!~Y}({)._G5skLy~">
+                    <field name="OP">ROUND</field>
+                    <value name="NUM">
+                      <block type="component_set_get" id="~LhxgH7DJz_3xNK/_)W$">
+                        <mutation component_type="Slider" set_or_get="get" property_name="ThumbPosition" is_generic="false" instance_name="slColorB"></mutation>
+                        <field name="COMPONENT_SELECTOR">slColorB</field>
+                        <field name="PROP">ThumbPosition</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="gm|_$?4gm*;8X-)$_iYj" x="530" y="2750">
+    <mutation component_type="MakeroidFab" is_generic="false" instance_name="btnAddSchedule" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">btnAddSchedule</field>
+    <statement name="DO">
+      <block type="procedures_callnoreturn" id="j*N^DE9-Q}rLrQv5rj,z">
+        <mutation name="EditSchedule">
+          <arg name="num"></arg>
+        </mutation>
+        <field name="PROCNAME">EditSchedule</field>
+        <value name="ARG0">
+          <block type="math_number" id="m4c|XKR`wwJ:s|ZY8N(H">
+            <field name="NUM">-1</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="n[pz}LM1t^[M$+iB$qJ`" x="530" y="2850">
+    <mutation component_type="MakeroidViewPager" is_generic="false" instance_name="ViewPager" event_name="PageSelected"></mutation>
+    <field name="COMPONENT_SELECTOR">ViewPager</field>
+    <statement name="DO">
+      <block type="component_set_get" id=")x+J$;a_oKrCYQkL@5XA">
+        <mutation component_type="TextBox" set_or_get="set" property_name="Text" is_generic="false" instance_name="Text_Box1"></mutation>
+        <field name="COMPONENT_SELECTOR">Text_Box1</field>
+        <field name="PROP">Text</field>
+        <value name="VALUE">
+          <block type="lexical_variable_get" id="@ECz$yvb7V+tJSd+5ErE">
+            <mutation>
+              <eventparam name="position"></eventparam>
+            </mutation>
+            <field name="VAR">position</field>
+          </block>
+        </value>
+        <next>
+          <block type="component_set_get" id="5!t@)vz.l_|~:,POqzjP">
+            <mutation component_type="MakeroidTabLayout" set_or_get="set" property_name="SelectTab" is_generic="false" instance_name="TabLayout"></mutation>
+            <field name="COMPONENT_SELECTOR">TabLayout</field>
+            <field name="PROP">SelectTab</field>
+            <value name="VALUE">
+              <block type="math_subtract" id="3]SDM|L8{lFNA)XxvsB%">
+                <value name="A">
+                  <block type="lexical_variable_get" id="j^Z8jr}Fy)=nnS0OeM3_">
+                    <mutation>
+                      <eventparam name="position"></eventparam>
+                    </mutation>
+                    <field name="VAR">position</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="3*mK4XFGksH.|DlTJxaN">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="ViDJ$@oGa0;ciU/d_,2W" x="530" y="2990">
+    <mutation component_type="MakeroidTabLayout" is_generic="false" instance_name="TabLayout" event_name="TabItemSelected"></mutation>
+    <field name="COMPONENT_SELECTOR">TabLayout</field>
+    <statement name="DO">
+      <block type="component_set_get" id="T|/$#69[?w:%{r{=VX{x">
+        <mutation component_type="TextBox" set_or_get="set" property_name="Text" is_generic="false" instance_name="Text_Box1"></mutation>
+        <field name="COMPONENT_SELECTOR">Text_Box1</field>
+        <field name="PROP">Text</field>
+        <value name="VALUE">
+          <block type="lexical_variable_get" id="/|w8.I^QWI:-ReOak0]j">
+            <mutation>
+              <eventparam name="position"></eventparam>
+            </mutation>
+            <field name="VAR">position</field>
+          </block>
+        </value>
+        <next>
+          <block type="component_set_get" id="HhYCgKa5|r5A]w#ppaXd">
+            <mutation component_type="MakeroidViewPager" set_or_get="set" property_name="SelectPage" is_generic="false" instance_name="ViewPager"></mutation>
+            <field name="COMPONENT_SELECTOR">ViewPager</field>
+            <field name="PROP">SelectPage</field>
+            <value name="VALUE">
+              <block type="lexical_variable_get" id="LEST3sH6=.HdIh}bRL;L">
+                <mutation>
+                  <eventparam name="position"></eventparam>
+                </mutation>
+                <field name="VAR">position</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="$j/S~liM:]Void0At8LA" x="530" y="3130">
+    <mutation component_type="Slider" is_generic="false" instance_name="slColorR" event_name="PositionChanged"></mutation>
+    <field name="COMPONENT_SELECTOR">slColorR</field>
+    <statement name="DO">
+      <block type="component_set_get" id="8W/mB/{H|bJQrN1sSkbb">
+        <mutation component_type="Slider" set_or_get="set" property_name="ColorLeft" is_generic="false" instance_name="slColorR"></mutation>
+        <field name="COMPONENT_SELECTOR">slColorR</field>
+        <field name="PROP">ColorLeft</field>
+        <value name="VALUE">
+          <block type="color_make_color" id="|IFGRxZz;s@6?{NelOHq">
+            <value name="COLORLIST">
+              <block type="lists_create_with" id="?i0ykae3gf0`VJ7V_Sae" inline="false">
+                <mutation items="3"></mutation>
+                <value name="ADD0">
+                  <block type="math_round" id="lZlRrgA[crI!(+P0%4lq">
+                    <field name="OP">ROUND</field>
+                    <value name="NUM">
+                      <block type="lexical_variable_get" id="G,?CP03(8s~8-?zh,BS@">
+                        <mutation>
+                          <eventparam name="thumbPosition"></eventparam>
+                        </mutation>
+                        <field name="VAR">thumbPosition</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="math_number" id="b-|tn)/LICCH}[OXng!O">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="ADD2">
+                  <block type="math_number" id="(*/~a4`H*bt?3m6o9b$L">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="procedures_callnoreturn" id="cD~b,{~b1r~I7H$Pmo+K" inline="false">
+            <mutation name="UpdateColorView"></mutation>
+            <field name="PROCNAME">UpdateColorView</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="?bR^QksYHm%qaWcL*41N" x="530" y="3310">
+    <mutation component_type="Slider" is_generic="false" instance_name="slColorG" event_name="PositionChanged"></mutation>
+    <field name="COMPONENT_SELECTOR">slColorG</field>
+    <statement name="DO">
+      <block type="component_set_get" id="FTnzzsG@;F7d6@B5jjDf">
+        <mutation component_type="Slider" set_or_get="set" property_name="ColorLeft" is_generic="false" instance_name="slColorG"></mutation>
+        <field name="COMPONENT_SELECTOR">slColorG</field>
+        <field name="PROP">ColorLeft</field>
+        <value name="VALUE">
+          <block type="color_make_color" id="JuWq!o6[O{oifqOk%Z1o">
+            <value name="COLORLIST">
+              <block type="lists_create_with" id="@5#xt)GQ!4k9fl0*_4ds" inline="false">
+                <mutation items="3"></mutation>
+                <value name="ADD0">
+                  <block type="math_number" id="[N52gHBeb9WRPuHsqt*h">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="math_round" id="`gGGz8:6IVc2YQo/#Q_~">
+                    <field name="OP">ROUND</field>
+                    <value name="NUM">
+                      <block type="lexical_variable_get" id="G6W}?l,KK66O@A5qgp{C">
+                        <mutation>
+                          <eventparam name="thumbPosition"></eventparam>
+                        </mutation>
+                        <field name="VAR">thumbPosition</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="ADD2">
+                  <block type="math_number" id="c.4B;M]8`h[/@.w*n]Av">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="procedures_callnoreturn" id="t$GEVR`YKU8L+C@x(`Qo" inline="false">
+            <mutation name="UpdateColorView"></mutation>
+            <field name="PROCNAME">UpdateColorView</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="8RmuP?WSIe(-Wja?*et@" x="530" y="3490">
+    <mutation component_type="Slider" is_generic="false" instance_name="slColorB" event_name="PositionChanged"></mutation>
+    <field name="COMPONENT_SELECTOR">slColorB</field>
+    <statement name="DO">
+      <block type="component_set_get" id="Ib(Mm%5N?b6*nFnB|q_r">
+        <mutation component_type="Slider" set_or_get="set" property_name="ColorLeft" is_generic="false" instance_name="slColorB"></mutation>
+        <field name="COMPONENT_SELECTOR">slColorB</field>
+        <field name="PROP">ColorLeft</field>
+        <value name="VALUE">
+          <block type="color_make_color" id="Z6KTeD|T}fTi@ZD{5gTo">
+            <value name="COLORLIST">
+              <block type="lists_create_with" id="lVG8c:(SraEQr3+4V*De" inline="false">
+                <mutation items="3"></mutation>
+                <value name="ADD0">
+                  <block type="math_number" id="o|8[;j^7TLZ95$aI)[(F">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="math_number" id="x6:@^A5]4iV?/3pCKP3k">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="ADD2">
+                  <block type="math_round" id="9C{`y0(c8GI#HAls^]R:">
+                    <field name="OP">ROUND</field>
+                    <value name="NUM">
+                      <block type="lexical_variable_get" id="eCx5IFrvj^B,87iCd7o]">
+                        <mutation>
+                          <eventparam name="thumbPosition"></eventparam>
+                        </mutation>
+                        <field name="VAR">thumbPosition</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="procedures_callnoreturn" id="`RX:0b/{@qGxqJ%@@xI?" inline="false">
+            <mutation name="UpdateColorView"></mutation>
+            <field name="PROCNAME">UpdateColorView</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="TM?XpEZSC4|!/ZwXf{GG" x="1490" y="3500">
+    <field name="NAME">InitializeAbout</field>
+    <statement name="STACK">
+      <block type="component_set_get" id="Ey}j4BM}mEe67YO{2vl|">
+        <mutation component_type="Form" set_or_get="set" property_name="AboutScreenTitle" is_generic="false" instance_name="Screen1"></mutation>
+        <field name="COMPONENT_SELECTOR">Screen1</field>
+        <field name="PROP">AboutScreenTitle</field>
+        <value name="VALUE">
+          <block type="text_join" id="bg{yky;-R3%}s1a{q~__">
+            <mutation items="2"></mutation>
+            <value name="ADD0">
+              <block type="text" id="w:Pd{nHpt4?O$75Roys^">
+                <field name="TEXT">WakeUp Light Companion v</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="component_method" id="bWP~?m4*%6:X?3]Ddl(R">
+                <mutation component_type="Form" method_name="VersionName" is_generic="false" instance_name="Screen1"></mutation>
+                <field name="COMPONENT_SELECTOR">Screen1</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="component_set_get" id="RzV.ZF{Xe,i|@@}Uyb[$">
+            <mutation component_type="Form" set_or_get="set" property_name="AboutScreen" is_generic="false" instance_name="Screen1"></mutation>
+            <field name="COMPONENT_SELECTOR">Screen1</field>
+            <field name="PROP">AboutScreen</field>
+            <value name="VALUE">
+              <block type="text" id="f7F@-sdcWHg%)G_Q5uz(">
+                <field name="TEXT">Companion app to schedule and control the WakeUp Light device.</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defreturn" id="C|4|$CIn26t/K({6r{D3" x="1470" y="3610">
+    <mutation>
+      <arg name="num"></arg>
+    </mutation>
+    <field name="NAME">twodigit</field>
+    <field name="VAR0">num</field>
+    <value name="RETURN">
+      <block type="controls_choose" id="F7Fq.%srvEmg:!fCWr_O">
+        <value name="TEST">
+          <block type="math_compare" id="Xy-K!/K/;xD{?tChb}b^">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="text_length" id="d)p.k%lvxt)uUD86A.JW">
+                <value name="VALUE">
+                  <block type="lexical_variable_get" id="dJWNqmjqjV9urAMnxAZ=">
+                    <field name="VAR">num</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="oZf2*|R-slw|*G5gT4vu">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="THENRETURN">
+          <block type="text_join" id="CErhX^pJZ2tvi?%i--=k">
+            <mutation items="2"></mutation>
+            <value name="ADD0">
+              <block type="math_number" id="ZyONWTq0tH$:_bnY;V`R">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="lexical_variable_get" id="HUlxyIQl~BnhDnRc?TQ.">
+                <field name="VAR">num</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="ELSERETURN">
+          <block type="lexical_variable_get" id="#f10(A3Ao+fGe!-0YM=0">
+            <field name="VAR">num</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="component_event" id="BBmBkgw#:^4{`JT0*h`{" x="530" y="3670">
+    <mutation component_type="Canvas" is_generic="false" instance_name="cvsColorView" event_name="Touched"></mutation>
+    <field name="COMPONENT_SELECTOR">cvsColorView</field>
+    <statement name="DO">
+      <block type="component_method" id="DQk%V#r8Y.kbb~D4_k7P">
+        <mutation component_type="Notifier" method_name="ShowListPicker" is_generic="false" instance_name="infoNotifier"></mutation>
+        <field name="COMPONENT_SELECTOR">infoNotifier</field>
+        <value name="ARG0">
+          <block type="math_number" id="/q$O1=}Y%^/Supc.l8%+">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="ARG1">
+          <block type="text" id="U68((?g}qnugjb8UL9,?">
+            <field name="TEXT">Choose color</field>
+          </block>
+        </value>
+        <value name="ARG2">
+          <block type="lists_create_with" id="Wudc=kA7}(0V*y=Kws*4">
+            <mutation items="8"></mutation>
+            <value name="ADD0">
+              <block type="text" id="|p!xa=Tc8NP|YAfT,c=%">
+                <field name="TEXT">White</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="text" id="i=$E60*K3PV!_uWr6L.N">
+                <field name="TEXT">Grey</field>
+              </block>
+            </value>
+            <value name="ADD2">
+              <block type="text" id="HKHtXUj2eec[gBBa?XOO">
+                <field name="TEXT">Red</field>
+              </block>
+            </value>
+            <value name="ADD3">
+              <block type="text" id="$f/m/59%y#-f;nXw[b:V">
+                <field name="TEXT">Rose</field>
+              </block>
+            </value>
+            <value name="ADD4">
+              <block type="text" id="J2LAy2.UGF=$3lyo7uha">
+                <field name="TEXT">Purple</field>
+              </block>
+            </value>
+            <value name="ADD5">
+              <block type="text" id="*`s9,G/$mR==A!6jyrj6">
+                <field name="TEXT">Cyan</field>
+              </block>
+            </value>
+            <value name="ADD6">
+              <block type="text" id="?^obqWG6tuu7}Kn,_YlV">
+                <field name="TEXT">Blue</field>
+              </block>
+            </value>
+            <value name="ADD7">
+              <block type="text" id="0dwz;QFG+/DfeOMjrg6i">
+                <field name="TEXT">Green</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="ARG3">
+          <block type="text" id="7kM8Sk^f/y,wJ`IU.p[#">
+            <field name="TEXT"></field>
+          </block>
+        </value>
+        <value name="ARG4">
+          <block type="logic_false" id="kH-Okk][Y5_a?`8vtH8u">
+            <field name="BOOL">FALSE</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="Ap;r8`*?Q~~BY5+6M6YV" x="530" y="4110">
+    <mutation component_type="Button" is_generic="false" instance_name="btnLightON" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">btnLightON</field>
+    <statement name="DO">
+      <block type="procedures_callnoreturn" id="_HD!?1Xa.gZqo.hwNWo~" inline="false">
+        <mutation name="SetRGB">
+          <arg name="R"></arg>
+          <arg name="G"></arg>
+          <arg name="B"></arg>
+        </mutation>
+        <field name="PROCNAME">SetRGB</field>
+        <value name="ARG0">
+          <block type="math_round" id="E%U|cQBf}oeI?,uEGFt;">
+            <field name="OP">ROUND</field>
+            <value name="NUM">
+              <block type="component_set_get" id=",h55oomKTd|#eD(TUf.r">
+                <mutation component_type="Slider" set_or_get="get" property_name="ThumbPosition" is_generic="false" instance_name="slColorR"></mutation>
+                <field name="COMPONENT_SELECTOR">slColorR</field>
+                <field name="PROP">ThumbPosition</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="ARG1">
+          <block type="math_round" id="{la-[}-+s)F@`1#VJnh^">
+            <field name="OP">ROUND</field>
+            <value name="NUM">
+              <block type="component_set_get" id="957gs:N2_D.@6IiBp|[c">
+                <mutation component_type="Slider" set_or_get="get" property_name="ThumbPosition" is_generic="false" instance_name="slColorG"></mutation>
+                <field name="COMPONENT_SELECTOR">slColorG</field>
+                <field name="PROP">ThumbPosition</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="ARG2">
+          <block type="math_round" id="LwX%S%JCg!+`5|I2UX*7">
+            <field name="OP">ROUND</field>
+            <value name="NUM">
+              <block type="component_set_get" id="Z5yrWRjzy%rJH5Ekdi|P">
+                <mutation component_type="Slider" set_or_get="get" property_name="ThumbPosition" is_generic="false" instance_name="slColorB"></mutation>
+                <field name="COMPONENT_SELECTOR">slColorB</field>
+                <field name="PROP">ThumbPosition</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="KJq}7az=@D=NyUhD0[pp" x="530" y="4270">
+    <mutation component_type="Button" is_generic="false" instance_name="btnLightOFF" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">btnLightOFF</field>
+    <statement name="DO">
+      <block type="procedures_callnoreturn" id="w6)%q8/4sMT8E?eFu060" inline="false">
+        <mutation name="SetRGB">
+          <arg name="R"></arg>
+          <arg name="G"></arg>
+          <arg name="B"></arg>
+        </mutation>
+        <field name="PROCNAME">SetRGB</field>
+        <value name="ARG0">
+          <block type="math_number" id="{j$-~k=4;ZpI)2yG#d59">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="ARG1">
+          <block type="math_number" id="5NmxW%TsFg/~hQi=.`VP">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="ARG2">
+          <block type="math_number" id="FHF?x$K985|Yl2@1X+6R">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <yacodeblocks ya-version="227" language-version="32"></yacodeblocks>
+</xml>
