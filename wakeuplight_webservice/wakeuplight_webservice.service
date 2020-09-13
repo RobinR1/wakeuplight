@@ -1,0 +1,13 @@
+[Unit]
+Description=Wake-up light Webservice
+
+[Service]
+WorkingDirectory=/root/bin/wakeuplight_webservice
+User=root
+Restart=on-failure
+RestartSec=10
+ExecStart=/root/bin/wakeuplight_webservice/wakeuplight_webservice.py
+
+[Install]
+WantedBy=multi-user.target
+
